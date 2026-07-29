@@ -14,16 +14,19 @@ export const getStaticPaths = (async () => {
   return topics.map((topic, i) => ({
     params: { topic: topic.id },
     // Neighbours let a reader move through the four strands in order instead of
-    // bouncing back to the index between each one.
+    // bouncing back to the index between each one. `siblings` fills the side
+    // column, which otherwise left the whole right half of the page empty.
     props: {
       topic,
+      index: i,
+      siblings: topics.map((t, n) => ({ id: t.id, title: t.data.title, n: n + 1 })),
       prev: i > 0 ? topics[i - 1] : topics[topics.length - 1],
       next: i < topics.length - 1 ? topics[i + 1] : topics[0],
     },
   }));
 }) satisfies GetStaticPaths;
 
-const { topic, prev, next } = Astro.props;
+const { topic, index, siblings, prev, next } = Astro.props;
 const { Content } = await render(topic);
 const hero = topic.data.hero ?? fallbackHero;
 ---
@@ -42,33 +45,87 @@ const hero = topic.data.hero ?? fallbackHero;
     title={topic.data.title}
   />
 
-  <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section) pt-(--spacing-section)">
-    {
-      topic.data.needsReview && (
-        <Notice title="Awaiting client copy">
-          <p>
-            The approved text for this topic was not included in the repository.
-            Per the brief it must be transcribed exactly, preserving her
-            emphasis — so nothing has been written in its place.
+  <section
+    class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section) pt-20 md:pt-28"
+  >
+    <div class="grid gap-x-16 gap-y-16 lg:grid-cols-12">
+      <div class="lg:col-span-7 xl:col-span-7">
+        {
+          topic.data.needsReview && (
+            <Notice title="Awaiting client copy">
+              <p>
+                The approved text for this topic was not included in the
+                repository. Per the brief it must be transcribed exactly,
+                preserving her emphasis — so nothing has been written in its
+                place.
+              </p>
+            </Notice>
+          )
+        }
+
+        {/* While a topic is awaiting copy the Notice above says so; rendering
+            the markdown too would just repeat it. */}
+        {
+          !topic.data.needsReview && (
+            <div class="prose-lab prose-lab--lead reveal">
+              <Content />
+            </div>
+          )
+        }
+      </div>
+
+      {/* Side column. The page previously ran a single narrow measure down the
+          left with the entire right half empty; this gives that space a job. */}
+      <aside class="lg:col-span-4 lg:col-start-9">
+        <div class="sticky top-32 border-t border-bone/15 pt-8">
+          <p class="text-eyebrow font-medium uppercase text-clay-light">
+            Strand {String(index + 1).padStart(2, '0')} of {String(siblings.length).padStart(2, '0')}
           </p>
-        </Notice>
-      )
-    }
 
-    {/* While a topic is awaiting copy the Notice above says so; rendering the
-        markdown too would just repeat it. Once the real text lands and
-        needsReview flips to false, the copy renders on its own. */}
-    {
-      !topic.data.needsReview && (
-        <div class="prose-lab max-w-(--container-prose)">
-          <Content />
+          <ol class="mt-8 space-y-px">
+            {
+              siblings.map((s) => {
+                const current = s.id === topic.id;
+                return (
+                  <li>
+                    <a
+                      href={`/research/${s.id}`}
+                      aria-current={current ? 'page' : undefined}
+                      class:list={[
+                        'group flex gap-4 py-3.5 transition-colors duration-500',
+                        current ? 'text-bone' : 'text-bone-muted hover:text-bone',
+                      ]}
+                    >
+                      <span
+                        class:list={[
+                          'shrink-0 font-display text-[0.85rem] pt-0.5',
+                          current ? 'text-clay-light' : 'text-bone-muted/70',
+                        ]}
+                      >
+                        {String(s.n).padStart(2, '0')}
+                      </span>
+                      <span class="text-[1rem] leading-snug">
+                        {s.title}
+                        {current && (
+                          <span
+                            aria-hidden="true"
+                            class="mt-2 block h-px w-10 bg-clay"
+                          />
+                        )}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ol>
+
+          <p class="mt-10 border-t border-bone/12 pt-6">
+            <a href="/research" class="link-rule text-[0.95rem]">← Research overview</a>
+          </p>
         </div>
-      )
-    }
-
-    <p class="mt-20">
-      <a href="/research" class="link-rule text-[1.05rem]">← All research</a>
-    </p>
+      </aside>
+    </div>
   </section>
 
   <nav

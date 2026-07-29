@@ -10,16 +10,16 @@ Open questions and missing content are tracked in
 ## Status
 
 All pages built and populated with the client's own content: copy transcribed
-verbatim from `Information for Website.docx` with her emphasis preserved, five of
-six headshots, all 205 publications from her CV, and the alumni list from the
+verbatim from `Information for Website.docx` with her emphasis preserved, all
+headshots, all 205 publications from her CV, and the alumni list from the
 current live site.
 
 Editing is handled by a git-backed CMS at `/admin` — see
 [`DOCS/EDITING-GUIDE.md`](DOCS/EDITING-GUIDE.md), written for her rather than for
 a developer. It needs deploying and GitHub sign-in before it works.
 
-**Outstanding:** DOI/PDF links for the papers (her CV lists none), and Erica
-Hornstein's bio, photograph and title. No content has been invented — every
+**Outstanding:** DOI/PDF links for the papers (her CV lists none) and confirmed
+job titles for the four lab members. No content has been invented — every
 remaining gap renders as a visible notice.
 See [`DOCS/QUESTIONS.md`](DOCS/QUESTIONS.md).
 
@@ -60,7 +60,7 @@ npm run dev
 ## Before launch
 
 1. **DOI/PDF links** for the papers — the CV lists none (QUESTIONS.md #6b).
-2. **Erica Hornstein's** bio, photo and title (#4); job titles for the other five (#14).
+2. **Job titles** for the four lab members (#14).
 3. **Image licensing.** The landing hero is the lab's existing cover image, but
    three Shutterstock images are still used as secondary art (#3).
 4. **Confirm the domain** with UCLA IT and set `site` in `astro.config.mjs`.

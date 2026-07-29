@@ -20,17 +20,10 @@ She offered to supply anything we can't access: *"If you can't get access to any
 let me know and I might be able to."* Taking her up on that is the remaining
 work here, and links can be pasted in through the admin one at a time.
 
-### 4. Erica Hornstein — bio and photograph
+### 14. Job titles for the lab members
 
-Flagged in the brief, and the Word document doesn't contain them either. She is
-the one current member with no bio and no headshot; her card renders an initials
-block and the People page carries a visible notice. **Her job title is also
-unknown.**
-
-### 14. Job titles for the five lab members
-
-The document lists Hornstein, Crowder, Noble, Blandl and Naclerio under a bare
-heading, "Lab members", with no individual titles. They all currently render as
+The document lists Crowder, Noble, Blandl and Naclerio under a bare heading,
+"Lab members", with no individual titles. All four currently render as
 "Lab Member". The bios imply graduate students, but that has not been assumed —
 real titles (Graduate Student, Postdoctoral Fellow, etc.) need confirming.
 
@@ -101,7 +94,13 @@ admin, and the rest are a one-line import each.
 replacement work there is. `MANIFEST.md` keeps the original Shutterstock
 filenames, so each one can be looked up directly.
 
-### 5. Headshots — five of six supplied
+### 4, 5. Erica Hornstein removed; headshots supplied
+
+Hornstein had no bio, photograph or title in the brief, the Word document or the
+CV. **Removed at the client's instruction** — she appears in the publication list
+as a co-author, but no longer on the People page.
+
+### Headshots
 
 Extracted from the Word document. Blandl's was embedded inside an EMF wrapper and
 had to be recovered from the raster inside it.

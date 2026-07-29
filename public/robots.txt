@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The admin is gated at the hosting layer (see DOCS/ADMIN-ACCESS.md), but there
+# is no reason for it to be crawled or to appear in search results.
+Disallow: /admin
+
+Sitemap: https://sanlab.psych.ucla.edu/sitemap-index.xml

@@ -208,6 +208,19 @@
     color: var(--color-clay-light);
     text-underline-offset: 0.22em;
   }
+  /* Her research texts are each a single unbroken paragraph of 300–400 words.
+     Splitting them would mean altering her copy, so the drop cap does the work
+     instead: it gives the block an entry point and stops it reading as a wall. */
+  .prose-lab--lead > p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-size: 3.9em;
+    line-height: 0.8;
+    padding-right: 0.08em;
+    margin-top: 0.06em;
+    color: var(--color-bone);
+  }
+
   .prose-lab blockquote {
     margin-block: 2em;
     border-left: 2px solid var(--color-clay);

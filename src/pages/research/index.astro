@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import { emphasize } from '../../utils/emphasis';
@@ -25,35 +26,61 @@ const { Content } = await render(overview!);
     title="What we study"
   />
 
-  <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
-    <div class="reveal prose-lab max-w-(--container-prose)">
-      <Content />
+  {/* A single centred measure. A left rail left the right half empty; pushing
+      the prose right just mirrored the problem. Centred, it reads as composed
+      rather than as text stranded against one edge. */}
+  <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pt-20 md:pt-28">
+    <div class="mx-auto max-w-(--container-prose)">
+      <p class="reveal text-eyebrow font-medium uppercase text-clay-light">The lab</p>
+      <div class="reveal prose-lab prose-lab--lead mt-8">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section) pt-(--spacing-section)">
+    <div class="mx-auto max-w-(--container-prose)">
+      <p class="reveal text-eyebrow font-medium uppercase text-clay-light">Four strands</p>
+      <h2 class="reveal mt-6 max-w-[20ch] font-display text-title text-bone">
+        Each strand has its own page.
+      </h2>
     </div>
 
-    <ul class="mt-28 grid gap-px border border-bone/12 bg-bone/12 sm:grid-cols-2">
+    {/* Each card carries its own image, so the index reads as four distinct
+        places rather than four text boxes. */}
+    <ul class="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-2">
       {
         topics.map((topic, i) => (
-          <li class="reveal bg-ground" data-reveal-delay={i * 80}>
-            <a
-              href={`/research/${topic.id}`}
-              class="group flex h-full flex-col gap-8 p-9 transition-colors duration-500 hover:bg-ground-raised md:p-12"
-            >
-              <span class="font-display text-[0.9rem] text-clay-light">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span class="flex flex-1 flex-col">
-                <span class="block font-display text-title text-bone transition-colors duration-500 group-hover:text-clay-light">
-                  {topic.data.title}
+          <li class="reveal" data-reveal-delay={(i % 2) * 90}>
+            <a href={`/research/${topic.id}`} class="group block">
+              <div class="relative aspect-[16/10] overflow-hidden bg-ground-raised">
+                {topic.data.hero && (
+                  <Image
+                    src={topic.data.hero}
+                    alt=""
+                    widths={[480, 800, 1200]}
+                    sizes="(min-width: 640px) 46vw, 92vw"
+                    loading={i < 2 ? 'eager' : 'lazy'}
+                    class="h-full w-full object-cover opacity-80 transition-all duration-[1400ms] ease-[var(--ease-out-soft)] group-hover:scale-[1.04] group-hover:opacity-100"
+                  />
+                )}
+                <div class="absolute inset-0 bg-gradient-to-t from-ground/90 via-ground/20 to-transparent" />
+                <span class="absolute left-6 top-5 font-display text-[0.85rem] text-clay-light">
+                  {String(i + 1).padStart(2, '0')}
                 </span>
-                <span
-                  class="mt-5 block text-[1rem] leading-relaxed text-bone-muted"
-                  set:html={emphasize(topic.data.summary)}
-                />
-                <span
-                  aria-hidden="true"
-                  class="mt-8 block h-px w-12 bg-bone/25 transition-all duration-500 group-hover:w-24 group-hover:bg-clay"
-                />
-              </span>
+              </div>
+
+              <h3 class="mt-6 max-w-[24ch] font-display text-title text-bone transition-colors duration-500 group-hover:text-clay-light">
+                {topic.data.title}
+              </h3>
+              <p
+                class="mt-4 max-w-[52ch] text-[1rem] leading-relaxed text-bone-muted"
+                set:html={emphasize(topic.data.summary)}
+              />
+              <span
+                aria-hidden="true"
+                class="mt-6 block h-px w-12 bg-bone/25 transition-all duration-500 group-hover:w-24 group-hover:bg-clay"
+              />
             </a>
           </li>
         ))

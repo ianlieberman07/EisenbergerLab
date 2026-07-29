@@ -9,8 +9,8 @@ const { person } = Astro.props;
 const { name, role, headshot, headshotAlt, needsReview } = person.data;
 const { Content } = await render(person);
 
-// Erica Hornstein has neither a bio nor a photograph, so the card has to hold
-// its shape without either. Initials stand in for the portrait.
+// A person may have no photograph yet, so the card has to hold its shape
+// without one. Initials stand in for the portrait.
 const initials = name
   .split(' ')
   .filter(Boolean)

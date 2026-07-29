@@ -138,6 +138,12 @@ Then open `http://localhost:4321/admin/` and choose **Work with Local
 Repository**, selecting the repository folder when prompted. Edits write
 straight to `content/`.
 
+## Who can get in
+
+Signing in is limited to named `@ucla.edu` addresses, and you add or remove
+people yourself without touching any code. The full setup — and the reasoning —
+is in [`ADMIN-ACCESS.md`](ADMIN-ACCESS.md).
+
 ## Setup still required before *she* can use it
 
 **The admin page exists but is not yet connected to GitHub.** It needs two
