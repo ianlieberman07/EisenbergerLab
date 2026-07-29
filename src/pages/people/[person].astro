@@ -1,0 +1,71 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+// Every member gets a real, linkable page. The modal on /people is an
+// enhancement over these, never a replacement — so bios stay shareable,
+// bookmarkable and indexable.
+export const getStaticPaths = (async () => {
+  const people = await getCollection('people');
+  return people
+    .filter((p) => p.data.status === 'current')
+    .map((person) => ({ params: { person: person.id }, props: { person } }));
+}) satisfies GetStaticPaths;
+
+const { person } = Astro.props;
+const { Content } = await render(person);
+const { name, role, headshot, headshotAlt } = person.data;
+
+const initials = name
+  .split(' ')
+  .filter(Boolean)
+  .map((p) => p[0])
+  .slice(0, 2)
+  .join('');
+---
+
+<Base title={name} description={`${name}, ${role} in the Social and Affective Neuroscience Laboratory at UCLA.`}>
+  <PageHeader eyebrow={role} title={name} />
+
+  <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
+    <div class="grid gap-14 md:grid-cols-12 md:gap-20">
+      <div class="md:col-span-4">
+        <div class="aspect-[4/5] overflow-hidden bg-ground-raised">
+          {
+            headshot ? (
+              <Image
+                src={headshot}
+                alt={headshotAlt ?? `Portrait of ${name}.`}
+                widths={[400, 700, 1000]}
+                sizes="(min-width: 768px) 32vw, 90vw"
+                loading="eager"
+                class="h-full w-full object-cover"
+              />
+            ) : (
+              <div
+                class="flex h-full w-full items-center justify-center bg-gradient-to-br from-ground-raised to-ground"
+                role="img"
+                aria-label={`No photograph available for ${name}.`}
+              >
+                <span class="font-display text-[3rem] text-bone/25">{initials}</span>
+              </div>
+            )
+          }
+        </div>
+      </div>
+
+      <div class="md:col-span-8">
+        <div class="prose-lab max-w-(--container-prose)">
+          <Content />
+        </div>
+
+        <p class="mt-16 border-t border-bone/12 pt-8">
+          <a href="/people" class="link-rule text-[1.05rem]">← All lab members</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -9,20 +9,16 @@ headshots, and the live site supplied the alumni list.
 
 ## Still blocking launch
 
-### 6. Her CV — the entire Papers page depends on it
+### 6b. Paper links — DOIs and PDFs
 
-The only substantial content still missing. The doc says: *"Needs to be updated
-to include all of my recent papers. I will send along my CV that lists all of
-these papers. I would like to have a link to each of those that are available.
-If you can't get access to any, let me know and I might be able to."*
+All 205 publications are transcribed from her CV (June 2026) and live at
+`content/papers.json`. **The CV lists no DOIs or PDF links**, so every `doi` and
+`pdf` field is an empty string — none have been guessed. Each entry currently
+falls back to a "Find this paper" Google Scholar search built from its title.
 
-`/papers` renders a visible empty state by design. The schema, year/topic
-filtering and DOI/PDF link handling are built and will populate the moment real
-entries exist. **No citations have been generated** — a fabricated citation on an
-academic site is a serious problem.
-
-Once the CV arrives: build the list, then hand back the papers whose PDFs
-couldn't be sourced, since she offered to supply those herself.
+She offered to supply anything we can't access: *"If you can't get access to any,
+let me know and I might be able to."* Taking her up on that is the remaining
+work here, and links can be pasted in through the admin one at a time.
 
 ### 4. Erica Hornstein — bio and photograph
 
@@ -38,14 +34,6 @@ heading, "Lab members", with no individual titles. They all currently render as
 "Lab Member". The bios imply graduate students, but that has not been assumed —
 real titles (Graduate Student, Postdoctoral Fellow, etc.) need confirming.
 
-### 15. Kate E. Byrne Haltom — current member or alumna?
-
-The live site lists her as **Lab Manager**, under a separate heading from "Lab
-Members". The instruction was "everyone else listed there should be moved to Lab
-Alumni", which is ambiguous for a distinct role — especially as her bio says she
-manages the SC/AN labs jointly. She has been left off both pages pending a
-decision rather than guessed either way.
-
 ### 8. Confirm the full contact block
 
 Address is corrected to **5514 Pritzker Hall** per the doc. Phone, email and mail
@@ -54,13 +42,20 @@ code were never supplied and render as "TO BE CONFIRMED". All in one place:
 
 ## Architectural
 
-### 1. Which editing approach does she want? (§4)
+### 1. Editing approach — decided, and built
 
-Still open, and still not foreclosed. Content is markdown + frontmatter in
-`/content/`, which a git-backed CMS (Decap/Sveltia) reads directly.
+Git-backed CMS (**Sveltia**, a maintained drop-in for Decap), per the §4 default.
+The admin lives at `/admin`; configuration is `public/admin/config.yml`; the
+walkthrough written for her is [`EDITING-GUIDE.md`](EDITING-GUIDE.md).
 
-**`DOCS/EDITING-GUIDE.md` is deliberately not written yet** — a
-screenshot-driven walkthrough can't be written for a CMS that hasn't been chosen.
+**It is not yet connected.** It needs the site deployed and GitHub sign-in
+authorised — roughly fifteen minutes once #2 below is settled. Until then
+`/admin` loads and fails to sign in, which is expected.
+
+Worth being straight with her about the boundary: adding people, papers, research
+topics, text and photos is all self-service. Adding a **new kind of page** (a
+"Join the Lab" page, a news section) or changing the design or navigation is a
+developer job — small, but not something the admin exposes, deliberately.
 
 ### 2. Will UCLA IT point `sanlab.psych.ucla.edu` at external hosting?
 

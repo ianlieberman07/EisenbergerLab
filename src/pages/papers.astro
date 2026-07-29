@@ -2,72 +2,118 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
-import Notice from '../components/Notice.astro';
 
-// Deliberately empty until her CV arrives. CLAUDE.md §3 and §6 are explicit:
-// do not fabricate or guess citations. The page structure and the year/topic
-// filtering are built and ready; they simply have nothing to render yet.
-const papers = (await getCollection('papers')).sort((a, b) => b.data.year - a.data.year);
+// Transcribed from her CV (June 2026). Sorted newest first, with "in press"
+// entries — stored as year 9999 so they sort to the top — shown first.
+const papers = (await getCollection('papers')).sort(
+  (a, b) => b.data.year - a.data.year || b.data.id - a.data.id
+);
 
-const years = [...new Set(papers.map((p) => p.data.year))].sort((a, b) => b - a);
-const topics = [...new Set(papers.flatMap((p) => p.data.topics))].sort();
+const years = [...new Set(papers.map((p) => p.data.year))]
+  .filter((y) => y !== 9999)
+  .sort((a, b) => b - a);
+
+// Decade buckets keep the filter bar to a readable width — 27 individual year
+// buttons would be worse than no filter at all.
+const decades = [...new Set(years.map((y) => Math.floor(y / 10) * 10))].sort((a, b) => b - a);
+
+const total = papers.length;
+const inPressCount = papers.filter((p) => p.data.inPress).length;
+
+const scholar = (title: string) =>
+  `https://scholar.google.com/scholar?q=${encodeURIComponent(title)}`;
 ---
 
 <Base
   title="Papers"
-  description="Publications from the Social and Affective Neuroscience Laboratory at UCLA."
+  description={`${total} publications from the Social and Affective Neuroscience Laboratory at UCLA, directed by Naomi Eisenberger.`}
 >
-  <PageHeader eyebrow="Publications" title="Papers" />
+  <PageHeader
+    eyebrow="Publications"
+    title="Papers"
+    lede={`${total} publications. Search by title, author, or journal, or filter by period.`}
+  />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
-    {
-      papers.length === 0 ? (
-        <Notice title="Awaiting the CV">
-          <p>
-            No publications have been entered. Her CV — the source for this page
-            — was being sent separately and is not in the repository, so no
-            citations have been generated. A fabricated citation on an academic
-            site is a serious problem, so this page stays empty until the real
-            list arrives.
-          </p>
-          <p>
-            The page structure, year and topic filtering, and DOI/PDF links are
-            built and will populate as soon as the entries exist.
-          </p>
-        </Notice>
-      ) : (
-        <>
-          <div class="flex flex-wrap gap-x-8 gap-y-3 border-b border-bone/12 pb-6">
-            <span class="text-eyebrow font-medium uppercase text-clay-light">Filter</span>
-            {years.map((year) => (
-              <button
-                type="button"
-                data-filter-year={year}
-                class="text-[0.92rem] text-bone-dim transition-colors hover:text-bone"
-              >
-                {year}
-              </button>
-            ))}
-            {topics.map((topic) => (
-              <button
-                type="button"
-                data-filter-topic={topic}
-                class="text-[0.92rem] text-bone-dim transition-colors hover:text-bone"
-              >
-                {topic}
-              </button>
-            ))}
-          </div>
+    <!-- Controls. Without JS the search and filters are hidden (they would do
+         nothing) and the full list renders as a plain, complete bibliography. -->
+    <div id="paper-controls" class="hidden border-y border-bone/12 py-6">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <label class="relative block w-full lg:max-w-md">
+          <span class="sr-only">Search publications</span>
+          <input
+            type="search"
+            id="paper-search"
+            placeholder="Search title, author, or journal…"
+            autocomplete="off"
+            class="w-full border-b border-bone/25 bg-transparent py-3 pr-9 text-[1rem] text-bone placeholder:text-bone-muted focus:border-clay focus:outline-none"
+          />
+          <svg
+            class="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-bone-muted"
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle cx="7" cy="7" r="5.4" stroke="currentColor" stroke-width="1.3"></circle>
+            <path d="M11 11l4.5 4.5" stroke="currentColor" stroke-width="1.3"></path>
+          </svg>
+        </label>
 
-          <ol class="mt-12">
-            {papers.map((paper) => (
-              <li
-                class="border-b border-bone/12 py-8"
-                data-year={paper.data.year}
-                data-topics={paper.data.topics.join(' ')}
-              >
-                <p class="text-[1.02rem] leading-relaxed text-bone-dim">{paper.data.citation}</p>
-                <p class="mt-3 flex gap-6 text-[0.88rem]">
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+          <span class="text-eyebrow font-medium uppercase text-clay-light">Period</span>
+          <button type="button" data-decade="all" class="filter-chip is-active">All</button>
+          {
+            inPressCount > 0 && (
+              <button type="button" data-decade="inpress" class="filter-chip">
+                In press
+              </button>
+            )
+          }
+          {
+            decades.map((d) => (
+              <button type="button" data-decade={String(d)} class="filter-chip">
+                {d}s
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <p id="paper-count" class="mt-5 text-[0.88rem] text-bone-muted" aria-live="polite">
+        Showing all {total} publications
+      </p>
+    </div>
+
+    <ol id="paper-list" class="mt-4">
+      {
+        papers.map((paper) => (
+          <li
+            class="paper-item border-b border-bone/12 py-8"
+            data-year={paper.data.year}
+            data-decade={paper.data.inPress ? 'inpress' : String(Math.floor(paper.data.year / 10) * 10)}
+            data-search={`${paper.data.title} ${paper.data.authors} ${paper.data.journal}`.toLowerCase()}
+          >
+            <div class="flex flex-col gap-2 sm:flex-row sm:gap-8">
+              <span class="shrink-0 pt-0.5 font-display text-[0.95rem] text-clay-light sm:w-20">
+                {paper.data.inPress ? 'In press' : paper.data.year}
+              </span>
+
+              <div class="flex-1">
+                <h2 class="font-display text-[1.22rem] leading-snug text-bone">
+                  {paper.data.title}
+                </h2>
+                <p class="mt-2 text-[0.95rem] leading-relaxed text-bone-muted">
+                  {paper.data.authors}
+                </p>
+                {paper.data.journal && (
+                  <p class="mt-1 text-[0.95rem] italic leading-relaxed text-bone-dim">
+                    {paper.data.journal}
+                  </p>
+                )}
+
+                <p class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-[0.85rem]">
                   {paper.data.doi && (
                     <a href={paper.data.doi} class="text-clay-light hover:text-bone">
                       DOI
@@ -78,12 +124,99 @@ const topics = [...new Set(papers.flatMap((p) => p.data.topics))].sort();
                       PDF
                     </a>
                   )}
+                  {!paper.data.doi && !paper.data.pdf && (
+                    <a
+                      href={scholar(paper.data.title)}
+                      rel="noopener"
+                      target="_blank"
+                      class="text-bone-muted underline-offset-4 hover:text-clay-light hover:underline"
+                    >
+                      Find this paper ↗
+                    </a>
+                  )}
                 </p>
-              </li>
-            ))}
-          </ol>
-        </>
-      )
-    }
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p id="paper-empty" class="hidden py-16 text-lede text-bone-muted">
+      No publications match that search.
+    </p>
   </section>
 </Base>
+
+<style>
+  .filter-chip {
+    font-size: 0.92rem;
+    color: var(--color-bone-muted);
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition:
+      color 0.35s var(--ease-out-soft),
+      border-color 0.35s var(--ease-out-soft);
+  }
+  .filter-chip:hover {
+    color: var(--color-bone);
+  }
+  .filter-chip.is-active {
+    color: var(--color-bone);
+    border-bottom-color: var(--color-clay);
+  }
+</style>
+
+<script>
+  // Progressive enhancement: the controls are hidden by default in the markup
+  // and only revealed here, so a no-JS visitor gets the complete list rather
+  // than a search box that does nothing.
+  const controls = document.getElementById('paper-controls');
+  const search = document.getElementById('paper-search') as HTMLInputElement | null;
+  const countEl = document.getElementById('paper-count');
+  const emptyEl = document.getElementById('paper-empty');
+  const items = Array.from(document.querySelectorAll<HTMLElement>('.paper-item'));
+
+  if (controls && search && countEl && emptyEl && items.length) {
+    controls.classList.remove('hidden');
+
+    let decade = 'all';
+    let query = '';
+
+    const apply = () => {
+      let shown = 0;
+      for (const item of items) {
+        const matchesDecade = decade === 'all' || item.dataset.decade === decade;
+        const matchesQuery = !query || (item.dataset.search ?? '').includes(query);
+        const visible = matchesDecade && matchesQuery;
+        item.hidden = !visible;
+        if (visible) shown++;
+      }
+      emptyEl.classList.toggle('hidden', shown > 0);
+      countEl.textContent =
+        shown === items.length
+          ? `Showing all ${items.length} publications`
+          : `Showing ${shown} of ${items.length} publications`;
+    };
+
+    let timer: number;
+    search.addEventListener('input', () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        query = search.value.trim().toLowerCase();
+        apply();
+      }, 120);
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('[data-decade]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        decade = btn.dataset.decade ?? 'all';
+        document
+          .querySelectorAll('[data-decade]')
+          .forEach((b) => b.classList.toggle('is-active', b === btn));
+        apply();
+      });
+    });
+  }
+</script>

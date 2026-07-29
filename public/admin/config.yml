@@ -1,0 +1,209 @@
+# Admin configuration for the SAN Lab site.
+#
+# Every field below maps to a real file in /content/. Saving in the admin UI
+# writes a git commit, so nothing is ever lost and any change can be undone.
+#
+# Labels and hints are written for Dr. Eisenberger, not for a developer.
+
+backend:
+  name: github
+  repo: ianlieberman07/EisenbergerLab
+  branch: main
+
+# Edits go live via the normal build. Set to `simple` so there is no
+# draft/review workflow to learn — Save publishes.
+publish_mode: simple
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  # ─────────────────────────────────────────────────────────────
+  - name: people
+    label: Lab Members
+    label_singular: Lab member
+    folder: content/people
+    create: true
+    slug: '{{slug}}'
+    # Headshots sit beside the bios, matching the ./images/ paths already in use.
+    media_folder: images
+    public_folder: ./images
+    summary: '{{name}} — {{role}}'
+    sortable_fields: [order, name]
+    view_groups:
+      - label: Current or alumni
+        field: status
+    fields:
+      - { name: name, label: Full name, widget: string }
+      - {
+          name: role,
+          label: Title,
+          widget: string,
+          hint: 'For example: Director, Graduate Student, Postdoctoral Fellow.',
+        }
+      - name: status
+        label: Currently in the lab?
+        widget: select
+        default: current
+        options:
+          - { label: 'Yes — show on the People page', value: current }
+          - { label: 'No — move to Lab Alumni', value: alumni }
+        hint: Switching this to "No" moves the person to the Alumni page.
+      - {
+          name: order,
+          label: Position in the list,
+          widget: number,
+          default: 10,
+          value_type: int,
+          hint: Lower numbers appear first.,
+        }
+      - {
+          name: headshot,
+          label: Photograph,
+          widget: image,
+          required: false,
+          hint: Optional. Without one, the card shows the person's initials.,
+        }
+      - {
+          name: headshotAlt,
+          label: Photo description,
+          widget: string,
+          required: false,
+          hint: A short description for screen readers, e.g. "Portrait of Jane Doe.",
+        }
+      - {
+          name: needsReview,
+          label: Mark as incomplete,
+          widget: boolean,
+          default: false,
+          hint: Tick this if the bio still needs writing. It shows a notice on the site.,
+        }
+      - {
+          name: body,
+          label: Biography,
+          widget: markdown,
+          required: false,
+          hint: Use italics for emphasis. Paragraphs are separated by a blank line.,
+        }
+
+  # ─────────────────────────────────────────────────────────────
+  - name: research
+    label: Research Topics
+    label_singular: Research topic
+    folder: content/research
+    create: true
+    slug: '{{slug}}'
+    summary: '{{title}}'
+    sortable_fields: [order, title]
+    fields:
+      - { name: title, label: Topic title, widget: string }
+      - {
+          name: order,
+          label: Position in the list,
+          widget: number,
+          default: 10,
+          value_type: int,
+        }
+      - {
+          name: summary,
+          label: Short summary,
+          widget: text,
+          hint: One or two sentences. Appears on the Research index card.,
+        }
+      - { name: hero, label: Header image, widget: image, required: false }
+      - { name: heroAlt, label: Image description, widget: string, required: false }
+      - { name: needsReview, label: Mark as incomplete, widget: boolean, default: false }
+      - { name: body, label: Full text, widget: markdown }
+
+  # ─────────────────────────────────────────────────────────────
+  - name: pages
+    label: Page Text
+    folder: content/pages
+    create: false
+    summary: '{{title}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: needsReview, label: Mark as incomplete, widget: boolean, default: false }
+      - {
+          name: body,
+          label: Text,
+          widget: markdown,
+          hint: The lab overview shown on both the Overview and Research pages.,
+        }
+
+  # ─────────────────────────────────────────────────────────────
+  - name: publications
+    label: Papers
+    files:
+      - name: papers
+        label: Publication list
+        file: content/papers.json
+        fields:
+          - name: papers
+            label: Publications
+            label_singular: Publication
+            widget: list
+            summary: '{{fields.year}} — {{fields.title}}'
+            fields:
+              - { name: id, label: Number, widget: number, value_type: int }
+              - { name: title, label: Title, widget: string }
+              - { name: authors, label: Authors, widget: string }
+              - { name: journal, label: Journal and pages, widget: string, required: false }
+              - {
+                  name: year,
+                  label: Year,
+                  widget: number,
+                  value_type: int,
+                  hint: Use 9999 for papers that are in press.,
+                }
+              - { name: inPress, label: In press, widget: boolean, default: false }
+              - {
+                  name: traineeFirstAuthor,
+                  label: First author is a trainee,
+                  widget: boolean,
+                  default: false,
+                }
+              - {
+                  name: doi,
+                  label: DOI link,
+                  widget: string,
+                  required: false,
+                  hint: Paste the full https:// link. Leave blank if there isn't one.,
+                }
+              - {
+                  name: pdf,
+                  label: PDF link,
+                  widget: string,
+                  required: false,
+                  hint: Leave blank if no PDF is available.,
+                }
+              - { name: citation, label: Full citation text, widget: text }
+
+  # ─────────────────────────────────────────────────────────────
+  - name: settings
+    label: Site Details
+    files:
+      - name: site
+        label: Lab name and contact details
+        file: content/site.json
+        fields:
+          - { name: labName, label: Full lab name, widget: string }
+          - { name: labNameShort, label: Short name, widget: string }
+          - { name: director, label: Director, widget: string }
+          - { name: institution, label: Institution, widget: string }
+          - { name: department, label: Department, widget: string }
+          - { name: tagline, label: Tagline, widget: string, required: false }
+          - name: contact
+            label: Contact details
+            widget: object
+            fields:
+              - { name: building, label: Building, widget: string }
+              - {
+                  name: addressLines,
+                  label: Mailing address,
+                  widget: list,
+                  field: { name: line, label: Line, widget: string },
+                }
+              - { name: mailCode, label: Mail code, widget: string }
+              - { name: email, label: Email, widget: string }
+              - { name: phone, label: Phone, widget: string }

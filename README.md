@@ -9,13 +9,19 @@ Open questions and missing content are tracked in
 
 ## Status
 
-All pages built and populated with the client's own copy, transcribed verbatim
-from `Information for Website.docx` with her emphasis preserved. Five of six
-headshots are in. The alumni list was pulled from the current live site.
+All pages built and populated with the client's own content: copy transcribed
+verbatim from `Information for Website.docx` with her emphasis preserved, five of
+six headshots, all 205 publications from her CV, and the alumni list from the
+current live site.
 
-**Outstanding:** the Papers page is empty pending her CV, and Erica Hornstein has
-no bio, photograph or job title. No content has been invented — every remaining
-gap renders as a visible notice. See [`DOCS/QUESTIONS.md`](DOCS/QUESTIONS.md).
+Editing is handled by a git-backed CMS at `/admin` — see
+[`DOCS/EDITING-GUIDE.md`](DOCS/EDITING-GUIDE.md), written for her rather than for
+a developer. It needs deploying and GitHub sign-in before it works.
+
+**Outstanding:** DOI/PDF links for the papers (her CV lists none), and Erica
+Hornstein's bio, photograph and title. No content has been invented — every
+remaining gap renders as a visible notice.
+See [`DOCS/QUESTIONS.md`](DOCS/QUESTIONS.md).
 
 ## Running it
 
@@ -38,9 +44,9 @@ npm run dev
   [`src/styles/global.css`](src/styles/global.css) — nothing hardcoded downstream.
   The site re-skins from that one file.
 - **Content** is markdown + frontmatter in [`content/`](content/), typed by
-  [`src/content.config.ts`](src/content.config.ts). Deliberately outside `src/`
-  and in the shape a git-backed CMS expects, so an admin UI can be layered on
-  without moving files.
+  [`src/content.config.ts`](src/content.config.ts), and edited through the CMS at
+  `/admin`. Papers are the exception: 205 entries live in a single
+  `content/papers.json` rather than 205 files.
 - **Images** go through Astro's sharp pipeline — the 14 MB originals come out as
   45–150 kB WebP at several widths.
 
@@ -53,7 +59,7 @@ npm run dev
 
 ## Before launch
 
-1. **Her CV** → the Papers page (QUESTIONS.md #6).
+1. **DOI/PDF links** for the papers — the CV lists none (QUESTIONS.md #6b).
 2. **Erica Hornstein's** bio, photo and title (#4); job titles for the other five (#14).
 3. **Image licensing.** The landing hero is the lab's existing cover image, but
    three Shutterstock images are still used as secondary art (#3).

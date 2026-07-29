@@ -8,6 +8,9 @@ export { site };
  * it should exist anywhere.
  */
 export const nav = [
+  // The wordmark links home too, but an explicit Home item is what people
+  // actually look for — relying on the logo alone is a small usability tax.
+  { label: 'Home', href: '/' },
   { label: 'Overview', href: '/overview' },
   { label: 'Research', href: '/research' },
   { label: 'Papers', href: '/papers' },

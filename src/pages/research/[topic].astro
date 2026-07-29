@@ -11,11 +11,20 @@ import Notice from '../../components/Notice.astro';
 import fallbackHero from '../../assets/heroes/08-head-ladder-into-mind.jpg';
 
 export const getStaticPaths = (async () => {
-  const topics = await getCollection('research');
-  return topics.map((topic) => ({ params: { topic: topic.id }, props: { topic } }));
+  const topics = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+  return topics.map((topic, i) => ({
+    params: { topic: topic.id },
+    // Neighbours let a reader move through the four strands in order instead of
+    // bouncing back to the index between each one.
+    props: {
+      topic,
+      prev: i > 0 ? topics[i - 1] : topics[topics.length - 1],
+      next: i < topics.length - 1 ? topics[i + 1] : topics[0],
+    },
+  }));
 }) satisfies GetStaticPaths;
 
-const { topic } = Astro.props;
+const { topic, prev, next } = Astro.props;
 const { Content } = await render(topic);
 const hero = topic.data.hero ?? fallbackHero;
 ---
@@ -67,4 +76,32 @@ const hero = topic.data.hero ?? fallbackHero;
       <a href="/research" class="link-rule text-[1.05rem]">← All research</a>
     </p>
   </section>
+
+  <nav
+    aria-label="More research topics"
+    class="mx-auto grid max-w-[110rem] gap-px border-y border-bone/12 bg-bone/12 sm:grid-cols-2"
+  >
+    <a
+      href={`/research/${prev.id}`}
+      class="group bg-ground px-(--spacing-gutter) py-12 transition-colors duration-500 hover:bg-ground-raised"
+    >
+      <span class="text-eyebrow font-medium uppercase text-clay-light">← Previous</span>
+      <span
+        class="mt-4 block font-display text-title text-bone transition-colors duration-500 group-hover:text-clay-light"
+      >
+        {prev.data.title}
+      </span>
+    </a>
+    <a
+      href={`/research/${next.id}`}
+      class="group bg-ground px-(--spacing-gutter) py-12 transition-colors duration-500 hover:bg-ground-raised sm:text-right"
+    >
+      <span class="text-eyebrow font-medium uppercase text-clay-light">Next →</span>
+      <span
+        class="mt-4 block font-display text-title text-bone transition-colors duration-500 group-hover:text-clay-light"
+      >
+        {next.data.title}
+      </span>
+    </a>
+  </nav>
 </Base>

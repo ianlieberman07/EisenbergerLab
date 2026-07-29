@@ -1,47 +1,240 @@
 ---
-import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import PersonRow from '../../components/PersonRow.astro';
 import Notice from '../../components/Notice.astro';
 
 const people = (await getCollection('people'))
   .filter((p) => p.data.status === 'current')
   .sort((a, b) => a.data.order - b.data.order);
 
+// Bios are rendered once, hidden, and cloned into the dialog on click. Keeps
+// the markup accessible and means the modal needs no data-fetching.
+const rendered = await Promise.all(
+  people.map(async (person) => ({ person, Content: (await render(person)).Content }))
+);
+
 const missing = people.filter((p) => p.data.needsReview).map((p) => p.data.name);
+
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .filter(Boolean)
+    .map((p) => p[0])
+    .slice(0, 2)
+    .join('');
 ---
 
 <Base
   title="People"
   description="Current members of the Social and Affective Neuroscience Laboratory at UCLA."
 >
-  <PageHeader eyebrow="People" title="Lab members" />
+  <PageHeader
+    eyebrow="People"
+    title="Lab members"
+    lede="Select any member to read more."
+  />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
+    <ul class="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        rendered.map(({ person }, i) => (
+          <li class="reveal" data-reveal-delay={(i % 3) * 90}>
+            {/* A real link to the person's own page: works with JS disabled, is
+                keyboard-focusable for free, and opens in a new tab on
+                cmd-click. JS upgrades it to an in-place modal. */}
+            <a
+              href={`/people/${person.id}`}
+              class="person-card group block text-left"
+              data-person={person.id}
+            >
+              <div class="relative aspect-[4/5] overflow-hidden bg-ground-raised">
+                {person.data.headshot ? (
+                  <Image
+                    src={person.data.headshot}
+                    alt={person.data.headshotAlt ?? `Portrait of ${person.data.name}.`}
+                    widths={[320, 560, 840]}
+                    sizes="(min-width: 1024px) 26vw, (min-width: 640px) 45vw, 90vw"
+                    loading={i < 3 ? 'eager' : 'lazy'}
+                    class="h-full w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-out-soft)] group-hover:scale-[1.04]"
+                  />
+                ) : (
+                  <div
+                    class="flex h-full w-full items-center justify-center bg-gradient-to-br from-ground-raised to-ground"
+                    role="img"
+                    aria-label={`No photograph available for ${person.data.name}.`}
+                  >
+                    <span class="font-display text-[2.6rem] text-bone/25">
+                      {initials(person.data.name)}
+                    </span>
+                  </div>
+                )}
+
+                {/* Hover/focus veil carrying the affordance. */}
+                <div class="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-ground/90 via-ground/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">
+                  <span class="p-5 text-eyebrow font-medium uppercase text-bone">
+                    Read more +
+                  </span>
+                </div>
+              </div>
+
+              <h2 class="mt-5 font-display text-[1.3rem] text-bone transition-colors duration-500 group-hover:text-clay-light">
+                {person.data.name}
+              </h2>
+              <p class="mt-1 text-[0.9rem] text-bone-muted">{person.data.role}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
     {
       missing.length > 0 && (
-        <Notice title="Content outstanding">
-          <p>
-            No bio or photograph was supplied for {missing.join(', ')} — not in
-            the brief and not in the Word document. Nothing has been written in
-            their place.
-          </p>
-          <p>
-            Job titles for the five lab members are also unconfirmed: the
-            document lists them only under the heading "Lab members", so they all
-            read as "Lab Member" until she confirms the real ones.
-          </p>
-        </Notice>
+        <div class="mt-24">
+          <Notice title="Content outstanding">
+            <p>
+              No bio or photograph was supplied for {missing.join(', ')} — not in
+              the brief, the Word document, or the CV. Nothing has been written in
+              their place.
+            </p>
+            <p>
+              Job titles for the five lab members are also unconfirmed: the
+              document lists them only under the heading "Lab members".
+            </p>
+          </Notice>
+        </div>
       )
     }
-
-    <div class="mt-16 border-t border-bone/12">
-      {people.map((person) => <PersonRow person={person} />)}
-    </div>
 
     <p class="mt-20">
       <a href="/people/alumni" class="link-rule text-[1.05rem]">Lab alumni →</a>
     </p>
   </section>
+
+  <!-- Bio source, hidden from view and from assistive tech; cloned on demand. -->
+  <div hidden>
+    {
+      rendered.map(({ person, Content }) => (
+        <div id={`bio-${person.id}`} data-name={person.data.name} data-role={person.data.role}>
+          <Content />
+        </div>
+      ))
+    }
+  </div>
+
+  <dialog
+    id="person-dialog"
+    class="person-dialog"
+    aria-labelledby="person-dialog-name"
+  >
+    <div class="relative px-7 py-10 md:px-14 md:py-12">
+      <button
+        type="button"
+        id="person-dialog-close"
+        class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center text-bone-muted transition-colors hover:text-bone"
+        aria-label="Close"
+      >
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M1 1l16 16M17 1L1 17" stroke="currentColor" stroke-width="1.4"></path>
+        </svg>
+      </button>
+
+      <p id="person-dialog-role" class="text-eyebrow font-medium uppercase text-clay-light"></p>
+      <h2 id="person-dialog-name" class="mt-4 font-display text-title text-bone"></h2>
+      <div id="person-dialog-bio" class="prose-lab mt-8 max-w-(--container-prose)"></div>
+
+      <p class="mt-10 border-t border-bone/12 pt-6">
+        <a id="person-dialog-link" href="#" class="link-rule text-[0.98rem]">
+          Open full page →
+        </a>
+      </p>
+    </div>
+  </dialog>
 </Base>
+
+<style>
+  .person-dialog {
+    width: min(56rem, calc(100vw - 2rem));
+    max-height: min(86svh, 52rem);
+    /* `margin: auto` is what actually centres a top-layer dialog; without it
+       the UA anchors it to the inline start. */
+    margin: auto;
+    padding: 0;
+    /* The dialog is the scroll container. Delegating this to an inner wrapper
+       leaves a sliver of the UA's white canvas along the scroll edges. */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(242 239 233 / 0.22) transparent;
+    border: 1px solid rgb(242 239 233 / 0.12);
+    /* Must be set explicitly — the UA default is an opaque white canvas, which
+       otherwise shows through at the rounded/scroll edges. */
+    background: var(--color-ground-raised);
+    color: var(--color-bone);
+  }
+
+  /* The modal is a panel, not a reading page — dial the prose back from the
+     full long-form scale so the proportions hold. */
+  .person-dialog :global(.prose-lab p) {
+    font-size: 1.02rem;
+    line-height: 1.72;
+    margin-block: 1.25em;
+  }
+  .person-dialog::backdrop {
+    background: rgb(9 8 7 / 0.82);
+    backdrop-filter: blur(6px);
+  }
+  .person-dialog[open] {
+    animation: dialog-in 0.45s var(--ease-out-soft);
+  }
+  @keyframes dialog-in {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .person-dialog[open] {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('person-dialog') as HTMLDialogElement | null;
+  const nameEl = document.getElementById('person-dialog-name');
+  const roleEl = document.getElementById('person-dialog-role');
+  const bioEl = document.getElementById('person-dialog-bio');
+  const linkEl = document.getElementById('person-dialog-link') as HTMLAnchorElement | null;
+  const closeBtn = document.getElementById('person-dialog-close');
+
+  // Only upgrade to a modal where <dialog> is actually supported. Anywhere else
+  // the cards stay ordinary links to the person's page.
+  if (dialog && nameEl && roleEl && bioEl && linkEl && typeof dialog.showModal === 'function') {
+    document.querySelectorAll<HTMLAnchorElement>('.person-card').forEach((card) => {
+      card.addEventListener('click', (event) => {
+        // Let modified clicks (new tab/window) behave normally.
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+
+        const id = card.dataset.person;
+        const source = id && document.getElementById(`bio-${id}`);
+        if (!source) return;
+
+        event.preventDefault();
+        nameEl.textContent = source.dataset.name ?? '';
+        roleEl.textContent = source.dataset.role ?? '';
+        bioEl.replaceChildren(...Array.from(source.cloneNode(true).childNodes as NodeListOf<Node>));
+        linkEl.href = card.href;
+        dialog.showModal();
+      });
+    });
+
+    closeBtn?.addEventListener('click', () => dialog.close());
+
+    // Click outside the panel closes it.
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+</script>

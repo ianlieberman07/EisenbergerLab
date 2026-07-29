@@ -1,5 +1,5 @@
 import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
 
 /**
  * Content lives as markdown + frontmatter in /content/, deliberately outside
@@ -48,19 +48,25 @@ const research = defineCollection({
     }),
 });
 
+// 205 publications transcribed from her CV. A single JSON list rather than 205
+// markdown files: it builds faster, keeps the repo tidy, and a CMS list widget
+// is a far nicer thing to edit than a folder of hundreds of entries.
+// `doi` and `pdf` are empty strings awaiting real links — never guessed.
 const papers = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './content/papers' }),
+  // Nested under a `papers` key rather than a bare array so the CMS can bind a
+  // list widget to it — a root-level array has nothing to name in the editor.
+  loader: file('./content/papers.json', { parser: (text) => JSON.parse(text).papers }),
   schema: z.object({
+    id: z.number(),
     citation: z.string(),
-    year: z.number(),
     authors: z.string(),
     title: z.string(),
-    journal: z.string().optional(),
-    doi: z.string().optional(),
-    pdf: z.string().optional(),
-    // Ties a paper to a research topic so the Papers page can filter by theme.
-    topics: z.array(z.string()).default([]),
-    needsReview: z.boolean().default(false),
+    journal: z.string().default(''),
+    year: z.number(),
+    inPress: z.boolean().default(false),
+    traineeFirstAuthor: z.boolean().default(false),
+    doi: z.string().default(''),
+    pdf: z.string().default(''),
   }),
 });
 
