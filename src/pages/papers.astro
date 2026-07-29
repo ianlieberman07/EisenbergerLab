@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Notice from '../components/Notice.astro';
+
+// Deliberately empty until her CV arrives. CLAUDE.md §3 and §6 are explicit:
+// do not fabricate or guess citations. The page structure and the year/topic
+// filtering are built and ready; they simply have nothing to render yet.
+const papers = (await getCollection('papers')).sort((a, b) => b.data.year - a.data.year);
+
+const years = [...new Set(papers.map((p) => p.data.year))].sort((a, b) => b - a);
+const topics = [...new Set(papers.flatMap((p) => p.data.topics))].sort();
+---
+
+<Base
+  title="Papers"
+  description="Publications from the Social and Affective Neuroscience Laboratory at UCLA."
+>
+  <PageHeader eyebrow="Publications" title="Papers" />
+
+  <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
+    {
+      papers.length === 0 ? (
+        <Notice title="Awaiting the CV">
+          <p>
+            No publications have been entered. Her CV — the source for this page
+            — was being sent separately and is not in the repository, so no
+            citations have been generated. A fabricated citation on an academic
+            site is a serious problem, so this page stays empty until the real
+            list arrives.
+          </p>
+          <p>
+            The page structure, year and topic filtering, and DOI/PDF links are
+            built and will populate as soon as the entries exist.
+          </p>
+        </Notice>
+      ) : (
+        <>
+          <div class="flex flex-wrap gap-x-8 gap-y-3 border-b border-bone/12 pb-6">
+            <span class="text-eyebrow font-medium uppercase text-clay-light">Filter</span>
+            {years.map((year) => (
+              <button
+                type="button"
+                data-filter-year={year}
+                class="text-[0.92rem] text-bone-dim transition-colors hover:text-bone"
+              >
+                {year}
+              </button>
+            ))}
+            {topics.map((topic) => (
+              <button
+                type="button"
+                data-filter-topic={topic}
+                class="text-[0.92rem] text-bone-dim transition-colors hover:text-bone"
+              >
+                {topic}
+              </button>
+            ))}
+          </div>
+
+          <ol class="mt-12">
+            {papers.map((paper) => (
+              <li
+                class="border-b border-bone/12 py-8"
+                data-year={paper.data.year}
+                data-topics={paper.data.topics.join(' ')}
+              >
+                <p class="text-[1.02rem] leading-relaxed text-bone-dim">{paper.data.citation}</p>
+                <p class="mt-3 flex gap-6 text-[0.88rem]">
+                  {paper.data.doi && (
+                    <a href={paper.data.doi} class="text-clay-light hover:text-bone">
+                      DOI
+                    </a>
+                  )}
+                  {paper.data.pdf && (
+                    <a href={paper.data.pdf} class="text-clay-light hover:text-bone">
+                      PDF
+                    </a>
+                  )}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </>
+      )
+    }
+  </section>
+</Base>

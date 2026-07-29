@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Notice from '../../components/Notice.astro';
+
+const alumni = (await getCollection('people'))
+  .filter((p) => p.data.status === 'alumni')
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base
+  title="Lab Alumni"
+  description="Former members of the Social and Affective Neuroscience Laboratory at UCLA."
+>
+  <PageHeader eyebrow="People" title="Lab alumni" />
+
+  <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
+    {
+      alumni.length === 0 ? (
+        <Notice title="Awaiting the alumni list">
+          <p>
+            Everyone currently listed on the live site who is not one of the six
+            current members moves here. Those names have to be pulled from
+            sanlab.psych.ucla.edu — they have not been invented, and no one
+            should be dropped in the transfer.
+          </p>
+          <p>
+            Say the word and this can be scraped from the existing site and
+            filled in.
+          </p>
+        </Notice>
+      ) : (
+        <ul class="grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+          {alumni.map((person) => (
+            <li class="reveal border-b border-bone/12 pb-4">
+              <span class="block font-display text-[1.2rem] text-bone">{person.data.name}</span>
+              <span class="mt-1 block text-[0.9rem] text-bone-muted">{person.data.role}</span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    <p class="mt-24">
+      <a href="/people" class="link-rule text-[1.05rem]">← Current lab members</a>
+    </p>
+  </section>
+</Base>

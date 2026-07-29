@@ -1,0 +1,55 @@
+---
+/**
+ * Wraps copy that is NOT the client's own words.
+ *
+ * CLAUDE.md §6 forbids inventing content and requires any gap to be filled with
+ * a clearly-marked placeholder. This component is that marking. In `astro dev`
+ * it draws a labelled dashed frame around the text so nobody mistakes it for
+ * approved copy; in a production build it emits a loud warning to the build log
+ * and leaves an HTML comment in the source, so unreviewed text can never ship
+ * silently.
+ */
+interface Props {
+  /** What is missing and who needs to supply it. */
+  note: string;
+}
+const { note } = Astro.props;
+
+if (import.meta.env.PROD) {
+  console.warn(`[PLACEHOLDER COPY] ${note} — must be replaced before launch.`);
+}
+---
+
+<div class="placeholder-copy" data-placeholder={note}>
+  <slot />
+</div>
+
+<!-- PLACEHOLDER COPY — {note} -->
+
+<style>
+  /* Dev-only treatment. Production ships the copy unstyled, but the build log
+     and the HTML comment above still record it. */
+  .placeholder-copy {
+    position: relative;
+  }
+</style>
+
+<style is:global>
+  html[data-env='dev'] .placeholder-copy {
+    outline: 1px dashed var(--color-clay);
+    outline-offset: 0.85rem;
+  }
+  html[data-env='dev'] .placeholder-copy::before {
+    content: 'PLACEHOLDER — ' attr(data-placeholder);
+    position: absolute;
+    top: -1.9rem;
+    left: 0;
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-clay-light);
+    pointer-events: none;
+  }
+</style>

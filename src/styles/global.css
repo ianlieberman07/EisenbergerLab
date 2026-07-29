@@ -1,0 +1,201 @@
+@import 'tailwindcss';
+
+/* Self-hosted — no external font requests, nothing to block the first paint. */
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/inter';
+
+/* ============================================================
+   DESIGN TOKENS — the single source of truth for the palette,
+   type scale, and rhythm. Change the look here, not in components.
+
+   Palette derived from the client's inspiration set
+   (/design/inspiration/): warm charcoal grounds, bone-white
+   subjects, muted sage and dusty rose, one clay/apricot accent.
+   ============================================================ */
+@theme {
+  /* — Ground. Warm near-black, never blue-black. — */
+  --color-ground: #121110;
+  --color-ground-raised: #1b1917;
+  --color-ground-veil: #0d0c0b;
+
+  /* — Type on ground. — */
+  --color-bone: #f2efe9;
+  --color-bone-dim: #cdc7bd;
+  --color-bone-muted: #a49d94;
+
+  /* — Accent: clay / apricot, pulled from the sage-head and
+       paired-heads images. `clay` for surfaces and rules,
+       `clay-light` wherever it carries text (AA on ground). — */
+  --color-clay: #c4714f;
+  --color-clay-light: #e0a183;
+
+  /* — Secondary naturals, used sparingly to tint sections. — */
+  --color-sage: #8c9c8a;
+  --color-rose: #c9a9a6;
+
+  /* — Institutional nod only: footer, official links. Never the
+       primary palette. Pending UCLA brand review (QUESTIONS.md #9). — */
+  --color-ucla-blue: #2774ae;
+  --color-ucla-gold: #ffd100;
+
+  /* — Families. Fraunces for display: high-contrast, real
+       character, an editorial serif rather than Times. — */
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Inter Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* — Fluid type scale. Long-form reading is the primary
+       activity here, so body runs large and airy. — */
+  --text-hero: clamp(2.75rem, 1.2rem + 6.6vw, 7rem);
+  --text-hero--line-height: 0.95;
+  --text-hero--letter-spacing: -0.03em;
+
+  --text-display: clamp(2.1rem, 1.1rem + 3.6vw, 4rem);
+  --text-display--line-height: 1.06;
+  --text-display--letter-spacing: -0.022em;
+
+  --text-title: clamp(1.6rem, 1.1rem + 1.7vw, 2.4rem);
+  --text-title--line-height: 1.18;
+  --text-title--letter-spacing: -0.015em;
+
+  --text-lede: clamp(1.2rem, 1.05rem + 0.7vw, 1.6rem);
+  --text-lede--line-height: 1.55;
+
+  --text-body: clamp(1.05rem, 1rem + 0.25vw, 1.175rem);
+  --text-body--line-height: 1.75;
+
+  --text-eyebrow: 0.78rem;
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.18em;
+
+  /* — Vertical rhythm: slow and confident. — */
+  --spacing-section: clamp(5rem, 3rem + 9vw, 11rem);
+  --spacing-gutter: clamp(1.5rem, 0.9rem + 2.6vw, 4.5rem);
+
+  /* — Measure. Never let prose run wider than this. — */
+  --container-prose: 68ch;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ground);
+    color: var(--color-bone);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-variation-settings: 'SOFT' 0, 'WONK' 0, 'opsz' 60;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Real focus states — this site will be accessibility-audited. */
+  :focus-visible {
+    outline: 2px solid var(--color-clay-light);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-clay);
+    color: var(--color-bone);
+  }
+
+  /* Honour the OS setting. Motion here is decoration, never meaning. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ============================================================
+   COMPONENT UTILITIES
+   ============================================================ */
+@layer components {
+  /* Skip link: visible only once focused. */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    background: var(--color-bone);
+    color: var(--color-ground);
+    font-weight: 600;
+  }
+  .skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+  }
+
+  /* Scroll reveal. Starts visible, so if JS never runs the page
+     is still perfectly readable — progressive enhancement. */
+  .reveal {
+    opacity: 1;
+  }
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(1.75rem);
+    transition:
+      opacity 1s var(--ease-out-soft),
+      transform 1s var(--ease-out-soft);
+  }
+  html.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.js .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Understated editorial link: rule thickens on hover rather
+     than the whole thing changing colour. */
+  .link-rule {
+    color: var(--color-bone);
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-clay), var(--color-clay));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 1px;
+    transition:
+      background-size 0.4s var(--ease-out-soft),
+      color 0.4s var(--ease-out-soft);
+    padding-bottom: 0.1em;
+  }
+  .link-rule:hover {
+    background-size: 100% 2px;
+    color: var(--color-clay-light);
+  }
+}

@@ -1,0 +1,18 @@
+---
+/**
+ * A visible, unmissable "content is missing" panel. Used wherever the brief
+ * promised copy that was not supplied, so the gap is obvious to the client on
+ * review rather than being papered over with invented text.
+ */
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<div class="max-w-(--container-prose) border-l-2 border-clay bg-clay/[0.06] px-7 py-6">
+  <p class="text-eyebrow font-medium uppercase text-clay-light">{title}</p>
+  <div class="mt-4 space-y-3 text-[1rem] leading-relaxed text-bone-dim">
+    <slot />
+  </div>
+</div>

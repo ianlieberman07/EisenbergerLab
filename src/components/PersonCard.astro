@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  person: CollectionEntry<'people'>;
+}
+const { person } = Astro.props;
+const { name, role, headshot, headshotAlt } = person.data;
+
+// Headshots have not been supplied for anyone yet, so the card is designed to
+// degrade gracefully rather than break: a tinted panel carrying the person's
+// initials stands in until a photo is uploaded.
+const initials = name
+  .split(' ')
+  .filter(Boolean)
+  .map((part) => part[0])
+  .slice(0, 2)
+  .join('');
+---
+
+<article class="group">
+  <div class="relative aspect-[4/5] overflow-hidden bg-ground-raised">
+    {
+      headshot ? (
+        <Image
+          src={headshot}
+          alt={headshotAlt ?? `Portrait of ${name}.`}
+          widths={[320, 560, 840]}
+          sizes="(min-width: 1024px) 24vw, (min-width: 640px) 45vw, 90vw"
+          loading="lazy"
+          class="h-full w-full object-cover transition-transform duration-[1200ms] ease-[var(--ease-out-soft)] group-hover:scale-[1.03]"
+        />
+      ) : (
+        <div
+          class="flex h-full w-full items-center justify-center bg-gradient-to-br from-ground-raised to-ground"
+          role="img"
+          aria-label={`No photograph available for ${name}.`}
+        >
+          <span class="font-display text-[2.6rem] text-bone/25">{initials}</span>
+        </div>
+      )
+    }
+  </div>
+
+  <h3 class="mt-6 font-display text-[1.35rem] text-bone">{name}</h3>
+  <p class="mt-1.5 text-[0.92rem] text-bone-muted">{role}</p>
+</article>

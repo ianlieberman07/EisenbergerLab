@@ -1,0 +1,20 @@
+{
+  "labName": "Social and Affective Neuroscience Laboratory",
+  "labNameShort": "SAN Lab",
+  "director": "Naomi Eisenberger, Ph.D.",
+  "institution": "University of California, Los Angeles",
+  "department": "Department of Psychology",
+  "tagline": "How the social world gets under the skin.",
+  "contact": {
+    "_comment": "Address corrected per client: 5514 Pritzker Hall, NOT 4444 Franz Hall. Phone, email and mail code still require confirmation — see DOCS/QUESTIONS.md #8.",
+    "building": "5514 Pritzker Hall",
+    "addressLines": [
+      "UCLA Department of Psychology",
+      "5514 Pritzker Hall",
+      "Los Angeles, CA 90095"
+    ],
+    "mailCode": "TO BE CONFIRMED",
+    "email": "TO BE CONFIRMED",
+    "phone": "TO BE CONFIRMED"
+  }
+}

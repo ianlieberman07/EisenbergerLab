@@ -1,2 +1,14 @@
+# macOS
 .DS_Store
+
+# Claude Code local overrides (settings.json is shared, settings.local.json is not)
 .claude/settings.local.json
+
+# dependencies + build output
+node_modules/
+dist/
+.astro/
+
+# env
+.env
+.env.production

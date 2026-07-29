@@ -1,0 +1,63 @@
+---
+import { nav, site } from '../config';
+const { contact } = site;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-bone/10 bg-ground-veil">
+  <div
+    class="mx-auto grid max-w-[110rem] gap-14 px-(--spacing-gutter) py-20 md:grid-cols-[1.4fr_1fr_1fr] md:py-24"
+  >
+    <div>
+      <h2 class="font-display text-title text-bone">
+        {site.labName}
+      </h2>
+      <p class="mt-4 max-w-sm text-[0.95rem] leading-relaxed text-bone-muted">
+        Directed by {site.director} · {site.department}, {site.institution}
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-eyebrow font-medium uppercase text-clay-light">Contact</h3>
+      <address class="mt-5 space-y-1 text-[0.95rem] not-italic leading-relaxed text-bone-dim">
+        {contact.addressLines.map((line) => <div>{line}</div>)}
+      </address>
+      <p class="mt-4 space-y-1 text-[0.95rem] text-bone-dim">
+        <span class="block">Email: {contact.email}</span>
+        <span class="block">Phone: {contact.phone}</span>
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-eyebrow font-medium uppercase text-clay-light">Explore</h3>
+      <ul class="mt-5 space-y-2.5">
+        {
+          nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="text-[0.95rem] text-bone-dim transition-colors duration-400 hover:text-bone"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-bone/10">
+    <div
+      class="mx-auto flex max-w-[110rem] flex-col gap-3 px-(--spacing-gutter) py-7 text-[0.82rem] text-bone-muted sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} Regents of the University of California. All rights reserved.</p>
+      <a
+        href="https://www.psych.ucla.edu/"
+        class="transition-colors duration-400 hover:text-ucla-gold"
+      >
+        UCLA Department of Psychology
+      </a>
+    </div>
+  </div>
+</footer>
