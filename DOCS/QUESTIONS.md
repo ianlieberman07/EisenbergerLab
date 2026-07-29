@@ -1,102 +1,123 @@
 # Open questions
 
-Tracked per CLAUDE.md §6. Items 1–10 are from the original brief; items 11+ came
-up during the first build.
+Tracked per CLAUDE.md §6. Numbering follows the original brief; items 11+ came
+up during the build.
 
-## Blocking — the site cannot launch without these
+Most of what was outstanding is now **closed** — `Information for Website.docx`
+supplied the lab overview, all four research texts, five bios and five
+headshots, and the live site supplied the alumni list.
 
-### 11. The `/content/` directory referenced throughout the brief was not in the repo
+## Still blocking launch
 
-CLAUDE.md §3 states that final, approved copy "is in `/content/research/`" and
-`/content/people/`, and that `Information_for_Website.docx` is the source of
-truth. None of it was present — the repository contained only `CLAUDE.md` and
-`/design/`.
+### 6. Her CV — the entire Papers page depends on it
 
-Per §6 ("never invent content"), **nothing has been written in its place.** Every
-gap is a marked placeholder:
+The only substantial content still missing. The doc says: *"Needs to be updated
+to include all of my recent papers. I will send along my CV that lists all of
+these papers. I would like to have a link to each of those that are available.
+If you can't get access to any, let me know and I might be able to."*
 
-| What's missing | Where it shows up |
-|---|---|
-| Lab overview copy | `/overview`, `/research` |
-| Four research topic texts | `/research/[topic]` — all four |
-| Bios for Eisenberger, Crowder, Noble, Blandl, Naclerio | `/people` |
-| Erica Hornstein's bio **and job title** (§3 already flagged the bio) | `/people` |
-| Her CV → the entire Papers page | `/papers` — renders empty by design |
-| Alumni names from the current live site | `/people/alumni` — renders empty |
+`/papers` renders a visible empty state by design. The schema, year/topic
+filtering and DOI/PDF link handling are built and will populate the moment real
+entries exist. **No citations have been generated** — a fabricated citation on an
+academic site is a serious problem.
 
-Placeholder copy is outlined in dev mode and logged loudly at build time, so
-none of it can ship silently.
+Once the CV arrives: build the list, then hand back the papers whose PDFs
+couldn't be sourced, since she offered to supply those herself.
 
-### 12. Alumni list can be pulled from the current site on request
+### 4. Erica Hornstein — bio and photograph
 
-§3 says to take the existing alumni off sanlab.psych.ucla.edu and drop nobody.
-That list has not been invented. It can be scraped from the live site and filled
-in as soon as you want it — it just needs saying.
+Flagged in the brief, and the Word document doesn't contain them either. She is
+the one current member with no bio and no headshot; her card renders an initials
+block and the People page carries a visible notice. **Her job title is also
+unknown.**
 
-### 3. Are any of the Shutterstock reference images licensed?
+### 14. Job titles for the five lab members
 
-Unchanged from the brief, and now urgent: the mockup currently uses four of them
-as placeholder heroes (`src/assets/heroes/`). They are marked as placeholders in
-the code, but **none may ship to production** without a per-asset license. If
-none are licensed, replacements need sourcing from Unsplash/Pexels in the same
-register.
+The document lists Hornstein, Crowder, Noble, Blandl and Naclerio under a bare
+heading, "Lab members", with no individual titles. They all currently render as
+"Lab Member". The bios imply graduate students, but that has not been assumed —
+real titles (Graduate Student, Postdoctoral Fellow, etc.) need confirming.
 
-Note also that the full 127 MB inspiration set is committed to a **public**
-repository.
+### 15. Kate E. Byrne Haltom — current member or alumna?
 
-## Architectural — needed before further build-out
-
-### 1. Which editing approach does she want? (§4)
-
-Nothing here forecloses the choice. Content is markdown + frontmatter in
-`/content/`, which is exactly what a git-backed CMS (Decap/Sveltia) reads
-directly. Moving to Sanity later would mean rewiring the data layer but not
-redesigning the site.
-
-**`/DOCS/EDITING-GUIDE.md` is deliberately not written yet** — a
-screenshot-driven walkthrough can't be written for a CMS that hasn't been
-chosen.
-
-### 2. Will UCLA IT point `sanlab.psych.ucla.edu` at external hosting?
-
-Still unanswered and still capable of invalidating the hosting plan. Worth
-asking before any deployment work. `site` in `astro.config.mjs` is a placeholder
-until this is settled.
-
-### 9. Is there UCLA branding policy constraining the palette?
-
-The current direction uses UCLA blue and gold only as a small footer nod, per
-§2. If Psychology's web team requires more prominent branding, the palette needs
-revisiting before the design is signed off — not after.
-
-## Content details
+The live site lists her as **Lab Manager**, under a separate heading from "Lab
+Members". The instruction was "everyone else listed there should be moved to Lab
+Alumni", which is ambiguous for a distinct role — especially as her bio says she
+manages the SC/AN labs jointly. She has been left off both pages pending a
+decision rather than guessed either way.
 
 ### 8. Confirm the full contact block
 
-Address is corrected to **5514 Pritzker Hall** (was 4444 Franz Hall). Phone,
-email and mail code all render as "TO BE CONFIRMED" in the footer and on
-`/overview`. They're in one place: `content/site.json`.
+Address is corrected to **5514 Pritzker Hall** per the doc. Phone, email and mail
+code were never supplied and render as "TO BE CONFIRMED". All in one place:
+`content/site.json`.
 
-### 4, 5, 6. Hornstein bio · headshots for all six members · her CV
+## Architectural
 
-See item 11. Person cards degrade to an initials block when no headshot exists,
-so the People page looks deliberate rather than broken while you wait.
+### 1. Which editing approach does she want? (§4)
+
+Still open, and still not foreclosed. Content is markdown + frontmatter in
+`/content/`, which a git-backed CMS (Decap/Sveltia) reads directly.
+
+**`DOCS/EDITING-GUIDE.md` is deliberately not written yet** — a
+screenshot-driven walkthrough can't be written for a CMS that hasn't been chosen.
+
+### 2. Will UCLA IT point `sanlab.psych.ucla.edu` at external hosting?
+
+Unanswered, and capable of invalidating the hosting plan. `site` in
+`astro.config.mjs` is a placeholder until it's settled.
+
+### 9. Does UCLA branding policy constrain the palette?
+
+UCLA blue and gold appear only as a small footer nod. If Psychology's web team
+requires more prominent branding, that's a change to make before sign-off.
+
+## Resolved
+
+### 3. Image licensing — substantially better than feared
+
+The landing hero is **byte-for-byte identical** to `sanlab-brain-cover.jpg`
+already served by the live site (verified by checksum), which matches her note
+that the existing image is "fine to leave". It carries whatever licence the lab
+already holds rather than being a new pick.
+
+**Still outstanding:** three Shutterstock images from the inspiration set are
+used as secondary art — `03-busts-facing-erosion` (landing section break),
+`12-paired-hollow-heads-pastel` (overview), and `08-head-ladder-into-mind`
+(fallback hero on all four research topic pages). These are unlicensed and must
+be replaced or licensed. Each topic page is meant to get its own hero anyway.
+
+### 5. Headshots — five of six supplied
+
+Extracted from the Word document. Blandl's was embedded inside an EMF wrapper and
+had to be recovered from the raster inside it.
+
+**Note:** Noble's photo carried iPhone GPS coordinates and several others carried
+camera/timestamp EXIF. All metadata has been stripped, since these are private
+individuals' photographs going into a public repository. Only colourspace and
+pixel dimensions remain.
 
 ### 7. Lab overview on `/research` or `/overview`?
 
-Currently stubbed in both places, following the carolinasnhlab pattern she cited.
-Trivial to consolidate once she picks.
+Her copy currently appears on **both**, which is what the doc allows for
+("or you could put this overview on the overview page"). Trivial to consolidate
+once she picks — it's one markdown file, `content/pages/lab-overview.md`.
 
-### 10. Anything new that isn't on the old site?
+### 11, 12. Content and alumni list — closed
 
-Not yet asked — a "Join the Lab" / participant recruitment page, news, press
-coverage, or a contact form would each change the nav.
+All copy is now transcribed verbatim, with her italics preserved (*hurt*,
+*crushed*, *broken*, *social*, *prepared fear suppressors*). The alumni list was
+pulled from the live site: 19 established alumni plus 7 people moved off the
+current-members list. Nobody was dropped.
+
+### 16. Press Release page — confirmed removed
+
+The doc says "don't need this". It does not exist in the new site and nothing
+links to it.
 
 ## Design sign-off
 
-### 13. The direction needs her approval before more pages get built
+### 13. The direction still needs her approval
 
-Per §6, one page has been taken to a finished standard (the landing page) rather
-than seven built at medium quality. Palette, type pairing, and motion are all
-tokenised in `src/styles/global.css` — the whole site re-skins from that one
-file if she wants a different register.
+Palette, type pairing and motion are tokenised in `src/styles/global.css`; the
+whole site re-skins from that one file if she wants a different register.

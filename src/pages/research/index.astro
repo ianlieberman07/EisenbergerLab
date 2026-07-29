@@ -1,13 +1,16 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import Placeholder from '../../components/Placeholder.astro';
+import { emphasize } from '../../utils/emphasis';
 
 // Structured the way the client's reference site (carolinasnhlab.com/overview)
 // does it: a general lab overview up top, then links out to individual topic
 // pages. She is open to the overview living on /overview instead — QUESTIONS.md #7.
 const topics = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+
+const overview = await getEntry('pages', 'lab-overview');
+const { Content } = await render(overview!);
 ---
 
 <Base
@@ -17,32 +20,32 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
   <PageHeader eyebrow="Research" title="What we study" />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
-    <Placeholder note="Research overview — awaiting the client's approved lab overview copy">
-      <p class="max-w-(--container-prose) text-lede text-bone-dim">
-        A general overview of the lab's research programme belongs here, ahead
-        of the four topic pages below. The approved copy was not supplied with
-        the brief.
-      </p>
-    </Placeholder>
+    <div class="reveal prose-lab max-w-(--container-prose)">
+      <Content />
+    </div>
 
-    <ul class="mt-24 grid gap-px border border-bone/12 bg-bone/12 sm:grid-cols-2">
+    <ul class="mt-28 grid gap-px border border-bone/12 bg-bone/12 sm:grid-cols-2">
       {
         topics.map((topic, i) => (
           <li class="reveal bg-ground" data-reveal-delay={i * 80}>
             <a
               href={`/research/${topic.id}`}
-              class="group flex h-full flex-col justify-between gap-14 p-9 transition-colors duration-500 hover:bg-ground-raised md:p-12"
+              class="group flex h-full flex-col gap-8 p-9 transition-colors duration-500 hover:bg-ground-raised md:p-12"
             >
               <span class="font-display text-[0.9rem] text-clay-light">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <span>
+              <span class="flex flex-1 flex-col">
                 <span class="block font-display text-title text-bone transition-colors duration-500 group-hover:text-clay-light">
                   {topic.data.title}
                 </span>
                 <span
+                  class="mt-5 block text-[1rem] leading-relaxed text-bone-muted"
+                  set:html={emphasize(topic.data.summary)}
+                />
+                <span
                   aria-hidden="true"
-                  class="mt-7 block h-px w-12 bg-bone/25 transition-all duration-500 group-hover:w-24 group-hover:bg-clay"
+                  class="mt-8 block h-px w-12 bg-bone/25 transition-all duration-500 group-hover:w-24 group-hover:bg-clay"
                 />
               </span>
             </a>

@@ -2,12 +2,12 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import Placeholder from '../components/Placeholder.astro';
 import { site } from '../config';
 
-// PLACEHOLDER IMAGE — Shutterstock, unlicensed. Must be replaced before launch
-// with either the existing approved brain cover from the current site or a
-// licensed asset in the same register. See DOCS/QUESTIONS.md #3.
+// This is the existing cover image from the current site, which she approved
+// keeping ("fine to leave the same image"). Verified byte-for-byte identical to
+// sanlab-brain-cover.jpg served by sanlab.psych.ucla.edu, so it carries whatever
+// licence the lab already holds rather than being a new pick.
 import hero from '../assets/heroes/01-hands-forming-brain-bw.jpg';
 import breakImage from '../assets/heroes/03-busts-facing-erosion.jpg';
 
@@ -80,20 +80,23 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
         The question
       </p>
       <div class="md:col-span-9">
-        <Placeholder note="Landing thesis — replace with Dr. Eisenberger's own overview copy">
-          <h2 class="reveal max-w-[22ch] font-display text-display text-bone">
-            How does the social world get under the skin?
-          </h2>
-          <p
-            class="reveal mt-9 max-w-(--container-prose) text-lede text-bone-dim"
-            data-reveal-delay="140"
-          >
-            We study the neural and physiological mechanisms that link our social
-            lives to our health — how the brain registers rejection and belonging,
-            how the immune system listens in, and why connection is not a luxury
-            but a biological necessity.
-          </p>
-        </Placeholder>
+        {/* Both the heading and the paragraph are her own words, lifted verbatim
+            from the lab overview — nothing here is authored. */}
+        <h2 class="reveal max-w-[24ch] font-display text-display text-bone">
+          Why social relationships matter so profoundly for both mental and
+          physical health.
+        </h2>
+        <p
+          class="reveal mt-9 max-w-(--container-prose) text-lede text-bone-dim"
+          data-reveal-delay="140"
+        >
+          Using a combination of neuroimaging, pharmacological, physiological,
+          and behavioral methods, we trace the pathways that run in both
+          directions between the social world and the body: how social
+          experiences get under the skin to shape stress and immune responses,
+          and how bodily states like inflammation reshape social experience in
+          turn.
+        </p>
         <p class="reveal mt-8" data-reveal-delay="220">
           <a href="/overview" class="link-rule text-[1.05rem]">Read the lab overview</a>
         </p>

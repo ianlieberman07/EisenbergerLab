@@ -2,12 +2,14 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import PersonCard from '../../components/PersonCard.astro';
+import PersonRow from '../../components/PersonRow.astro';
 import Notice from '../../components/Notice.astro';
 
 const people = (await getCollection('people'))
   .filter((p) => p.data.status === 'current')
   .sort((a, b) => a.data.order - b.data.order);
+
+const missing = people.filter((p) => p.data.needsReview).map((p) => p.data.name);
 ---
 
 <Base
@@ -17,26 +19,28 @@ const people = (await getCollection('people'))
   <PageHeader eyebrow="People" title="Lab members" />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
-    <Notice title="Content outstanding">
-      <p>
-        Headshots have not been supplied for any current member — every card
-        below is showing its initials fallback. Bios were not included in the
-        repository either, and Erica Hornstein's bio and title were flagged as
-        missing in the brief itself.
-      </p>
-    </Notice>
+    {
+      missing.length > 0 && (
+        <Notice title="Content outstanding">
+          <p>
+            No bio or photograph was supplied for {missing.join(', ')} — not in
+            the brief and not in the Word document. Nothing has been written in
+            their place.
+          </p>
+          <p>
+            Job titles for the five lab members are also unconfirmed: the
+            document lists them only under the heading "Lab members", so they all
+            read as "Lab Member" until she confirms the real ones.
+          </p>
+        </Notice>
+      )
+    }
 
-    <ul class="mt-20 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        people.map((person, i) => (
-          <li class="reveal" data-reveal-delay={(i % 3) * 90}>
-            <PersonCard person={person} />
-          </li>
-        ))
-      }
-    </ul>
+    <div class="mt-16 border-t border-bone/12">
+      {people.map((person) => <PersonRow person={person} />)}
+    </div>
 
-    <p class="mt-24">
+    <p class="mt-20">
       <a href="/people/alumni" class="link-rule text-[1.05rem]">Lab alumni →</a>
     </p>
   </section>

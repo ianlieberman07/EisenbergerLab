@@ -68,35 +68,3 @@ const hero = topic.data.hero ?? fallbackHero;
     </p>
   </section>
 </Base>
-
-<style is:global>
-  /* Long-form reading styles for rendered markdown. Kept to a named class so
-     the client's copy needs no special markup when it is pasted in. */
-  .prose-lab p {
-    margin-block: 1.6em;
-    font-size: var(--text-lede);
-    line-height: 1.7;
-    color: var(--color-bone-dim);
-  }
-  .prose-lab em {
-    font-style: italic;
-    color: var(--color-bone);
-  }
-  .prose-lab h2 {
-    margin-top: 2.4em;
-    margin-bottom: 0.7em;
-    font-family: var(--font-display);
-    font-size: var(--text-title);
-    color: var(--color-bone);
-  }
-  .prose-lab a {
-    color: var(--color-clay-light);
-    text-underline-offset: 0.22em;
-  }
-  .prose-lab blockquote {
-    margin-block: 2em;
-    border-left: 2px solid var(--color-clay);
-    padding-left: 1.6rem;
-    color: var(--color-bone-muted);
-  }
-</style>

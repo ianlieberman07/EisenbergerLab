@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import { render, type CollectionEntry } from 'astro:content';
+
+interface Props {
+  person: CollectionEntry<'people'>;
+}
+const { person } = Astro.props;
+const { name, role, headshot, headshotAlt, needsReview } = person.data;
+const { Content } = await render(person);
+
+// Erica Hornstein has neither a bio nor a photograph, so the card has to hold
+// its shape without either. Initials stand in for the portrait.
+const initials = name
+  .split(' ')
+  .filter(Boolean)
+  .map((part) => part[0])
+  .slice(0, 2)
+  .join('');
+---
+
+<article class="reveal grid gap-8 border-b border-bone/12 py-14 md:grid-cols-12 md:gap-12 md:py-16">
+  <div class="md:col-span-4 lg:col-span-3">
+    <div class="aspect-[4/5] overflow-hidden bg-ground-raised">
+      {
+        headshot ? (
+          <Image
+            src={headshot}
+            alt={headshotAlt ?? `Portrait of ${name}.`}
+            widths={[320, 560, 840]}
+            sizes="(min-width: 1024px) 22vw, (min-width: 768px) 32vw, 90vw"
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+        ) : (
+          <div
+            class="flex h-full w-full items-center justify-center bg-gradient-to-br from-ground-raised to-ground"
+            role="img"
+            aria-label={`No photograph available for ${name}.`}
+          >
+            <span class="font-display text-[2.6rem] text-bone/25">{initials}</span>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <div class="md:col-span-8 lg:col-span-9">
+    <h2 class="font-display text-title text-bone">{name}</h2>
+    <p class="mt-2 text-eyebrow font-medium uppercase text-clay-light">{role}</p>
+
+    <div
+      class:list={[
+        'prose-lab mt-7 max-w-(--container-prose)',
+        needsReview && 'border-l-2 border-clay pl-6',
+      ]}
+    >
+      <Content />
+    </div>
+  </div>
+</article>

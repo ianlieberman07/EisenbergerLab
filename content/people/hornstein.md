@@ -1,11 +1,12 @@
 ---
 name: Erica Hornstein
-role: TO BE CONFIRMED
+role: Lab Member
 status: current
 order: 2
 needsReview: true
 ---
 
-PLACEHOLDER — **bio explicitly flagged as missing in CLAUDE.md §3.** The brief
-says it was not supplied and instructs that none be written. Request it from
-the client. Her role/title also needs confirming.
+PLACEHOLDER — no bio and no photograph were supplied for Erica Hornstein.
+CLAUDE.md §3 already flagged the missing bio, and the Word document does
+not contain one either. Nothing has been written in her place. Her exact
+title also needs confirming.

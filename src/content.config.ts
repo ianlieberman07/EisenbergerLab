@@ -64,7 +64,17 @@ const papers = defineCollection({
   }),
 });
 
+// Standalone prose blocks that are shared across pages — currently the lab
+// overview, which appears on both /overview and /research.
+const pages = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './content/pages' }),
+  schema: z.object({
+    title: z.string(),
+    needsReview: z.boolean().default(false),
+  }),
+});
+
 // `papers` is intentionally empty: her CV had not arrived, and CLAUDE.md §3 is
 // explicit that citations must never be guessed. The schema and the Papers page
 // are built and will populate the moment real entries exist.
-export const collections = { people, research, papers };
+export const collections = { people, research, papers, pages };
