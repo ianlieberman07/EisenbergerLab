@@ -4,6 +4,7 @@ import { getEntry, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { site } from '../config';
+import headerImage from '../assets/heroes/16-yarn-brain-to-yarn-heart.jpg';
 
 // PLACEHOLDER IMAGE — Shutterstock, unlicensed. See DOCS/QUESTIONS.md #3.
 import portrait from '../assets/heroes/12-paired-hollow-heads-pastel.jpg';
@@ -19,7 +20,12 @@ const { contact } = site;
   title="Overview"
   description="An overview of the Social and Affective Neuroscience Laboratory at UCLA, directed by Naomi Eisenberger."
 >
-  <PageHeader eyebrow="Overview" title="The laboratory" />
+  <PageHeader
+    image={headerImage}
+    imageAlt="A brain outlined in blue yarn, joined by a single thread to a heart wound from red yarn."
+    eyebrow="Overview"
+    title="The laboratory"
+  />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
     <div class="grid gap-16 md:grid-cols-12 md:gap-20">

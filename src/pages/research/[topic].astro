@@ -1,13 +1,12 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
-import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import Notice from '../../components/Notice.astro';
 
-// PLACEHOLDER IMAGE — Shutterstock, unlicensed. Each topic page is meant to get
-// its own hero in the house style; this stands in until licensed art is chosen.
+// Only used if a new topic is created without an image. All four existing
+// topics carry their own. PLACEHOLDER — Shutterstock, unlicensed.
 import fallbackHero from '../../assets/heroes/08-head-ladder-into-mind.jpg';
 
 export const getStaticPaths = (async () => {
@@ -33,22 +32,17 @@ const hero = topic.data.hero ?? fallbackHero;
   title={topic.data.title}
   description={`${topic.data.title} — research in the Social and Affective Neuroscience Laboratory at UCLA.`}
 >
-  <PageHeader eyebrow="Research" title={topic.data.title} />
+  {/* Each topic carries its own image, set per-entry in the CMS. The header
+      renders it behind the title, matching every other section of the site. */}
+  <PageHeader
+    image={hero}
+    imageAlt={topic.data.heroAlt ??
+      'A sage-green sculpted head with a ladder leading up into the open skull.'}
+    eyebrow="Research"
+    title={topic.data.title}
+  />
 
-  <section class="relative mb-(--spacing-section) h-[42svh] min-h-[300px] overflow-hidden md:h-[62svh]">
-    <Image
-      src={hero}
-      alt={topic.data.heroAlt ??
-        'A sage-green sculpted head with a ladder leading up into the open skull.'}
-      widths={[640, 1024, 1600, 2400]}
-      sizes="100vw"
-      loading="lazy"
-      class="h-full w-full object-cover"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-ground via-transparent to-transparent"></div>
-  </section>
-
-  <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
+  <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section) pt-(--spacing-section)">
     {
       topic.data.needsReview && (
         <Notice title="Awaiting client copy">

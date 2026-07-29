@@ -3,6 +3,7 @@ import { getCollection, getEntry, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import { emphasize } from '../../utils/emphasis';
+import headerImage from '../../assets/heroes/02-surreal-brain-landscape.jpg';
 
 // Structured the way the client's reference site (carolinasnhlab.com/overview)
 // does it: a general lab overview up top, then links out to individual topic
@@ -17,7 +18,12 @@ const { Content } = await render(overview!);
   title="Research"
   description="Research in the Social and Affective Neuroscience Laboratory at UCLA: social pain, inflammation, social support and loneliness, and prosocial behavior."
 >
-  <PageHeader eyebrow="Research" title="What we study" />
+  <PageHeader
+    image={headerImage}
+    imageAlt="A giant brain resting on a shoreline beneath a pale teal sky, a lone figure standing beside it."
+    eyebrow="Research"
+    title="What we study"
+  />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
     <div class="reveal prose-lab max-w-(--container-prose)">

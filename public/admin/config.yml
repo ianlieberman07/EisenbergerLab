@@ -10,35 +10,45 @@ backend:
   repo: ianlieberman07/EisenbergerLab
   branch: main
 
-# Edits go live via the normal build. Set to `simple` so there is no
-# draft/review workflow to learn — Save publishes.
+# Lets the admin run against the files on this machine, with no GitHub account
+# and nothing deployed:  npm run admin   (then open /admin)
+# Ignored in production.
+local_backend: true
+
+# Save publishes. No draft/review workflow to learn.
 publish_mode: simple
 
+# Fallback location for any image that isn't attached to a specific collection.
 media_folder: public/uploads
 public_folder: /uploads
 
 collections:
   # ─────────────────────────────────────────────────────────────
+  # Current members. Filtered to status=current, so this list shows exactly
+  # what the People page shows.
   - name: people
     label: Lab Members
     label_singular: Lab member
+    description: >-
+      Everyone currently in the lab. Adding a person here puts them on the People
+      page. To move someone out of the lab, change "Currently in the lab?" to No
+      and they move to Lab Alumni.
     folder: content/people
+    filter: { field: status, value: current }
     create: true
+    delete: true
     slug: '{{slug}}'
-    # Headshots sit beside the bios, matching the ./images/ paths already in use.
     media_folder: images
     public_folder: ./images
     summary: '{{name}} — {{role}}'
     sortable_fields: [order, name]
-    view_groups:
-      - label: Current or alumni
-        field: status
     fields:
       - { name: name, label: Full name, widget: string }
       - {
           name: role,
           label: Title,
           widget: string,
+          default: Lab Member,
           hint: 'For example: Director, Graduate Student, Postdoctoral Fellow.',
         }
       - name: status
@@ -48,14 +58,13 @@ collections:
         options:
           - { label: 'Yes — show on the People page', value: current }
           - { label: 'No — move to Lab Alumni', value: alumni }
-        hint: Switching this to "No" moves the person to the Alumni page.
       - {
           name: order,
           label: Position in the list,
           widget: number,
           default: 10,
           value_type: int,
-          hint: Lower numbers appear first.,
+          hint: Lower numbers appear first. The Director is 1.,
         }
       - {
           name: headshot,
@@ -83,53 +92,99 @@ collections:
           label: Biography,
           widget: markdown,
           required: false,
-          hint: Use italics for emphasis. Paragraphs are separated by a blank line.,
+          hint: Use the italic button for emphasis. Leave a blank line between paragraphs.,
         }
+
+  # ─────────────────────────────────────────────────────────────
+  # Same folder, filtered the other way. Kept as its own list because scrolling
+  # past 26 alumni to find a current member would be miserable.
+  - name: alumni
+    label: Lab Alumni
+    label_singular: Alumnus
+    description: Former lab members. Adding someone here puts them on the Alumni page.
+    folder: content/people
+    filter: { field: status, value: alumni }
+    create: true
+    delete: true
+    slug: 'alumni-{{slug}}'
+    media_folder: images
+    public_folder: ./images
+    summary: '{{name}}'
+    sortable_fields: [order, name]
+    fields:
+      - { name: name, label: Full name, widget: string }
+      - {
+          name: role,
+          label: Where they are now,
+          widget: string,
+          default: Former lab member,
+          hint: 'For example: Assistant Professor at Dartmouth University.',
+        }
+      - name: status
+        label: Currently in the lab?
+        widget: select
+        default: alumni
+        options:
+          - { label: 'Yes — move back to Lab Members', value: current }
+          - { label: 'No — stays on Lab Alumni', value: alumni }
+      - { name: order, label: Position in the list, widget: number, default: 100, value_type: int }
+      - { name: headshot, label: Photograph, widget: image, required: false }
+      - { name: headshotAlt, label: Photo description, widget: string, required: false }
+      - { name: needsReview, label: Mark as incomplete, widget: boolean, default: false }
+      - { name: body, label: Note, widget: markdown, required: false }
 
   # ─────────────────────────────────────────────────────────────
   - name: research
     label: Research Topics
     label_singular: Research topic
+    description: >-
+      The four research pages. Adding one here creates a new page and adds it to
+      the Research index and the home page automatically.
     folder: content/research
     create: true
+    delete: true
     slug: '{{slug}}'
+    media_folder: images
+    public_folder: ./images
     summary: '{{title}}'
     sortable_fields: [order, title]
     fields:
       - { name: title, label: Topic title, widget: string }
-      - {
-          name: order,
-          label: Position in the list,
-          widget: number,
-          default: 10,
-          value_type: int,
-        }
+      - { name: order, label: Position in the list, widget: number, default: 10, value_type: int }
       - {
           name: summary,
           label: Short summary,
           widget: text,
-          hint: One or two sentences. Appears on the Research index card.,
+          hint: One or two sentences, shown on the Research index card.,
         }
-      - { name: hero, label: Header image, widget: image, required: false }
+      - {
+          name: hero,
+          label: Header image,
+          widget: image,
+          required: false,
+          hint: The large image at the top of the topic page.,
+        }
       - { name: heroAlt, label: Image description, widget: string, required: false }
       - { name: needsReview, label: Mark as incomplete, widget: boolean, default: false }
-      - { name: body, label: Full text, widget: markdown }
+      - {
+          name: body,
+          label: Full text,
+          widget: markdown,
+          hint: Use the italic button for emphasis — it is preserved on the site.,
+        }
 
   # ─────────────────────────────────────────────────────────────
   - name: pages
     label: Page Text
+    description: The lab overview, shown on both the Overview and Research pages.
     folder: content/pages
     create: false
+    delete: false
     summary: '{{title}}'
     fields:
       - { name: title, label: Title, widget: string }
       - { name: needsReview, label: Mark as incomplete, widget: boolean, default: false }
-      - {
-          name: body,
-          label: Text,
-          widget: markdown,
-          hint: The lab overview shown on both the Overview and Research pages.,
-        }
+      - { name: body, label: Text, widget: markdown }
 
   # ─────────────────────────────────────────────────────────────
   - name: publications
@@ -138,6 +193,7 @@ collections:
       - name: papers
         label: Publication list
         file: content/papers.json
+        description: Every publication on the Papers page.
         fields:
           - name: papers
             label: Publications
@@ -145,16 +201,34 @@ collections:
             widget: list
             summary: '{{fields.year}} — {{fields.title}}'
             fields:
-              - { name: id, label: Number, widget: number, value_type: int }
+              - {
+                  name: id,
+                  label: Number,
+                  widget: number,
+                  value_type: int,
+                  hint: Just an internal number. Use one higher than the current highest.,
+                }
               - { name: title, label: Title, widget: string }
-              - { name: authors, label: Authors, widget: string }
-              - { name: journal, label: Journal and pages, widget: string, required: false }
+              - {
+                  name: authors,
+                  label: Authors,
+                  widget: string,
+                  hint: 'As they appear in print, e.g. Smith, J., & Eisenberger, N.I.',
+                }
+              - {
+                  name: journal,
+                  label: Journal and pages,
+                  widget: string,
+                  required: false,
+                  hint: 'e.g. Emotion, 26(1), 14-24',
+                }
               - {
                   name: year,
                   label: Year,
                   widget: number,
                   value_type: int,
-                  hint: Use 9999 for papers that are in press.,
+                  default: 2026,
+                  hint: Use 9999 for papers that are in press so they sort to the top.,
                 }
               - { name: inPress, label: In press, widget: boolean, default: false }
               - {
@@ -177,7 +251,12 @@ collections:
                   required: false,
                   hint: Leave blank if no PDF is available.,
                 }
-              - { name: citation, label: Full citation text, widget: text }
+              - {
+                  name: citation,
+                  label: Full citation text,
+                  widget: text,
+                  hint: The complete reference as it should read.,
+                }
 
   # ─────────────────────────────────────────────────────────────
   - name: settings
@@ -186,6 +265,7 @@ collections:
       - name: site
         label: Lab name and contact details
         file: content/site.json
+        description: Appears in the footer and on the Overview page.
         fields:
           - { name: labName, label: Full lab name, widget: string }
           - { name: labNameShort, label: Short name, widget: string }

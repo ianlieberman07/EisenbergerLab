@@ -76,11 +76,30 @@ already served by the live site (verified by checksum), which matches her note
 that the existing image is "fine to leave". It carries whatever licence the lab
 already holds rather than being a new pick.
 
-**Still outstanding:** three Shutterstock images from the inspiration set are
-used as secondary art — `03-busts-facing-erosion` (landing section break),
-`12-paired-hollow-heads-pastel` (overview), and `08-head-ladder-into-mind`
-(fallback hero on all four research topic pages). These are unlicensed and must
-be replaced or licensed. Each topic page is meant to get its own hero anyway.
+**Still outstanding, and now larger in scope.** Every section has its own image
+so no two pages look alike, which means **11 further images from the inspiration
+set are in use** — all Shutterstock, all unlicensed:
+
+| Page | Image |
+|---|---|
+| Landing (section break) | `13-tree-heads-exchanging-birds` |
+| Overview (header / aside) | `16-yarn-brain-to-yarn-heart` / `12-paired-hollow-heads-pastel` |
+| Research index | `02-surreal-brain-landscape` |
+| Social Pain | `03-busts-facing-erosion` |
+| Inflammation | `11-figure-green-water-candle` |
+| Loneliness & Fear Learning | `10-figure-ripples-pale-pink` |
+| Prosocial Behavior | `14-head-doorway-red-heart` |
+| Papers | `06-maze-brain-head-black` |
+| People | `09-wood-head-puzzle-pieces` |
+| Alumni | `05-cave-opening-tree-light` |
+
+They must be licensed or replaced before launch. The upside is that swapping any
+of them is now trivial: the four research images are set per-entry through the
+admin, and the rest are a one-line import each.
+
+**Ask her which of the 17 the lab actually licensed** — that determines how much
+replacement work there is. `MANIFEST.md` keeps the original Shutterstock
+filenames, so each one can be looked up directly.
 
 ### 5. Headshots — five of six supplied
 

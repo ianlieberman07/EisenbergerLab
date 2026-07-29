@@ -1,25 +1,61 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
   eyebrow: string;
   title: string;
   lede?: string;
+  /** Optional atmospheric image behind the title. */
+  image?: ImageMetadata;
+  imageAlt?: string;
 }
-const { eyebrow, title, lede } = Astro.props;
+const { eyebrow, title, lede, image, imageAlt } = Astro.props;
 ---
 
-<header class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section) pt-40 md:pt-52">
-  <p class="reveal text-eyebrow font-medium uppercase text-clay-light">{eyebrow}</p>
-  <h1 class="reveal mt-7 max-w-[18ch] font-display text-display text-bone" data-reveal-delay="100">
-    {title}
-  </h1>
+<header class="relative overflow-hidden">
   {
-    lede && (
-      <p
-        class="reveal mt-9 max-w-(--container-prose) text-lede text-bone-dim"
-        data-reveal-delay="180"
-      >
-        {lede}
-      </p>
+    image && (
+      <div class="absolute inset-0" aria-hidden={imageAlt ? undefined : 'true'}>
+        <Image
+          src={image}
+          alt={imageAlt ?? ''}
+          widths={[640, 1024, 1600, 2400]}
+          sizes="100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="h-full w-full object-cover opacity-75"
+        />
+        {/* Same scrim logic as the landing hero: the left third stays dark
+            enough for bone type to clear WCAG AA however the image crops,
+            while the right stays light enough for the image to actually read.
+            Several of these images are near-black already, so the passes have
+            to stay restrained or they crush to a flat panel. */}
+        <div class="absolute inset-0 bg-gradient-to-r from-ground via-ground/60 to-ground/5" />
+        <div class="absolute inset-0 bg-gradient-to-t from-ground via-transparent to-ground/55" />
+      </div>
     )
   }
+
+  <div
+    class:list={[
+      'relative mx-auto max-w-[110rem] px-(--spacing-gutter)',
+      image ? 'pb-24 pt-48 md:pb-32 md:pt-64' : 'pb-(--spacing-section) pt-40 md:pt-52',
+    ]}
+  >
+    <p class="reveal text-eyebrow font-medium uppercase text-clay-light">{eyebrow}</p>
+    <h1 class="reveal mt-7 max-w-[18ch] font-display text-display text-bone" data-reveal-delay="100">
+      {title}
+    </h1>
+    {
+      lede && (
+        <p
+          class="reveal mt-9 max-w-(--container-prose) text-lede text-bone-dim"
+          data-reveal-delay="180"
+        >
+          {lede}
+        </p>
+      )
+    }
+  </div>
 </header>

@@ -3,6 +3,9 @@ title: Social Support Figures, Loneliness, and Fear Learning
 order: 3
 summary: >-
   Loved ones can reduce our pain and calm our stress responses—a phenomenon known as "social buffering"—but *how* they do this has remained unclear.
+hero: ./images/loneliness.jpg
+heroAlt: >-
+  A solitary pale figure standing in still water, concentric ripples spreading outward across a dusty pink ground.
 needsReview: false
 ---
 

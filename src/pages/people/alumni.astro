@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import Notice from '../../components/Notice.astro';
+import headerImage from '../../assets/heroes/05-cave-opening-tree-light.jpg';
 
 // Pulled from the current live site. Two groups: people who were listed as
 // current lab members there and whom she asked to move to Alumni, and the
@@ -19,7 +20,12 @@ const established = alumni.filter((p) => !p.data.needsReview);
   title="Lab Alumni"
   description="Former members of the Social and Affective Neuroscience Laboratory at UCLA."
 >
-  <PageHeader eyebrow="People" title="Lab alumni" />
+  <PageHeader
+    image={headerImage}
+    imageAlt="A dark cave mouth opening onto a lit tree and a pale green sea beyond."
+    eyebrow="People"
+    title="Lab alumni"
+  />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
     <Notice title="One thing to confirm">

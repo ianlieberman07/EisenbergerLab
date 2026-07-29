@@ -4,6 +4,7 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import Notice from '../../components/Notice.astro';
+import headerImage from '../../assets/heroes/09-wood-head-puzzle-pieces.jpg';
 
 const people = (await getCollection('people'))
   .filter((p) => p.data.status === 'current')
@@ -31,6 +32,8 @@ const initials = (name: string) =>
   description="Current members of the Social and Affective Neuroscience Laboratory at UCLA."
 >
   <PageHeader
+    image={headerImage}
+    imageAlt="A wooden head in profile with puzzle pieces dispersing from it across dark grain."
     eyebrow="People"
     title="Lab members"
     lede="Select any member to read more."

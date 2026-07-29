@@ -18,8 +18,9 @@ A list of sections down the side:
 
 | Section | What it controls |
 |---|---|
-| **Lab Members** | Everyone on the People page, and the Alumni page |
-| **Research Topics** | The four research pages and their summaries |
+| **Lab Members** | Everyone on the People page |
+| **Lab Alumni** | Everyone on the Alumni page |
+| **Research Topics** | The research pages, their summaries and header images |
 | **Page Text** | The lab overview that appears on Overview and Research |
 | **Papers** | The full publication list |
 | **Site Details** | Lab name, director, address, email, phone |
@@ -40,13 +41,23 @@ appear — lower numbers come first.
 If you don't have a photo yet, leave it blank. The card shows their initials
 instead of breaking.
 
+They appear on the People page, and they also get their own page at
+`/people/their-name` automatically.
+
 ### Move someone to Alumni
 
 Open the person and change **Currently in the lab?** to *No — move to Lab
 Alumni*. That's the whole job. They disappear from People and appear on Alumni.
 
-Nobody is ever deleted this way, which is deliberate — it's very hard to lose
+Nothing is deleted this way, which is deliberate — it's very hard to lose
 someone by accident.
+
+### Remove someone completely
+
+Open them and choose **Delete** in the entry menu. Use this for an entry created
+by mistake; for someone who has genuinely left, move them to Alumni instead.
+
+Even a deletion is recoverable — it's stored as a version like everything else.
 
 ### Add a paper
 
@@ -88,12 +99,15 @@ This is the honest boundary. The admin handles **content**. It does not handle
 
 | You want to… | Can you do it here? |
 |---|---|
-| Add/edit/remove a lab member | ✅ Yes |
-| Add/edit/remove a paper | ✅ Yes |
-| Add a new research topic | ✅ Yes |
+| Add a lab member | ✅ Yes |
+| Delete a lab member | ✅ Yes |
+| Move someone to (or back from) Alumni | ✅ Yes |
+| Add, edit or remove a paper | ✅ Yes |
+| Add a whole new research topic page | ✅ Yes |
 | Rewrite any text on the site | ✅ Yes |
-| Replace any photograph | ✅ Yes |
+| Replace any photograph, including headers | ✅ Yes |
 | Update contact details | ✅ Yes |
+| Reorder anyone or anything | ✅ Yes |
 | Add a **brand-new type of page** — a "Join the Lab" page, a news section, a contact form | ❌ Needs a developer |
 | Change the design, colours, or layout | ❌ Needs a developer |
 | Reorganise the navigation menu | ❌ Needs a developer |
@@ -107,10 +121,27 @@ something to wrestle with yourself.
 
 ---
 
-## Setup still required before this works
+## For the developer: trying it before the site is deployed
 
-**The admin page exists but is not yet connected.** It needs two things, both
-one-time jobs for whoever deploys the site:
+The admin can run against the files on this machine, with no GitHub account and
+nothing deployed. In two terminals:
+
+```bash
+npm run admin
+```
+
+```bash
+npm run dev
+```
+
+Then open `http://localhost:4321/admin/` and choose **Work with Local
+Repository**, selecting the repository folder when prompted. Edits write
+straight to `content/`.
+
+## Setup still required before *she* can use it
+
+**The admin page exists but is not yet connected to GitHub.** It needs two
+things, both one-time jobs for whoever deploys the site:
 
 1. **The site has to be deployed** somewhere (Netlify or Cloudflare Pages), which
    depends on the unresolved question of whether UCLA IT will point

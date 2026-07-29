@@ -3,6 +3,9 @@ title: Inflammation and Social Experience
 order: 2
 summary: >-
   If negative social experiences can alter our physiology, does the reverse hold—can the body's immune activity reshape our social world?
+hero: ./images/inflammation.jpg
+heroAlt: >-
+  A pale figure half-submerged in sage-green water, reaching toward a small candle flame.
 needsReview: false
 ---
 

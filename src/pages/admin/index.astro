@@ -1,3 +1,11 @@
+---
+// The admin is a real Astro route rather than a file in public/, so that the
+// clean URL /admin/ resolves in dev, in `astro preview`, and on any host —
+// files in public/ are served as assets and get no directory-index handling.
+//
+// The config it reads still lives at public/admin/config.yml.
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,6 +23,6 @@
       Every save becomes a git commit, which means every edit is revertable and
       the content never leaves this repository.
     -->
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+    <script is:inline src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
   </body>
 </html>

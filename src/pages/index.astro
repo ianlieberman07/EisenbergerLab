@@ -9,7 +9,9 @@ import { site } from '../config';
 // sanlab-brain-cover.jpg served by sanlab.psych.ucla.edu, so it carries whatever
 // licence the lab already holds rather than being a new pick.
 import hero from '../assets/heroes/01-hands-forming-brain-bw.jpg';
-import breakImage from '../assets/heroes/03-busts-facing-erosion.jpg';
+// 03 now belongs to the Social Pain topic page, so the landing break uses the
+// clearest "two entities in relation" image in the set instead.
+import breakImage from '../assets/heroes/13-tree-heads-exchanging-birds.jpg';
 
 const topics = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -108,7 +110,7 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
   <section class="relative h-[55svh] min-h-[380px] overflow-hidden md:h-[75svh]">
     <Image
       src={breakImage}
-      alt="Two pale sculpted busts facing each other above dark still water; one is fracturing into fragments."
+      alt="Two trees shaped as human heads facing one another, with birds flying in an arc between them."
       widths={[640, 1024, 1600, 2400]}
       sizes="100vw"
       loading="lazy"

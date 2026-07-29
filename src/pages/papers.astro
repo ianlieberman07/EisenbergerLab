@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
+import headerImage from '../assets/heroes/06-maze-brain-head-black.jpg';
 
 // Transcribed from her CV (June 2026). Sorted newest first, with "in press"
 // entries — stored as year 9999 so they sort to the top — shown first.
@@ -29,6 +30,8 @@ const scholar = (title: string) =>
   description={`${total} publications from the Social and Affective Neuroscience Laboratory at UCLA, directed by Naomi Eisenberger.`}
 >
   <PageHeader
+    image={headerImage}
+    imageAlt="A white sculpted head, open at the crown to reveal a maze in place of a brain."
     eyebrow="Publications"
     title="Papers"
     lede={`${total} publications. Search by title, author, or journal, or filter by period.`}
