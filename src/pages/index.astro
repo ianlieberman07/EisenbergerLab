@@ -13,7 +13,6 @@ import hero from '../assets/heroes/01-hands-forming-brain-bw.jpg';
 import breakImage from '../assets/heroes/17-gears-heads-blue-red.jpg';
 
 const topics = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
-const { contact } = site;
 ---
 
 <Base
@@ -21,61 +20,83 @@ const { contact } = site;
   description="The Social and Affective Neuroscience Laboratory at UCLA, directed by Naomi Eisenberger, studies how social connection and disconnection shape the brain and the body."
   transparentHeader
 >
-  {/* Split hero. The image previously filled the frame and was cropped hard by
-      object-cover, which cut the brain silhouette down to a mass of fingers —
-      contained in its own column, the hands-forming-a-brain reads properly.
-      It also lets the director's name and contact details sit within the first
-      screen instead of below the fold. */}
-  <section class="relative overflow-hidden">
+  {/* Hero: the cover image full-bleed and centred, as before — but `contain`
+      rather than `cover`, so the whole brain-of-hands is visible instead of
+      being cropped down to a mass of fingers. `screen` blending drops the
+      photograph's pure-black ground into the page's warm charcoal so there is
+      no visible black box around it. */}
+  {/* No `isolate` here: isolation would trap the blend in its own stacking
+      context, leaving the photograph's black ground painting over the page
+      instead of screening into it. */}
+  <section class="relative min-h-[100svh] overflow-hidden">
+    {/* `bg-ground` is load-bearing, not decoration: mix-blend-mode blends with
+        its backdrop, and the body's background propagates to the viewport
+        canvas, which is NOT part of the blending group. Without a painted
+        backdrop here the photograph's black ground renders as a visible black
+        rectangle instead of screening into the page. */}
+    <div class="absolute inset-0 hidden bg-ground lg:block">
+      <Image
+        src={hero}
+        alt="A brain formed from many interlocking human hands, photographed in black and white against a dark ground."
+        widths={[800, 1200, 1800, 2400]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="h-full w-full object-contain object-center p-[7vh] mix-blend-screen"
+      />
+      {/* Only a whisper of a global scrim — anything heavier smothers the
+           photograph. The type's contrast is handled by a local plate below. */}
+      <div class="absolute inset-0 bg-gradient-to-r from-ground/80 via-transparent to-transparent">
+      </div>
+    </div>
+
     <div
-      class="mx-auto grid min-h-[100svh] max-w-[110rem] items-center gap-x-14 gap-y-5 px-(--spacing-gutter) pb-12 pt-24 lg:gap-y-8 lg:pb-16 lg:pt-24 lg:grid-cols-[1.06fr_1fr]"
+      class="relative mx-auto flex min-h-[100svh] max-w-[110rem] flex-col justify-center gap-6 px-(--spacing-gutter) pb-14 pt-24"
     >
-      <div class="order-2 lg:order-1">
-        <p class="reveal text-eyebrow font-medium uppercase text-clay-light">
+      {/* Small screens get the image inline instead of behind the type —
+          overlaying it on a phone leaves neither the picture nor the words
+          enough room. */}
+      <div class="reveal bg-ground lg:hidden" data-reveal-delay="80">
+        <Image
+          src={hero}
+          alt=""
+          widths={[480, 800, 1200]}
+          sizes="88vw"
+          loading="eager"
+          class="mx-auto max-h-[30svh] w-full object-contain mix-blend-screen"
+        />
+      </div>
+
+      {/* Local contrast plate. The hero type sits over the brightest part of
+          the photograph, where bone-on-hands falls well below WCAG AA. A
+          gradient scoped to the text block fixes that without dimming the
+          image the way a full-width scrim does. */}
+      <div class="relative max-w-[46rem]">
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute -inset-x-10 -inset-y-8 hidden bg-gradient-to-r from-ground via-ground/90 to-transparent lg:block"
+        >
+        </div>
+
+        <p class="reveal relative text-eyebrow font-medium uppercase text-clay-light">
           University of California, Los Angeles
         </p>
 
         <h1
-          class="reveal mt-6 max-w-[15ch] font-display text-hero text-bone"
+          class="reveal relative mt-6 max-w-[15ch] font-display text-hero text-bone"
           data-reveal-delay="120"
         >
           Social &amp; Affective Neuroscience Laboratory
         </h1>
 
-        <div
-          class="reveal mt-6 border-t border-bone/15 pt-5 lg:mt-8 lg:pt-7"
-          data-reveal-delay="240"
-        >
+        <div class="reveal relative mt-8 border-t border-bone/15 pt-7" data-reveal-delay="240">
           <p class="text-lede text-bone-dim">
             Directed by <span class="text-bone">{site.director}</span>
           </p>
 
-          {/* Contact sits with her name, per the client. */}
-          <div
-            class="mt-4 flex flex-col gap-x-12 gap-y-2 text-[0.95rem] leading-relaxed text-bone-muted sm:flex-row lg:mt-6 lg:gap-y-3"
-          >
-            <address class="not-italic">
-              {contact.addressLines.map((line) => <div>{line}</div>)}
-            </address>
-            <div class="flex flex-col gap-1">
-              <a
-                href={`mailto:${contact.email}`}
-                class="transition-colors duration-400 hover:text-bone"
-              >
-                {contact.email}
-              </a>
-              <a
-                href={`tel:+1${contact.phone.replace(/\D/g, '')}`}
-                class="transition-colors duration-400 hover:text-bone"
-              >
-                {contact.phone}
-              </a>
-            </div>
-          </div>
-
           <a
             href="/research"
-            class="group mt-7 inline-flex items-center gap-3 text-eyebrow font-medium uppercase text-bone transition-colors duration-500 hover:text-clay-light lg:mt-9"
+            class="group mt-8 inline-flex items-center gap-3 text-eyebrow font-medium uppercase text-bone transition-colors duration-500 hover:text-clay-light"
           >
             Enter the site
             <span
@@ -84,21 +105,6 @@ const { contact } = site;
             ></span>
           </a>
         </div>
-      </div>
-
-      <div class="reveal order-1 lg:order-2" data-reveal-delay="80">
-        {/* `screen` blending drops the photograph's pure-black ground into the
-            page's warm charcoal, so the hands sit on the page rather than in a
-            visible black box. */}
-        <Image
-          src={hero}
-          alt="A brain formed from many interlocking human hands, photographed in black and white against a dark ground."
-          widths={[480, 800, 1200, 1800]}
-          sizes="(min-width: 1024px) 46vw, 88vw"
-          loading="eager"
-          fetchpriority="high"
-          class="mx-auto max-h-[22svh] w-full object-contain mix-blend-screen sm:max-h-[30svh] lg:max-h-[74svh]"
-        />
       </div>
     </div>
   </section>
@@ -134,17 +140,20 @@ const { contact } = site;
     </div>
   </section>
 
-  <!-- ══ FULL-BLEED BREAK ══ -->
-  <section class="relative h-[48svh] min-h-[320px] overflow-hidden md:h-[64svh]">
+  {/* Full-bleed break. Given its natural height rather than a fixed one, so
+      both heads stay in frame — cropping it to a band cut the composition in
+      half and left a hard seam. `screen` blending turns the artwork's black
+      ground into the page's charcoal, so it dissolves into the page instead of
+      sitting in a rectangle, and no scrim gradient is needed on top. */}
+  <section class="relative overflow-hidden bg-ground">
     <Image
       src={breakImage}
       alt="Two facing head profiles built from interlocking gears — one warm orange, one red — with gears streaming through the air between them."
       widths={[640, 1024, 1600, 2600]}
       sizes="100vw"
       loading="lazy"
-      class="h-full w-full object-cover object-center"
+      class="h-auto w-full mix-blend-screen"
     />
-    <div class="absolute inset-0 bg-gradient-to-t from-ground via-transparent to-ground/40"></div>
   </section>
 
   <!-- ══ RESEARCH INDEX ══ -->
