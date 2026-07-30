@@ -3,14 +3,15 @@
   {
    "id": 205,
    "citation": "Hernández, J.*, Uy, J., Eisenberger, N., Galván, A., & Fuligni, A. (in press). Neural representations of the value of helping the family during adolescence. Developmental Cognitive Neuroscience.",
-   "authors": "Hernández, J., Uy, J., Eisenberger, N., Galván, A., & Fuligni, A.",
+   "authors": "Hernández, J., Uy, J., Eisenberger, N.I., Galván, A., Telzer, E.H., & Fuligni, A.J.",
    "title": "Neural representations of the value of helping the family during adolescence",
    "journal": "Developmental Cognitive Neuroscience",
    "year": 9999,
    "inPress": true,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.dcn.2026.101770",
-   "pdf": "https://doi.org/10.1016/j.dcn.2026.101770"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 204,
@@ -22,19 +23,21 @@
    "inPress": true,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1177/09637214261459027",
-   "pdf": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13348770/"
+   "pdf": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13348770/",
+   "openAccess": true
   },
   {
    "id": 203,
    "citation": "Ricon-Becker I.*, Blades, R.B., Boyle, C.C., Korecki, J.R.T., Fuligni, A. Eisenbeger, N.I., Cole, S.W., Bower, J.E. (in press). CREB gene regulation as a blood biomarker of neural sensitivity to social threat. Brain, Behavior, and Immunity.",
-   "authors": "Ricon-Becker I., Blades, R.B., Boyle, C.C., Korecki, J.R.T., Fuligni, A. Eisenbeger, N.I., Cole, S.W., Bower, J.E.",
+   "authors": "Ricon-Becker, I., Blades, R.B., Boyle, C.C., Korecki, J.R.T., Fuligni, A., Eisenberger, N.I., Cole, S.W., & Bower, J.E.",
    "title": "CREB gene regulation as a blood biomarker of neural sensitivity to social threat",
    "journal": "Brain, Behavior, and Immunity",
    "year": 9999,
    "inPress": true,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2026.106570",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 202,
@@ -46,7 +49,8 @@
    "inPress": true,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1038/s41398-025-03752-2",
-   "pdf": "https://doi.org/10.1038/s41398-025-03752-2"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 201,
@@ -58,7 +62,8 @@
    "inPress": true,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1038/s41598-025-27689-0",
-   "pdf": "https://doi.org/10.1038/s41598-025-27689-0"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 200,
@@ -70,7 +75,8 @@
    "inPress": true,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1037/xge0001841",
-   "pdf": "https://doi.org/10.1037/xge0001841"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 199,
@@ -82,55 +88,60 @@
    "inPress": true,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1002/jad.70128",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 198,
    "citation": "Naclerio, M.*, Lazar, L.*, Horstein, E.A.*, & Eisenberger, N.I. (2026). Exploring the effects of prosocial and self-kindness interventions on mental health outcomes. Emotion, 26(1), 14-24.",
-   "authors": "Naclerio, M., Lazar, L., Horstein, E.A., & Eisenberger, N.I.",
+   "authors": "Naclerio, M., Lazar, L., Hornstein, E.A., & Eisenberger, N.I.",
    "title": "Exploring the effects of prosocial and self-kindness interventions on mental health outcomes",
    "journal": "Emotion, 26(1), 14-24",
    "year": 2026,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1037/emo0001577",
-   "pdf": "https://doi.org/10.1037/emo0001577"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 197,
    "citation": "Blades, R.*, Eisenberger, N.I., Cole, S. W., Boyle, C. C., Korecki, T., & Bower, J. E. (2026). Neural mechanisms of mindfulness: Reduced neural reactivity to social-evaluative threat accounts for mindfulness intervention effects on a genomic marker of inflammation. Brain, Behavior, & Immunity, 133, 106284.",
-   "authors": "Blades, R., Eisenberger, N.I., Cole, S. W., Boyle, C. C., Korecki, T., & Bower, J. E.",
+   "authors": "Blades, R., Boyle, C., Eisenberger, N., Cole, S., Korecki, J., Fuligni, A., & Bower, J.",
    "title": "Neural mechanisms of mindfulness: Reduced neural reactivity to social-evaluative threat accounts for mindfulness intervention effects on a genomic marker of inflammation",
    "journal": "Brain, Behavior, & Immunity, 133, 106284",
    "year": 2026,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2026.106284",
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 196,
    "citation": "Boyle, C. C.*, Rahal, D., Eisenberger, N.I., Meinert, J., Ko, V., & Irwin, M. R. (2026). Consummatory deficits in close social reward predict inflammation-induced depressed mood. Psychoneuroendocrinology, 183, 107673.",
-   "authors": "Boyle, C. C., Rahal, D., Eisenberger, N.I., Meinert, J., Ko, V., & Irwin, M. R.",
+   "authors": "Boyle, C.C., Rahal, D., Meinert, J., Ko, V., Olmstead, R., Eisenberger, N.I., & Irwin, M.R.",
    "title": "Consummatory deficits in close social reward predict inflammation-induced depressed mood",
    "journal": "Psychoneuroendocrinology, 183, 107673",
    "year": 2026,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.psyneuen.2025.107673",
-   "pdf": "https://escholarship.org/uc/item/4615t0v6"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12815411/",
+   "openAccess": true
   },
   {
    "id": 195,
    "citation": "McManus, K.R.*, Grodin, E.N., Burnette, E., Castillo, Y., Miotto, K., Irwin, M.R., Eisenberger, N.I., & Ray, LA. (2025). Inflammatory endotoxin challenge in individuals with alcohol use disorder and controls. Alcohol, Clinical and Experimental Research, 49(7), 1473-1488.",
-   "authors": "McManus, K.R., Grodin, E.N., Burnette, E., Castillo, Y., Miotto, K., Irwin, M.R., Eisenberger, N.I., & Ray, LA.",
+   "authors": "McManus, K.R., Grodin, E.N., Burnette, E., Castillo, Y., Miotto, K., Irwin, M.R., Eisenberger, N., & Ray, L.A.",
    "title": "Inflammatory endotoxin challenge in individuals with alcohol use disorder and controls",
    "journal": "Alcohol, Clinical and Experimental Research, 49(7), 1473-1488",
    "year": 2025,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1111/acer.70090",
-   "pdf": "https://pubmed.ncbi.nlm.nih.gov/40451996/"
+   "pdf": "https://pubmed.ncbi.nlm.nih.gov/40451996/",
+   "openAccess": true
   },
   {
    "id": 194,
@@ -141,8 +152,9 @@
    "year": 2025,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1001/jamapsychiatry.2025.1327",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12268530",
+   "openAccess": true
   },
   {
    "id": 193,
@@ -154,7 +166,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.scog.2025.100367",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12149646"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12149646",
+   "openAccess": true
   },
   {
    "id": 192,
@@ -166,19 +179,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1111/nyas.15330",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 191,
    "citation": "Sahi, R.*, Eisenberger, N.I., & Silvers, J. (2025). You changed my mind: Immediate and enduring impacts of social emotion regulation. Emotion, 25(2), 330-339.",
-   "authors": "Sahi, R., Eisenberger, N.I., & Silvers, J.",
+   "authors": "Sahi, R.S., Gaines, E.M., Nussbaum, S.G., Lee, D., Lieberman, M.D., Eisenberger, N.I., & Silvers, J.A.",
    "title": "You changed my mind: Immediate and enduring impacts of social emotion regulation",
    "journal": "Emotion, 25(2), 330-339",
    "year": 2025,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1037/emo0001284",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 190,
@@ -190,7 +205,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1038/s41537-024-00511-y",
-   "pdf": "https://escholarship.org/uc/item/0jh440tj"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11455897/",
+   "openAccess": true
   },
   {
    "id": 189,
@@ -201,8 +217,9 @@
    "year": 2024,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1371/journal.pone.0303895",
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 188,
@@ -214,7 +231,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1017/s0033291724000102",
-   "pdf": "https://escholarship.org/uc/item/09z3q11v"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11413338/",
+   "openAccess": true
   },
   {
    "id": 187,
@@ -226,7 +244,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1177/15500594231222979",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/11693041"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/11693041",
+   "openAccess": true
   },
   {
    "id": 186,
@@ -238,19 +257,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbih.2024.100840",
-   "pdf": "https://escholarship.org/uc/item/413385nh"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11381881/",
+   "openAccess": true
   },
   {
    "id": 185,
    "citation": "Hornstein, E.A.*, Leschak, C.J., Parrish, M., Haltom, K.E.B., Fanselow, MS., Craske, M.G. & Eisenberger, N.I. (2024). Social support and fear inhibition: an examination of underlying mechanisms. Social Cognitive and Affective Neuroscience, 19(1), 1-10.",
-   "authors": "Hornstein, E.A., Leschak, C.J., Parrish, M., Haltom, K.E.B., Fanselow, MS., Craske, M.G. & Eisenberger, N.I.",
+   "authors": "Hornstein, E., Leschak, C.J., Parrish, M.H., Byrne-Haltom, K.E., Fanselow, M.S., Craske, M.G., & Eisenberger, N.I.",
    "title": "Social support and fear inhibition: an examination of underlying mechanisms",
    "journal": "Social Cognitive and Affective Neuroscience, 19(1), 1-10",
    "year": 2024,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsae002",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/10868130"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/10868130",
+   "openAccess": true
   },
   {
    "id": 184,
@@ -262,7 +283,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1037/emo0001326",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 183,
@@ -274,7 +296,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.neubiorev.2023.105307",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12273880"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12273880",
+   "openAccess": true
   },
   {
    "id": 182,
@@ -286,7 +309,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.dcn.2023.101262",
-   "pdf": "https://escholarship.org/uc/item/2x3801m3"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10276262/",
+   "openAccess": true
   },
   {
    "id": 181,
@@ -298,19 +322,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1162/jocn_a_02024",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12050107"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12050107",
+   "openAccess": true
   },
   {
    "id": 180,
    "citation": "Rahal, D.*, Tashijan, S.M., Karan, M., Galvan, A., Eisenberger, N.I., Fuligni, A.J., Hastings, P.D., & Cole, S.W. (2023). Positive and negative emotion are associated with generalized transcriptional activation in immune cells. Psychoneuroendocrinology, 153, 106103.",
-   "authors": "Rahal, D., Tashijan, S.M., Karan, M., Galvan, A., Eisenberger, N.I., Fuligni, A.J., Hastings, P.D., & Cole, S.W.",
+   "authors": "Rahal, D., Tashjian, S.M., Karan, M., Eisenberger, N., Galván, A., Fuligni, A.J., Hastings, P.D., & Cole, S.W.",
    "title": "Positive and negative emotion are associated with generalized transcriptional activation in immune cells",
    "journal": "Psychoneuroendocrinology, 153, 106103",
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.psyneuen.2023.106103",
-   "pdf": "https://escholarship.org/uc/item/6w80v1x4"
+   "pdf": "https://escholarship.org/uc/item/6w80v1x4",
+   "openAccess": true
   },
   {
    "id": 179,
@@ -322,7 +348,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1371/journal.pone.0284161",
-   "pdf": "https://escholarship.org/uc/item/7p5962g2"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10079127/",
+   "openAccess": true
   },
   {
    "id": 178,
@@ -334,7 +361,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.bbih.2023.100601",
-   "pdf": "https://escholarship.org/uc/item/3tw138h8"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9984307/",
+   "openAccess": true
   },
   {
    "id": 177,
@@ -346,7 +374,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbih.2023.100588",
-   "pdf": "https://escholarship.org/uc/item/6x07m9cq"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9853307/",
+   "openAccess": true
   },
   {
    "id": 176,
@@ -358,7 +387,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1037/emo0001194",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 175,
@@ -370,7 +400,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1037/emo0001179",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 174,
@@ -382,7 +413,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.neuropsychologia.2022.108374",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12050106"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12050106",
+   "openAccess": true
   },
   {
    "id": 173,
@@ -393,20 +425,22 @@
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/s41598-022-16364-3",
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 172,
    "citation": "Karan, M.*, Lazar, L.*, Leschak, C.J., Galvan, A., Eisenberger, N.I., Phuong Uy, J., Dieffenbach, M.C., Crone, E.A., Telzer, E.H., & Fuligni, A.J. (2022). Giving to others and neural processing during adolescence. Developmental Cognitive Neuroscience, 56, 101128.",
-   "authors": "Karan, M., Lazar, L., Leschak, C.J., Galvan, A., Eisenberger, N.I., Phuong Uy, J., Dieffenbach, M.C., Crone, E.A., Telzer, E.H., & Fuligni, A.J.",
+   "authors": "Karan, M., Lazar, L., Leschak, C.J., Galván, A., Eisenberger, N.I., Uy, J.P., Dieffenbach, M.C., Crone, E.A., Telzer, E.H., & Fuligni, A.J.",
    "title": "Giving to others and neural processing during adolescence",
    "journal": "Developmental Cognitive Neuroscience, 56, 101128",
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.dcn.2022.101128",
-   "pdf": "https://escholarship.org/uc/item/7sh2z5sg"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9249997/",
+   "openAccess": true
   },
   {
    "id": 171,
@@ -418,19 +452,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1037/emo0000925",
-   "pdf": "https://doi.org/10.1037/emo0000925"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 170,
    "citation": "Parrish, M.H.*, Dutcher, J.M., Muscatell, K.A., Inagaki, T.K., Irwin, M.R., Eisenberger, N.I. (2022). Frontostriatal functional connectivity underlies self-enhancement during social evaluation. Social Cognitive and Affective Neuroscience, 17(8), 723-731.",
-   "authors": "Parrish, M.H., Dutcher, J.M., Muscatell, K.A., Inagaki, T.K., Irwin, M.R., Eisenberger, N.I.",
+   "authors": "Parrish, M.H., Dutcher, J.M., Muscatell, K.A., Inagaki, T.K., Moieni, M., Irwin, M.R., & Eisenberger, N.I.",
    "title": "Frontostriatal functional connectivity underlies self-enhancement during social evaluation",
    "journal": "Social Cognitive and Affective Neuroscience, 17(8), 723-731",
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsab139",
-   "pdf": "https://escholarship.org/uc/item/7xj8c1kv"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9340112/",
+   "openAccess": true
   },
   {
    "id": 169,
@@ -442,19 +478,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.brat.2022.104101",
-   "pdf": "https://escholarship.org/uc/item/51h8f5h7"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9013316/",
+   "openAccess": true
   },
   {
    "id": 168,
    "citation": "Leschak, C.J.*, Hornstein, E.A., Haltom, K.E.B., Johnson, K.L., & Eisenberger, N.I. (2022). Ventromedial prefrontal cortex activity as an indicator of safety in sickness detection: Associations with inflammatory responses and disease avoidance motivation. Brain, Behavior, and Immunity, 100, 48-54.",
-   "authors": "Leschak, C.J., Hornstein, E.A., Haltom, K.E.B., Johnson, K.L., & Eisenberger, N.I.",
+   "authors": "Leschak, C.J., Hornstein, E.A., Byrne Haltom, K.E., Johnson, K.L., Breen, E.C., Irwin, M.R., & Eisenberger, N.I.",
    "title": "Ventromedial prefrontal cortex activity as an indicator of safety in sickness detection: Associations with inflammatory responses and disease avoidance motivation",
    "journal": "Brain, Behavior, and Immunity, 100, 48-54",
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2021.11.011",
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 167,
@@ -466,7 +504,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.biopsych.2021.11.017",
-   "pdf": "https://doi.org/10.1016/j.biopsych.2021.11.017"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 166,
@@ -478,7 +517,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1111/psyp.13954",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 165,
@@ -489,8 +529,9 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1080/08870446.2021.2003797",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9291725/",
+   "openAccess": true
   },
   {
    "id": 164,
@@ -501,8 +542,9 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1017/s0033291721004104",
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 163,
@@ -514,7 +556,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/alcalc/agaa148",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/8557676"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/8557676",
+   "openAccess": true
   },
   {
    "id": 162,
@@ -526,7 +569,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.neubiorev.2021.08.030",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 161,
@@ -538,19 +582,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2021.08.229",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 160,
    "citation": "Sahi, R.S.*, Weaverdyck, M.E, Parkinson, C., & Eisenberger, N.I. (2021). Mental health benefits of having more virtual interaction partners during COVID-19 physical distancing measures. Scientific Reports, 11, 18273.",
-   "authors": "Sahi, R.S., Weaverdyck, M.E, Parkinson, C., & Eisenberger, N.I.",
+   "authors": "Sahi, R.S., Schwyck, M.E., Parkinson, C., & Eisenberger, N.I.",
    "title": "Mental health benefits of having more virtual interaction partners during COVID-19 physical distancing measures",
    "journal": "Scientific Reports, 11, 18273",
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/s41598-021-97421-1",
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 159,
@@ -561,8 +607,9 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.20900/jpbs.20210010",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8298022/",
+   "openAccess": true
   },
   {
    "id": 158,
@@ -574,7 +621,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2021.04.019",
-   "pdf": "https://doi.org/10.1016/j.bbi.2021.04.019"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 157,
@@ -585,8 +633,9 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/1745691620952789",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8114333/",
+   "openAccess": true
   },
   {
    "id": 156,
@@ -598,7 +647,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1371/journal.pone.0246753",
-   "pdf": "https://escholarship.org/uc/item/1q93f3s7"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7872251/",
+   "openAccess": true
   },
   {
    "id": 155,
@@ -610,19 +660,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.psyneuen.2020.105114",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 154,
    "citation": "Tashijan, S.M.*, Rahal, D., Karan, M., Eisenberger, N.I., Galvan, A., Cole, S.W. & Fuligni, A.J. (2021). Evidence from a randomized controlled trial that altruism moderates the effect of prosocial acts on adolescent well-being. Journal of Youth and Adolescence, 50(1), 29-43.",
-   "authors": "Tashijan, S.M., Rahal, D., Karan, M., Eisenberger, N.I., Galvan, A., Cole, S.W. & Fuligni, A.J.",
+   "authors": "Tashjian, S.M., Rahal, D., Karan, M., Eisenberger, N., Galván, A., Cole, S.W., & Fuligni, A.J.",
    "title": "Evidence from a randomized controlled trial that altruism moderates the effect of prosocial acts on adolescent well-being",
    "journal": "Journal of Youth and Adolescence, 50(1), 29-43",
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1007/s10964-020-01362-3",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/8039084"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/8039084",
+   "openAccess": true
   },
   {
    "id": 153,
@@ -633,8 +685,9 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/geronb/gbaa022",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/7813180",
+   "openAccess": true
   },
   {
    "id": 152,
@@ -645,8 +698,9 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1007/978-3-030-51890-5_32",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 151,
@@ -658,7 +712,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1038/s41386-020-0735-7",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/7419294"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/7419294",
+   "openAccess": true
   },
   {
    "id": 150,
@@ -670,7 +725,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.bbi.2020.06.011",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 149,
@@ -682,7 +738,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsaa042",
-   "pdf": "https://escholarship.org/uc/item/1n03b2jn"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7657454/",
+   "openAccess": true
   },
   {
    "id": 148,
@@ -694,7 +751,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsz103",
-   "pdf": "https://escholarship.org/uc/item/4mp5j2rd"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7657448/",
+   "openAccess": true
   },
   {
    "id": 147,
@@ -706,7 +764,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1002/9781119057840.ch121",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 146,
@@ -717,20 +776,22 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.7551/mitpress/11442.003.0105",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 145,
    "citation": "Korisky, A.*, Eisenberger, N.I., Nevat, M., Weisman-Fogel, I., Shamay-Tsoory, S.G. (2020). A dual-brain approach for understanding the neural mechanisms that underlie the consoling effects of human touch. Cortex, 127, 333-346.",
-   "authors": "Korisky, A., Eisenberger, N.I., Nevat, M., Weisman-Fogel, I., Shamay-Tsoory, S.G.",
+   "authors": "Korisky, A., Eisenberger, N.I., Nevat, M., Weissman-Fogel, I., Shamay-Tsoory, S.G.",
    "title": "A dual-brain approach for understanding the neural mechanisms that underlie the consoling effects of human touch",
    "journal": "Cortex, 127, 333-346",
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.cortex.2020.01.028",
+   "pdf": "https://escholarship.org/uc/item/556685gt",
+   "openAccess": true
   },
   {
    "id": 144,
@@ -742,19 +803,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.3389/fnins.2020.00011",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/7033443"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/7033443",
+   "openAccess": true
   },
   {
    "id": 143,
    "citation": "Moieni, M.*, Seeman, T.E., Irwin, M.R., Robles, T.F., Lieberman, M.D., Breen, E.C., Okimoto, S., Lengacher, C., Arevalo, J.M.G., Ma, J., Cole, S.W., Eisenberger, N.I. (2020). Feeling needed: effects of a randomized generativity intervention on well-being and inflammation in older women. Brain, Behavior, and Immunity, 84, 97-105.",
-   "authors": "Moieni, M., Seeman, T.E., Irwin, M.R., Robles, T.F., Lieberman, M.D., Breen, E.C., Okimoto, S., Lengacher, C., Arevalo, J.M.G., Ma, J., Cole, S.W., Eisenberger, N.I.",
+   "authors": "Moieni, M., Irwin, M.R., Seeman, T.E., Robles, T.F., Lieberman, M.D., Breen, E.C., Okimoto, S., Lengacher, C., Arevalo, J.M., Olmstead, R., Cole, S.W., & Eisenberger, N.I.",
    "title": "Feeling needed: effects of a randomized generativity intervention on well-being and inflammation in older women",
    "journal": "Brain, Behavior, and Immunity, 84, 97-105",
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2019.11.014",
-   "pdf": "https://escholarship.org/uc/item/7xj2m055"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7010547/",
+   "openAccess": true
   },
   {
    "id": 142,
@@ -766,7 +829,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1002/wps.20724",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6953558"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6953558",
+   "openAccess": true
   },
   {
    "id": 141,
@@ -778,7 +842,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.bbi.2019.09.023",
-   "pdf": "https://escholarship.org/uc/item/9138z7fj"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7324155/",
+   "openAccess": true
   },
   {
    "id": 140,
@@ -790,7 +855,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.3389/fpsyg.2019.02167",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6781934"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6781934",
+   "openAccess": true
   },
   {
    "id": 139,
@@ -801,8 +867,9 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1097/psy.0000000000000741",
+   "pdf": "https://escholarship.org/uc/item/3n5056t8",
+   "openAccess": true
   },
   {
    "id": 138,
@@ -814,7 +881,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1097/psy.0000000000000685",
-   "pdf": "https://escholarship.org/uc/item/7gv3c4m0"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7025456/",
+   "openAccess": true
   },
   {
    "id": 137,
@@ -826,43 +894,47 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.psyneuen.2019.104371",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6842695"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6842695",
+   "openAccess": true
   },
   {
    "id": 136,
    "citation": "Moeini, M., Tan, K.M., Inagaki, T.K., Muscatell, K.A., Dutcher, J.M., Jevtic, I., Breen E.C., Irwin, M.R., Eisenberger, N.I. (2019). Sex differences in the relationship between inflammation and reward sensitivity: A randomized trial of endotoxin. Biological Psychiatry: Cognitive Neuroscience and Neuroimaging, 4, 619-626.",
-   "authors": "Moeini, M., Tan, K.M., Inagaki, T.K., Muscatell, K.A., Dutcher, J.M., Jevtic, I., Breen E.C., Irwin, M.R., Eisenberger, N.I.",
+   "authors": "Moieni, M., Tan, K.M., Inagaki, T.K., Muscatell, K.A., Dutcher, J.M., Jevtic, I., Breen, E.C., Irwin, M.R., & Eisenberger, N.I.",
    "title": "Sex differences in the relationship between inflammation and reward sensitivity: A randomized trial of endotoxin",
    "journal": "Biological Psychiatry: Cognitive Neuroscience and Neuroimaging, 4, 619-626",
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.bpsc.2019.03.010",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6612452"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6612452",
+   "openAccess": true
   },
   {
    "id": 135,
    "citation": "Moieni, M.*, Haltom, K.E.B., Jevtic, I., Meyer, M.L., Breen, E.C., Cole, S.W., Eisenberger, N.I. (2019). Exploring the role of gratitude and support-giving on inflammatory outcomes. Emotion, 19, 939-949.",
-   "authors": "Moieni, M., Haltom, K.E.B., Jevtic, I., Meyer, M.L., Breen, E.C., Cole, S.W., Eisenberger, N.I.",
+   "authors": "Moieni, M., Irwin, M.R., Haltom, K.E.B., Jevtic, I., Meyer, M.L., Breen, E.C., Cole, S.W., & Eisenberger, N.I.",
    "title": "Exploring the role of gratitude and support-giving on inflammatory outcomes",
    "journal": "Emotion, 19, 939-949",
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1037/emo0000472",
-   "pdf": "https://doi.org/10.1037/emo0000472"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 134,
    "citation": "Tabak, B.A., Teed, A.R., Castle, E., Dutcher, J.M., Meyer, M.L., Irwin, M.R., Lieberman, M.D., & Eisenberger, N.I. (2019). Null results of oxytocin and vasopressin administration across a range of social cognitive and behavioral paradigms: Results from a randomized controlled trial. Psychoneuroendocrinology, 107, 124-132.",
-   "authors": "Tabak, B.A., Teed, A.R., Castle, E., Dutcher, J.M., Meyer, M.L., Irwin, M.R., Lieberman, M.D., & Eisenberger, N.I.",
+   "authors": "Tabak, B.A., Teed, A.R., Castle, E., Dutcher, J.M., Meyer, M.L., Bryan, R., Irwin, M.R., Lieberman, M.D., & Eisenberger, N.I.",
    "title": "Null results of oxytocin and vasopressin administration across a range of social cognitive and behavioral paradigms: Results from a randomized controlled trial",
    "journal": "Psychoneuroendocrinology, 107, 124-132",
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.psyneuen.2019.04.019",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6687062"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6687062",
+   "openAccess": true
   },
   {
    "id": 133,
@@ -874,7 +946,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1038/s41386-019-0316-9",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6462041"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6462041",
+   "openAccess": true
   },
   {
    "id": 132,
@@ -886,19 +959,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.psyneuen.2019.01.024",
-   "pdf": "https://escholarship.org/uc/item/9nz9j9fx"
+   "pdf": "https://escholarship.org/uc/item/9nz9j9fx",
+   "openAccess": true
   },
   {
    "id": 131,
    "citation": "Irwin, M.R., Olmstead, R., Breen, E.C., Cho, H.J., Cole, S. & Eisenberger, N.I. (2019). Moderators for depressed mood and systemic and transcriptional inflammatory responses: A randomized controlled trial of endotoxin. Neuropsychopharmacology, 44(3), 635-641.",
-   "authors": "Irwin, M.R., Olmstead, R., Breen, E.C., Cho, H.J., Cole, S. & Eisenberger, N.I.",
+   "authors": "Irwin, M.R., Cole, S., Olmstead, R., Breen, E.C., Cho, J.J., Moieni, M., & Eisenberger, N.I.",
    "title": "Moderators for depressed mood and systemic and transcriptional inflammatory responses: A randomized controlled trial of endotoxin",
    "journal": "Neuropsychopharmacology, 44(3), 635-641",
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1038/s41386-018-0259-6",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6333799"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6333799",
+   "openAccess": true
   },
   {
    "id": 130,
@@ -910,19 +985,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.biopsycho.2018.10.007",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6295662"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6295662",
+   "openAccess": true
   },
   {
    "id": 129,
    "citation": "Dooley, L.N.*, Kulhlman, K.R., Robles, T.F., Eisenberger, N.I., Craske, M.G., & Bower, J.E. (2018). The role of inflammation in core processes of depression: An endophenotype approach. Neuroscience & Biobehavioral Reviews, 94, 219-237.",
-   "authors": "Dooley, L.N., Kulhlman, K.R., Robles, T.F., Eisenberger, N.I., Craske, M.G., & Bower, J.E.",
+   "authors": "Dooley, L.N., Kuhlman, K.R., Robles, T.F., Eisenberger, N.I., Craske, M.G., & Bower, J.E.",
    "title": "The role of inflammation in core processes of depression: An endophenotype approach",
    "journal": "Neuroscience & Biobehavioral Reviews, 94, 219-237",
    "year": 2018,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.neubiorev.2018.09.006",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6192535/",
+   "openAccess": true
   },
   {
    "id": 128,
@@ -934,7 +1011,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1080/15298868.2018.1490344",
-   "pdf": "https://escholarship.org/uc/item/8cf6f16w"
+   "pdf": "https://escholarship.org/uc/item/8cf6f16w",
+   "openAccess": true
   },
   {
    "id": 127,
@@ -946,7 +1024,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1007/s12529-018-9720-5",
-   "pdf": "https://escholarship.org/uc/item/9959t9vr"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6050092/",
+   "openAccess": true
   },
   {
    "id": 126,
@@ -958,7 +1037,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1111/nyas.13864",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6158086/",
+   "openAccess": true
   },
   {
    "id": 125,
@@ -970,7 +1050,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsy037",
-   "pdf": "https://uknowledge.uky.edu/psychology_facpub/143"
+   "pdf": "https://uknowledge.uky.edu/psychology_facpub/143",
+   "openAccess": true
   },
   {
    "id": 124,
@@ -982,7 +1063,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1371/journal.pone.0196708",
-   "pdf": "https://escholarship.org/uc/item/2z44788s"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5955501/",
+   "openAccess": true
   },
   {
    "id": 123,
@@ -994,7 +1076,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1177/0963721417729036",
-   "pdf": "https://escholarship.org/uc/item/16v07152"
+   "pdf": "https://escholarship.org/uc/item/16v07152",
+   "openAccess": true
   },
   {
    "id": 122,
@@ -1006,7 +1089,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1177/2167702617743002",
-   "pdf": "https://escholarship.org/uc/item/9cg5x3wv"
+   "pdf": "https://escholarship.org/uc/item/9cg5x3wv",
+   "openAccess": true
   },
   {
    "id": 121,
@@ -1018,7 +1102,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 120,
@@ -1030,7 +1115,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1371/journal.pone.0175891",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/5413011"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/5413011",
+   "openAccess": true
   },
   {
    "id": 119,
@@ -1042,7 +1128,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1038/npp.2016.245",
-   "pdf": "https://doi.org/10.1038/npp.2016.245"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 118,
@@ -1054,7 +1141,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1038/npp.2016.141",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/5143485"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/5143485",
+   "openAccess": true
   },
   {
    "id": 117,
@@ -1066,7 +1154,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1080/17470919.2016.1166154",
-   "pdf": "https://figshare.com/articles/journal_contribution/Low-frequency_brain_stimulation_to_the_left_dorsolateral_prefrontal_cortex_increases_the_negative_impact_of_social_exclusion_among_those_high_in_personal_distress/20883814"
+   "pdf": "https://figshare.com/articles/journal_contribution/Low-frequency_brain_stimulation_to_the_left_dorsolateral_prefrontal_cortex_increases_the_negative_impact_of_social_exclusion_among_those_high_in_personal_distress/20883814",
+   "openAccess": true
   },
   {
    "id": 116,
@@ -1078,7 +1167,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 115,
@@ -1090,7 +1180,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1007/978-3-319-28099-8_552-1",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 114,
@@ -1101,8 +1192,9 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.4324/9781315628714-11",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 113,
@@ -1114,7 +1206,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1371/journal.pone.0156873",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4892629"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4892629",
+   "openAccess": true
   },
   {
    "id": 112,
@@ -1126,19 +1219,21 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.psychres.2016.04.120",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4912920/",
+   "openAccess": true
   },
   {
    "id": 111,
    "citation": "Muscatell, K.A.*, Moieni, M., Inagaki, T.K., Duthcher, J.M., Jevtic, I., Breen, E.C., Irwin, M.R., & Eisenberger, N.I. (2016). Exposure to an inflammatory challenge enhances neural sensitivity to negative and positive social feedback. Brain, Behavior, and Immunity, 57, 21-29.",
-   "authors": "Muscatell, K.A., Moieni, M., Inagaki, T.K., Duthcher, J.M., Jevtic, I., Breen, E.C., Irwin, M.R., & Eisenberger, N.I.",
+   "authors": "Muscatell, K.A., Moieni, M., Inagaki, T.K., Dutcher, J.M., Jevtic, I., Breen, E.C., Irwin, M.R., & Eisenberger, N.I.",
    "title": "Exposure to an inflammatory challenge enhances neural sensitivity to negative and positive social feedback",
    "journal": "Brain, Behavior, and Immunity, 57, 21-29",
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2016.03.022",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/5011017"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/5011017",
+   "openAccess": true
   },
   {
    "id": 110,
@@ -1149,20 +1244,22 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/0956797616646580",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 109,
    "citation": "Tabak, B.A.*, Meyer, M.L., Castle, E., Dutcher, J.M., Castle, E., Irwin, M.R., Lieberman, M.D., & Eisenberger, N.I. (2016). Oxytocin, but not vasopressin, impairs social cognitive ability among individuals with higher levels of social anxiety: A randomized controlled trial. Social Cognitive and Affective Neuroscience, 11, 1272-1279.",
-   "authors": "Tabak, B.A., Meyer, M.L., Castle, E., Dutcher, J.M., Castle, E., Irwin, M.R., Lieberman, M.D., & Eisenberger, N.I.",
+   "authors": "Tabak, B.A., Meyer, M.L., Dutcher, J.M., Castle, E., Irwin, M.R., Lieberman, M.D., & Eisenberger, N.I.",
    "title": "Oxytocin, but not vasopressin, impairs social cognitive ability among individuals with higher levels of social anxiety: A randomized controlled trial",
    "journal": "Social Cognitive and Affective Neuroscience, 11, 1272-1279",
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsw041",
-   "pdf": "https://escholarship.org/uc/item/9hd6f5bv"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4967803/",
+   "openAccess": true
   },
   {
    "id": 108,
@@ -1174,19 +1271,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsw025",
-   "pdf": "https://escholarship.org/uc/item/4tx2p5s4"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4884319/",
+   "openAccess": true
   },
   {
    "id": 107,
    "citation": "Inagaki, T.K.*, Muscatell, K.A., Moeini, M., Dutcher, J., Jevtic, I., Irwin, M.R., & Eisenberger, N.I. (2016). Yearning for connection? Loneliness is associated with increased ventral striatum activity to close others. Social, Cognitive, and Affective Neuroscience, 11, 1096-1101.",
-   "authors": "Inagaki, T.K., Muscatell, K.A., Moeini, M., Dutcher, J., Jevtic, I., Irwin, M.R., & Eisenberger, N.I.",
+   "authors": "Inagaki, T.K., Muscatell, K.A., Moieni, M., Dutcher, J.M., Jevtic, I., Irwin, M.R., & Eisenberger, N.I.",
    "title": "Yearning for connection? Loneliness is associated with increased ventral striatum activity to close others",
    "journal": "Social, Cognitive, and Affective Neuroscience, 11, 1096-1101",
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsv076",
-   "pdf": "https://escholarship.org/uc/item/0mj6n5pd"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4927031/",
+   "openAccess": true
   },
   {
    "id": 106,
@@ -1198,7 +1297,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 105,
@@ -1210,7 +1310,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1073/pnas.1603186113",
-   "pdf": "https://escholarship.org/uc/item/6gt1d183"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4983858/",
+   "openAccess": true
   },
   {
    "id": 104,
@@ -1222,7 +1323,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsw006",
-   "pdf": "https://escholarship.org/uc/item/9xt5s8db"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4847702/",
+   "openAccess": true
   },
   {
    "id": 103,
@@ -1234,7 +1336,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1093/scan/nsw002",
-   "pdf": "https://escholarship.org/uc/item/1r4580rs"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4847698/",
+   "openAccess": true
   },
   {
    "id": 102,
@@ -1245,20 +1348,22 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1097/psy.0000000000000302",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4851591",
+   "openAccess": true
   },
   {
    "id": 101,
    "citation": "Dutcher, J.M.*, Creswell, J.D., Pacillo, L.E., Klein, W.M.P., Harris, P.R., Levine, J.M., Bower, J.E., Muscatell, K.A., & Eisenberger, N.I. (2016). Self-affirmation activates the ventral striatum: A possible reward-related mechanism for self-affirmation. Psychological Science, 27(4), 455-466.",
-   "authors": "Dutcher, J.M., Creswell, J.D., Pacillo, L.E., Klein, W.M.P., Harris, P.R., Levine, J.M., Bower, J.E., Muscatell, K.A., & Eisenberger, N.I.",
+   "authors": "Dutcher, J.M., Creswell, J.D., Pacilio, L.E., Klein, W.M.P., Harris, P.R., Levine, J.M., Bower, J.E., Muscatell, K.A., & Eisenberger, N.I.",
    "title": "Self-affirmation activates the ventral striatum: A possible reward-related mechanism for self-affirmation",
    "journal": "Psychological Science, 27(4), 455-466",
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/0956797615625989",
+   "pdf": "https://escholarship.org/content/qt1td8956r/qt1td8956r.pdf",
+   "openAccess": true
   },
   {
    "id": 100,
@@ -1270,7 +1375,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.3389/fnbeh.2016.00064",
-   "pdf": "https://escholarship.org/uc/item/2dm7p0nt"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4815251/",
+   "openAccess": true
   },
   {
    "id": 99,
@@ -1282,7 +1388,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1038/tp.2016.23",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4872448"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4872448",
+   "openAccess": true
   },
   {
    "id": 98,
@@ -1294,7 +1401,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1073/pnas.1515083112",
-   "pdf": "https://escholarship.org/uc/item/9zk8c52d"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4679028/",
+   "openAccess": true
   },
   {
    "id": 97,
@@ -1306,7 +1414,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1111/psyp.12578",
-   "pdf": "https://escholarship.org/uc/item/3hv9d1k2"
+   "pdf": "https://escholarship.org/uc/item/3hv9d1k2",
+   "openAccess": true
   },
   {
    "id": 96,
@@ -1318,19 +1427,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2015.09.008",
-   "pdf": "https://escholarship.org/uc/item/6hv8b3z4"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5784760/",
+   "openAccess": true
   },
   {
    "id": 95,
    "citation": "Moieni, M.*, Jevtic, I., Irwin, M.R., Breen, E., & Eisenberger, N.I. (2015). Trait sensitivity to social disconnection enhances pro-inflammatory responses to a randomized controlled trial of endotoxin. Psychoneuroendocrinology, 62, 336-342.",
-   "authors": "Moieni, M., Jevtic, I., Irwin, M.R., Breen, E., & Eisenberger, N.I.",
+   "authors": "Moieni, M., Irwin, M.R., Jevtic, I., Breen, E.C., Cho, H.J., Arevalo, J.M., Ma, J., Cole, S.W., & Eisenberger, N.I.",
    "title": "Trait sensitivity to social disconnection enhances pro-inflammatory responses to a randomized controlled trial of endotoxin",
    "journal": "Psychoneuroendocrinology, 62, 336-342",
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.psyneuen.2015.08.020",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4637264/",
+   "openAccess": true
   },
   {
    "id": 94,
@@ -1342,7 +1453,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1037/emo0000088",
-   "pdf": "https://doi.org/10.1037/emo0000088"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 93,
@@ -1354,7 +1466,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1371/journal.pone.0128294",
-   "pdf": "https://docs.lib.purdue.edu/psychpubs/78"
+   "pdf": "https://docs.lib.purdue.edu/psychpubs/78",
+   "openAccess": true
   },
   {
    "id": 92,
@@ -1366,7 +1479,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2015.03.002",
-   "pdf": "https://escholarship.org/uc/item/2rx6v8d2"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4508216/",
+   "openAccess": true
   },
   {
    "id": 91,
@@ -1378,19 +1492,21 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1007/s40167-014-0023-7",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 90,
    "citation": "Moieni, M.*, Jevtic, I., Irwin, M.R., Breen, E., & Eisenberger, N.I. (2015). Sex differences in depressive and socioemotional responses to an inflammatory challenge: Implications for sex differences in depression. Neuropsychopharmacology, 40, 1709-1716.",
-   "authors": "Moieni, M., Jevtic, I., Irwin, M.R., Breen, E., & Eisenberger, N.I.",
+   "authors": "Moieni, M., Irwin, M.R., Jevtic, I., Olmstead, R., Breen, E.C., & Eisenberger, N.I.",
    "title": "Sex differences in depressive and socioemotional responses to an inflammatory challenge: Implications for sex differences in depression",
    "journal": "Neuropsychopharmacology, 40, 1709-1716",
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1038/npp.2015.17",
-   "pdf": "https://escholarship.org/uc/item/4tz224t4"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4915253/",
+   "openAccess": true
   },
   {
    "id": 89,
@@ -1401,8 +1517,9 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/b978-0-12-397025-1.00148-2",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 88,
@@ -1413,32 +1530,35 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/b978-0-12-397025-1.00144-5",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 87,
    "citation": "Inagaki, T.K.*, Muscatell, K.A., Moeini, M., Dutcher, J., Jevtic, I., Irwin, M.R., Breen, E., & Eisenberger, N.I. (2015). The role of the ventral striatum in inflammatory-induced approach toward support figures. Brain, Behavior, and Immunity, 44, 247-252.",
-   "authors": "Inagaki, T.K., Muscatell, K.A., Moeini, M., Dutcher, J., Jevtic, I., Irwin, M.R., Breen, E., & Eisenberger, N.I.",
+   "authors": "Inagaki, T.K., Muscatell, K.A., Irwin, M.R., Moieni, M., Dutcher, J.M., Jevtic, I., Breen, E.C., & Eisenberger, N.I.",
    "title": "The role of the ventral striatum in inflammatory-induced approach toward support figures",
    "journal": "Brain, Behavior, and Immunity, 44, 247-252",
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2014.10.006",
-   "pdf": "https://escholarship.org/uc/item/5qq0371s"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4275369/",
+   "openAccess": true
   },
   {
    "id": 86,
    "citation": "Tabak, B.A.*, Meyer, M.L., Castle, E., Dutcher, J.M., Irwin, M.R., Lieberman, M.D., & Eisenberger, N.I. (2015). Vasopressin, but not oxytocin, increases empathic concern among individuals who received higher levels of paternal warmth: A randomized controlled trial. Psychoneuroendocrinology, 51, 253-261.",
-   "authors": "Tabak, B.A., Meyer, M.L., Castle, E., Dutcher, J.M., Irwin, M.R., Lieberman, M.D., & Eisenberger, N.I.",
+   "authors": "Tabak, B.A., Meyer, M.L., Castle, E., Dutcher, J.M., Irwin, M.R., Han, J.H., Lieberman, M.D., & Eisenberger, N.I.",
    "title": "Vasopressin, but not oxytocin, increases empathic concern among individuals who received higher levels of paternal warmth: A randomized controlled trial",
    "journal": "Psychoneuroendocrinology, 51, 253-261",
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.psyneuen.2014.10.006",
-   "pdf": "https://escholarship.org/uc/item/42c884v6"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4268337/",
+   "openAccess": true
   },
   {
    "id": 85,
@@ -1450,7 +1570,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1146/annurev-psych-010213-115146",
-   "pdf": "https://escholarship.org/uc/item/0k84g6vn"
+   "pdf": "https://escholarship.org/uc/item/0k84g6vn",
+   "openAccess": true
   },
   {
    "id": 84,
@@ -1462,7 +1583,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1093/scan/nsu120",
-   "pdf": "https://escholarship.org/uc/item/64f210r7"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4994854/",
+   "openAccess": true
   },
   {
    "id": 83,
@@ -1474,7 +1596,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2014.06.201",
-   "pdf": "https://escholarship.org/uc/item/3ft5d993"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4368432/",
+   "openAccess": true
   },
   {
    "id": 82,
@@ -1486,7 +1609,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.bbi.2014.06.155",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 81,
@@ -1498,7 +1622,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nst191",
-   "pdf": "https://escholarship.org/uc/item/99b139np"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4249470/",
+   "openAccess": true
   },
   {
    "id": 80,
@@ -1510,7 +1635,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nst038",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4014110"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4014110",
+   "openAccess": true
   },
   {
    "id": 79,
@@ -1521,8 +1647,9 @@
    "year": 2013,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1037/a0034800",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 78,
@@ -1534,7 +1661,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 77,
@@ -1546,7 +1674,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1177/0956797613492773",
-   "pdf": "https://escholarship.org/uc/item/64j0x29n"
+   "pdf": "https://escholarship.org/uc/item/64j0x29n",
+   "openAccess": true
   },
   {
    "id": 76,
@@ -1557,8 +1686,9 @@
    "year": 2013,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1097/psy.0b013e31829de2e7",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3763941/",
+   "openAccess": true
   },
   {
    "id": 75,
@@ -1570,7 +1700,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1111/desc.12056",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3775008/",
+   "openAccess": true
   },
   {
    "id": 74,
@@ -1582,7 +1713,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1111/cdev.12056",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3659192/",
+   "openAccess": true
   },
   {
    "id": 73,
@@ -1594,7 +1726,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nss019",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3624958"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3624958",
+   "openAccess": true
   },
   {
    "id": 72,
@@ -1606,7 +1739,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.conb.2013.01.006",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3664098"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3664098",
+   "openAccess": true
   },
   {
    "id": 71,
@@ -1618,7 +1752,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1080/1047840x.2013.764815",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 70,
@@ -1630,7 +1765,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1093/oxfordhb/9780195398700.013.0015",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 69,
@@ -1642,7 +1778,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1073/pnas.1218518109",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3529090/",
+   "openAccess": true
   },
   {
    "id": 68,
@@ -1654,7 +1791,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1111/j.1751-9004.2012.00467.x",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3513933/",
+   "openAccess": true
   },
   {
    "id": 67,
@@ -1666,7 +1804,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1162/jocn_a_00242",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 66,
@@ -1678,7 +1817,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1111/j.1399-5618.2012.01020.x",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4412746"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4412746",
+   "openAccess": true
   },
   {
    "id": 65,
@@ -1690,7 +1830,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1038/nrn3231",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 64,
@@ -1702,19 +1843,21 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1038/nn.3086",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 63,
    "citation": "Muscatell, K.A.*, Falk, E.B., Morelli, S., Way, B.M., Pfeifer, J.H., Lieberman, M.D., Dapretto, M., & Eisenberger, N.I. (2012). Social status modulates neural activity in the mentalizing network. Neuroimage, 60, 1771-1777.",
-   "authors": "Muscatell, K.A., Falk, E.B., Morelli, S., Way, B.M., Pfeifer, J.H., Lieberman, M.D., Dapretto, M., & Eisenberger, N.I.",
+   "authors": "Muscatell, K.A., Morelli, S.A., Falk, E.B., Way, B.M., Pfeifer, J.H., Galinsky, A.D., Lieberman, M.D., Dapretto, M., & Eisenberger, N.I.",
    "title": "Social status modulates neural activity in the mentalizing network",
    "journal": "Neuroimage, 60, 1771-1777",
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.neuroimage.2012.01.080",
-   "pdf": "https://repository.upenn.edu/asc_papers/429"
+   "pdf": "https://repository.upenn.edu/asc_papers/429",
+   "openAccess": true
   },
   {
    "id": 62,
@@ -1726,7 +1869,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.neuroimage.2011.10.090",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3348143/",
+   "openAccess": true
   },
   {
    "id": 61,
@@ -1738,7 +1882,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1093/scan/nsq107",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3277372"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3277372",
+   "openAccess": true
   },
   {
    "id": 60,
@@ -1749,8 +1894,9 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1097/psy.0b013e3182464dd1",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3273616/",
+   "openAccess": true
   },
   {
    "id": 59,
@@ -1762,7 +1908,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1073/pnas.1120972109",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3277534/",
+   "openAccess": true
   },
   {
    "id": 58,
@@ -1773,8 +1920,9 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/0963721411429455",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 57,
@@ -1786,7 +1934,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1097/psy.0b013e3182359335",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 56,
@@ -1798,7 +1947,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsq098",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3252626"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3252626",
+   "openAccess": true
   },
   {
    "id": 55,
@@ -1810,7 +1960,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.dcn.2011.01.004",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3272329/",
+   "openAccess": true
   },
   {
    "id": 54,
@@ -1822,7 +1973,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1162/jocn_a_00027",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 53,
@@ -1833,8 +1985,9 @@
    "year": 2011,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/oxfordhb/9780195342161.013.0039",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 52,
@@ -1846,7 +1999,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1073/pnas.1108239108",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3136329/",
+   "openAccess": true
   },
   {
    "id": 51,
@@ -1858,7 +2012,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1162/jocn.2010.21520",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 50,
@@ -1869,8 +2024,9 @@
    "year": 2011,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/oxfordhb/9780195342161.013.0039",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 49,
@@ -1882,7 +2038,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.neuroimage.2010.11.060",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 48,
@@ -1894,7 +2051,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1017/s0954579410000799",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3229829/",
+   "openAccess": true
   },
   {
    "id": 47,
@@ -1906,7 +2064,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1037/12351-002",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 46,
@@ -1918,7 +2077,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1080/17470919.2010.490673",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2957502"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2957502",
+   "openAccess": true
   },
   {
    "id": 45,
@@ -1930,7 +2090,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.biopsych.2010.06.010",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3025604"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3025604",
+   "openAccess": true
   },
   {
    "id": 44,
@@ -1942,7 +2103,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 43,
@@ -1954,7 +2116,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.pscychresns.2010.06.001",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3382985"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3382985",
+   "openAccess": true
   },
   {
    "id": 42,
@@ -1966,7 +2129,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1073/pnas.1009164107",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2930449"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2930449",
+   "openAccess": true
   },
   {
    "id": 41,
@@ -1977,8 +2141,9 @@
    "year": 2010,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/0956797610374741",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 40,
@@ -1990,7 +2155,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.bbi.2009.12.009",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2856755"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2856755",
+   "openAccess": true
   },
   {
    "id": 39,
@@ -2002,7 +2168,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1037/a0018312",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2868367/",
+   "openAccess": true
   },
   {
    "id": 38,
@@ -2014,7 +2181,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.bbi.2009.08.009",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 37,
@@ -2026,7 +2194,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1037/a0016563",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 36,
@@ -2037,8 +2206,9 @@
    "year": 2009,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1111/j.1467-9280.2009.02444.x",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 35,
@@ -2050,7 +2220,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1073/pnas.0812612106",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2736434"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2736434",
+   "openAccess": true
   },
   {
    "id": 34,
@@ -2062,7 +2233,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 33,
@@ -2074,19 +2246,21 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.neuroimage.2009.04.040",
-   "pdf": ""
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2733873/",
+   "openAccess": true
   },
   {
    "id": 32,
    "citation": "Masten, C.L.*, Eisenberger, N.I., Borofsky, L., Pfeifer, J.H., McNealy, K., & Dapretto, M. (2009). Neural correlates of social exclusion during adolescence: Understanding the distress of peer rejection. Social Cognitive and Affective Neuroscience, 4, 143-157.",
-   "authors": "Masten, C.L., Eisenberger, N.I., Borofsky, L., Pfeifer, J.H., McNealy, K., & Dapretto, M.",
+   "authors": "Masten, C.L., Eisenberger, N.I., Borofsky, L.A., Pfeifer, J.H., McNealy, K., Mazziotta, J.C., & Dapretto, M.",
    "title": "Neural correlates of social exclusion during adolescence: Understanding the distress of peer rejection",
    "journal": "Social Cognitive and Affective Neuroscience, 4, 143-157",
    "year": 2009,
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1093/scan/nsp007",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2686232"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2686232",
+   "openAccess": true
   },
   {
    "id": 31,
@@ -2098,7 +2272,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1126/science.1170008",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 30,
@@ -2110,7 +2285,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1080/10478400802608855",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 29,
@@ -2122,7 +2298,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 28,
@@ -2134,7 +2311,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.neuroimage.2008.04.256",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2553561"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2553561",
+   "openAccess": true
   },
   {
    "id": 27,
@@ -2146,7 +2324,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1037/0022-3514.95.1.197",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 26,
@@ -2158,7 +2337,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1016/j.pscychresns.2007.04.007",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2410029"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2410029",
+   "openAccess": true
   },
   {
    "id": 25,
@@ -2169,8 +2349,9 @@
    "year": 2008,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.biopsych.2007.03.029",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 24,
@@ -2181,8 +2362,9 @@
    "year": 2007,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1037/1528-3542.7.4.745",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 23,
@@ -2194,7 +2376,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1093/scan/nsm031",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2569807"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2569807",
+   "openAccess": true
   },
   {
    "id": 22,
@@ -2206,7 +2389,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1097/psy.0b013e3180f6171f",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 21,
@@ -2218,19 +2402,21 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1080/01973530701331718",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 20,
    "citation": "Lieberman, M.D., Eisenberger, N.I., Crockett, M.J., Tom, S., & Pfeifer, J.H. (2007). Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli. Psychological Science, 18, 421-428.",
-   "authors": "Lieberman, M.D., Eisenberger, N.I., Crockett, M.J., Tom, S., & Pfeifer, J.H.",
+   "authors": "Lieberman, M.D., Eisenberger, N.I., Crockett, M.J., Tom, S.M., Pfeifer, J.H., & Way, B.M.",
    "title": "Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli",
    "journal": "Psychological Science, 18, 421-428",
    "year": 2007,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1111/j.1467-9280.2007.01916.x",
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 19,
@@ -2242,7 +2428,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.neuroimage.2007.01.038",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2710966"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2710966",
+   "openAccess": true
   },
   {
    "id": 18,
@@ -2254,7 +2441,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.biopsych.2006.08.007",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 17,
@@ -2266,7 +2454,8 @@
    "inPress": false,
    "traineeFirstAuthor": true,
    "doi": "https://doi.org/10.1080/17470910701391711",
-   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2373282"
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2373282",
+   "openAccess": true
   },
   {
    "id": 16,
@@ -2278,7 +2467,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.pain.2006.06.024",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 15,
@@ -2290,7 +2480,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.biopsych.2006.04.019",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 14,
@@ -2302,7 +2493,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1159/000095580",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 13,
@@ -2314,7 +2506,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.biopsych.2005.09.027",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 12,
@@ -2326,7 +2519,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.biopsych.2005.09.012",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 11,
@@ -2338,7 +2532,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 10,
@@ -2350,7 +2545,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.3758/cabn.5.2.169",
-   "pdf": "https://doi.org/10.3758/cabn.5.2.169"
+   "pdf": "",
+   "openAccess": true
   },
   {
    "id": 9,
@@ -2362,7 +2558,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 8,
@@ -2374,7 +2571,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1038/nn1465",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 7,
@@ -2386,7 +2584,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.tics.2004.08.014",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 6,
@@ -2398,7 +2597,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/j.tics.2004.05.010",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 5,
@@ -2410,7 +2610,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 4,
@@ -2422,7 +2623,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1126/science.1089134",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 3,
@@ -2434,7 +2636,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1016/s0022-3999(02)00473-7",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 2,
@@ -2446,7 +2649,8 @@
    "inPress": false,
    "traineeFirstAuthor": false,
    "doi": "https://doi.org/10.1080/14622200210153830",
-   "pdf": ""
+   "pdf": "",
+   "openAccess": false
   },
   {
    "id": 1,
@@ -2457,8 +2661,9 @@
    "year": 2000,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1046/j.1360-0443.2000.95811734.x",
+   "pdf": "",
+   "openAccess": false
   }
  ]
 }

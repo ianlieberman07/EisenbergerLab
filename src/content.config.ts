@@ -67,6 +67,10 @@ const papers = defineCollection({
     traineeFirstAuthor: z.boolean().default(false),
     doi: z.string().default(''),
     pdf: z.string().default(''),
+    // True when the paper can be read for free somewhere. Either `pdf` holds a
+    // separate open-access copy, or the publisher's own page is free — in which
+    // case `pdf` stays empty rather than repeating the DOI under a second label.
+    openAccess: z.boolean().default(false),
   }),
 });
 

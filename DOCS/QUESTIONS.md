@@ -9,23 +9,52 @@ headshots, and the live site supplied the alumni list.
 
 ## Still blocking launch
 
-### 6b. Paper links — mostly resolved automatically
+### 6b. Paper links and author names — audited end to end
 
-Her CV lists no DOIs or PDF links, so they were resolved against **Crossref**
-(the DOI registry) and **Unpaywall** (legal open-access copies only). Nothing was
-guessed: a candidate is accepted only if the normalised title matches at ≥0.93,
-an Eisenberger appears in Crossref's own author list, the year is within a year,
-and the journal name also matches. That last gate matters — for the 2003 *Science*
-paper, Crossref's top hit is a PsycEXTRA duplicate record, and title similarity
-alone would have picked the wrong DOI.
+Every one of the 205 entries was checked against Crossref (the DOI registry) and
+against Unpaywall / Europe PMC / PubMed Central for open access. Current state:
 
-Every paper without a confident match keeps its "Find this paper" Scholar search
-fallback, so nothing on the page is broken or wrong — just less convenient.
+| | |
+|---|---|
+| Publications | 205 |
+| With a verified DOI | 195 |
+| Freely readable | 134 (116 via a separate copy, 18 free at the publisher) |
+| Author lists matching the registry exactly | 190 |
+| No DOI found | 10 — all book chapters, which frequently have none |
 
-**Remaining:** the unmatched entries are mostly book chapters and encyclopedia
-articles, which frequently have no DOI at all. This is where her offer applies —
-*"If you can't get access to any, let me know and I might be able to."* Links can
-be pasted in through the admin one at a time.
+**Author names.** Six surnames were misspelled in the CV and are corrected:
+Eisenbeger → Eisenberger, Horstein → Hornstein, Tashijan → Tashjian (x2),
+Duthcher → Dutcher, Moeini → Moieni (x3), Weisman-Fogel → Weissman-Fogel,
+Kulhlman → Kuhlman, Pacillo → Pacilio. Twenty-five entries had also dropped
+co-authors in transcription and were rebuilt from the publisher-deposited record
+in her own house style.
+
+Three entries deliberately do **not** match the registry, because the site is
+right and the registry is wrong:
+
+- **#102** — the registry misspells Byrne Haltom as "Bryne". Her CV and the live
+  site both use Byrne, so the site keeps it.
+- **#1** — Crossref's 2000 *Addiction* record omits two authors the CV correctly
+  lists, including Eisenberger herself.
+- **#157** — a 59-author paper. The CV's shortened list is the sane thing to
+  print; the full roster would swamp the entry.
+
+**Links.** Every free link was fetched and confirmed to respond, and where both
+existed, PubMed Central was preferred over eScholarship — eScholarship sits
+behind a Cloudflare human-verification challenge that some visitors will hit.
+Eighteen papers whose "free copy" was simply the DOI again now show a single
+"Read it free" link instead of the same URL twice under two labels.
+
+Sixty DOIs return 403 to an automated request. Those are publisher bot-blocks
+(SAGE, Wiley, Elsevier), not broken links — spot-checked by hand: doi.org
+redirects correctly and the records resolve to the right articles.
+
+**Nine papers were published under a different title than the CV records** — for
+example #41 "Tylenol reduces social pain" appeared as "Acetaminophen Reduces
+Social Pain", and #189 "Social connection and fear" as "Loneliness and the
+persistence of fear". The DOIs are correct (verified by author list, venue and
+year); only the wording differs. Her titles have been left as written, but she
+may prefer the published forms: #24, #41, #53, #79, #129, #153, #160, #168, #189.
 
 ### 17. A CV-parsing bug worth knowing about
 

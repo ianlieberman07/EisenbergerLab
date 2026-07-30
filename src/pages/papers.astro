@@ -20,7 +20,7 @@ const decades = [...new Set(years.map((y) => Math.floor(y / 10) * 10))].sort((a,
 
 const total = papers.length;
 const inPressCount = papers.filter((p) => p.data.inPress).length;
-const freeCount = papers.filter((p) => p.data.pdf).length;
+const freeCount = papers.filter((p) => p.data.openAccess).length;
 
 const scholar = (title: string) =>
   `https://scholar.google.com/scholar?q=${encodeURIComponent(title)}`;
@@ -35,7 +35,6 @@ const scholar = (title: string) =>
     imageAlt="A white sculpted head, open at the crown to reveal a maze in place of a brain."
     eyebrow="Publications"
     title="Papers"
-    lede={`${total} publications, ${freeCount} with a free full-text copy. Search by title, author, or journal, or filter by period.`}
   />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
@@ -83,6 +82,15 @@ const scholar = (title: string) =>
             ))
           }
         </div>
+
+        {/* Two thirds of the list can be read without a subscription, which is
+            worth being able to isolate. */}
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+          <span class="text-eyebrow font-medium uppercase text-clay-light">Access</span>
+          <button type="button" id="free-toggle" class="filter-chip">
+            Free to read ({freeCount})
+          </button>
+        </div>
       </div>
 
       <p id="paper-count" class="mt-5 text-[0.88rem] text-bone-muted" aria-live="polite">
@@ -97,6 +105,7 @@ const scholar = (title: string) =>
             class="paper-item border-b border-bone/12 py-8"
             data-year={paper.data.year}
             data-decade={paper.data.inPress ? 'inpress' : String(Math.floor(paper.data.year / 10) * 10)}
+            data-free={paper.data.openAccess ? 'yes' : 'no'}
             data-search={`${paper.data.title} ${paper.data.authors} ${paper.data.journal}`.toLowerCase()}
           >
             <div class="flex flex-col gap-2 sm:flex-row sm:gap-8">
@@ -125,7 +134,12 @@ const scholar = (title: string) =>
                         rel="noopener"
                         class="text-clay-light underline-offset-4 hover:text-bone hover:underline"
                       >
-                        Publisher ↗
+                        {/* When the publisher's own page is the free copy, say so
+                            here rather than printing the same URL twice under a
+                            second "free" label. */}
+                        {paper.data.openAccess && !paper.data.pdf
+                          ? 'Read it free ↗'
+                          : 'Publisher ↗'}
                       </a>
                     )
                   }
@@ -138,7 +152,7 @@ const scholar = (title: string) =>
                         rel="noopener"
                         class="text-clay-light underline-offset-4 hover:text-bone hover:underline"
                       >
-                        Free full text ↗
+                        Read it free ↗
                       </a>
                     )
                   }
@@ -203,13 +217,15 @@ const scholar = (title: string) =>
 
     let decade = 'all';
     let query = '';
+    let freeOnly = false;
 
     const apply = () => {
       let shown = 0;
       for (const item of items) {
         const matchesDecade = decade === 'all' || item.dataset.decade === decade;
         const matchesQuery = !query || (item.dataset.search ?? '').includes(query);
-        const visible = matchesDecade && matchesQuery;
+        const matchesFree = !freeOnly || item.dataset.free === 'yes';
+        const visible = matchesDecade && matchesQuery && matchesFree;
         item.hidden = !visible;
         if (visible) shown++;
       }
@@ -227,6 +243,14 @@ const scholar = (title: string) =>
         query = search.value.trim().toLowerCase();
         apply();
       }, 120);
+    });
+
+    const freeBtn = document.getElementById('free-toggle');
+    freeBtn?.addEventListener('click', () => {
+      freeOnly = !freeOnly;
+      freeBtn.classList.toggle('is-active', freeOnly);
+      freeBtn.setAttribute('aria-pressed', String(freeOnly));
+      apply();
     });
 
     document.querySelectorAll<HTMLButtonElement>('[data-decade]').forEach((btn) => {
