@@ -45,7 +45,11 @@
 
   /* — Fluid type scale. Long-form reading is the primary
        activity here, so body runs large and airy. — */
-  --text-hero: clamp(2.75rem, 1.2rem + 6.6vw, 7rem);
+  /* The `min(..., 12vh)` term ties the display size to the available height as
+     well as the width. The hero puts the director's name at the bottom of a
+     full-height section, so on a short window a width-only clamp lets the title
+     grow until the name is pushed below the fold. */
+  --text-hero: clamp(2.5rem, min(1.2rem + 6.6vw, 12vh), 7rem);
   --text-hero--line-height: 0.95;
   --text-hero--letter-spacing: -0.03em;
 
