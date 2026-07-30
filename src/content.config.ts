@@ -70,8 +70,7 @@ const papers = defineCollection({
   }),
 });
 
-// Standalone prose blocks that are shared across pages — currently the lab
-// overview, which appears on both /overview and /research.
+// Standalone prose blocks — currently the lab overview, which heads /research.
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './content/pages' }),
   schema: z.object({

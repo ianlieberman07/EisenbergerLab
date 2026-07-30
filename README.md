@@ -14,7 +14,8 @@ verbatim from `Information for Website.docx` with her emphasis preserved, all
 headshots, all 205 publications from her CV, and the alumni list from the
 current live site.
 
-Editing is handled by a git-backed CMS at `/admin` — see
+The site is Home, Research (with four topic pages), Papers and People. Editing
+is handled by a git-backed CMS at `/admin` — see
 [`DOCS/EDITING-GUIDE.md`](DOCS/EDITING-GUIDE.md), written for her rather than for
 a developer. It needs deploying and GitHub sign-in before it works.
 

@@ -9,11 +9,11 @@ import { site } from '../config';
 // sanlab-brain-cover.jpg served by sanlab.psych.ucla.edu, so it carries whatever
 // licence the lab already holds rather than being a new pick.
 import hero from '../assets/heroes/01-hands-forming-brain-bw.jpg';
-// 03 now belongs to the Social Pain topic page, so the landing break uses the
-// clearest "two entities in relation" image in the set instead.
-import breakImage from '../assets/heroes/13-tree-heads-exchanging-birds.jpg';
+// Chosen by the client to replace the tree/birds image.
+import breakImage from '../assets/heroes/17-gears-heads-blue-red.jpg';
 
 const topics = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+const { contact } = site;
 ---
 
 <Base
@@ -21,56 +21,84 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
   description="The Social and Affective Neuroscience Laboratory at UCLA, directed by Naomi Eisenberger, studies how social connection and disconnection shape the brain and the body."
   transparentHeader
 >
-  <!-- ══ HERO ══ -->
-  <section class="relative flex min-h-[100svh] flex-col justify-end overflow-hidden">
-    <div class="absolute inset-0">
-      <Image
-        src={hero}
-        alt="A brain formed from many interlocking human hands, photographed in black and white against a dark ground."
-        widths={[640, 1024, 1600, 2400]}
-        sizes="100vw"
-        loading="eager"
-        fetchpriority="high"
-        class="h-full w-full object-cover object-center opacity-80"
-      />
-      <!-- Two-pass scrim. The horizontal pass is the important one: the type is
-           left-aligned, so the left third has to stay dark enough for bone on
-           it to clear WCAG AA no matter how the image crops at a given
-           viewport. The vertical pass seats the composition on the ground
-           colour so the hero doesn't end on a hard edge. -->
-      <div class="absolute inset-0 bg-gradient-to-r from-ground via-ground/55 to-ground/10"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-ground via-transparent to-ground/45"></div>
-    </div>
-
+  {/* Split hero. The image previously filled the frame and was cropped hard by
+      object-cover, which cut the brain silhouette down to a mass of fingers —
+      contained in its own column, the hands-forming-a-brain reads properly.
+      It also lets the director's name and contact details sit within the first
+      screen instead of below the fold. */}
+  <section class="relative overflow-hidden">
     <div
-      class="relative mx-auto w-full max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-gutter) pt-40"
+      class="mx-auto grid min-h-[100svh] max-w-[110rem] items-center gap-x-14 gap-y-5 px-(--spacing-gutter) pb-12 pt-24 lg:gap-y-8 lg:pb-16 lg:pt-24 lg:grid-cols-[1.06fr_1fr]"
     >
-      <p class="reveal text-eyebrow font-medium uppercase text-clay-light">
-        University of California, Los Angeles
-      </p>
-
-      <h1 class="reveal mt-7 max-w-[16ch] font-display text-hero text-bone" data-reveal-delay="120">
-        Social &amp; Affective Neuroscience Laboratory
-      </h1>
-
-      <div
-        class="reveal mt-10 flex flex-col gap-6 border-t border-bone/15 pt-8 md:flex-row md:items-end md:justify-between"
-        data-reveal-delay="260"
-      >
-        <p class="max-w-xl text-lede text-bone-dim">
-          Directed by <span class="text-bone">{site.director}</span>
+      <div class="order-2 lg:order-1">
+        <p class="reveal text-eyebrow font-medium uppercase text-clay-light">
+          University of California, Los Angeles
         </p>
 
-        <a
-          href="/overview"
-          class="group inline-flex items-center gap-3 text-eyebrow font-medium uppercase text-bone transition-colors duration-500 hover:text-clay-light"
+        <h1
+          class="reveal mt-6 max-w-[15ch] font-display text-hero text-bone"
+          data-reveal-delay="120"
         >
-          Enter the site
-          <span
-            aria-hidden="true"
-            class="inline-block h-px w-12 bg-clay transition-all duration-500 group-hover:w-20"
-          ></span>
-        </a>
+          Social &amp; Affective Neuroscience Laboratory
+        </h1>
+
+        <div
+          class="reveal mt-6 border-t border-bone/15 pt-5 lg:mt-8 lg:pt-7"
+          data-reveal-delay="240"
+        >
+          <p class="text-lede text-bone-dim">
+            Directed by <span class="text-bone">{site.director}</span>
+          </p>
+
+          {/* Contact sits with her name, per the client. */}
+          <div
+            class="mt-4 flex flex-col gap-x-12 gap-y-2 text-[0.95rem] leading-relaxed text-bone-muted sm:flex-row lg:mt-6 lg:gap-y-3"
+          >
+            <address class="not-italic">
+              {contact.addressLines.map((line) => <div>{line}</div>)}
+            </address>
+            <div class="flex flex-col gap-1">
+              <a
+                href={`mailto:${contact.email}`}
+                class="transition-colors duration-400 hover:text-bone"
+              >
+                {contact.email}
+              </a>
+              <a
+                href={`tel:+1${contact.phone.replace(/\D/g, '')}`}
+                class="transition-colors duration-400 hover:text-bone"
+              >
+                {contact.phone}
+              </a>
+            </div>
+          </div>
+
+          <a
+            href="/research"
+            class="group mt-7 inline-flex items-center gap-3 text-eyebrow font-medium uppercase text-bone transition-colors duration-500 hover:text-clay-light lg:mt-9"
+          >
+            Enter the site
+            <span
+              aria-hidden="true"
+              class="inline-block h-px w-12 bg-clay transition-all duration-500 group-hover:w-20"
+            ></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal order-1 lg:order-2" data-reveal-delay="80">
+        {/* `screen` blending drops the photograph's pure-black ground into the
+            page's warm charcoal, so the hands sit on the page rather than in a
+            visible black box. */}
+        <Image
+          src={hero}
+          alt="A brain formed from many interlocking human hands, photographed in black and white against a dark ground."
+          widths={[480, 800, 1200, 1800]}
+          sizes="(min-width: 1024px) 46vw, 88vw"
+          loading="eager"
+          fetchpriority="high"
+          class="mx-auto max-h-[22svh] w-full object-contain mix-blend-screen sm:max-h-[30svh] lg:max-h-[74svh]"
+        />
       </div>
     </div>
   </section>
@@ -82,11 +110,11 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
         The question
       </p>
       <div class="md:col-span-9">
-        {/* Both the heading and the paragraph are her own words, lifted verbatim
-            from the lab overview — nothing here is authored. */}
+        {/* Her own words from the lab overview, turned from a clause into the
+            direct question the section is labelled as. */}
         <h2 class="reveal max-w-[24ch] font-display text-display text-bone">
-          Why social relationships matter so profoundly for both mental and
-          physical health.
+          Why do social relationships matter so profoundly for both mental and
+          physical health?
         </h2>
         <p
           class="reveal mt-9 max-w-(--container-prose) text-lede text-bone-dim"
@@ -100,21 +128,21 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
           turn.
         </p>
         <p class="reveal mt-8" data-reveal-delay="220">
-          <a href="/overview" class="link-rule text-[1.05rem]">Read the lab overview</a>
+          <a href="/research" class="link-rule text-[1.05rem]">Read the lab overview</a>
         </p>
       </div>
     </div>
   </section>
 
   <!-- ══ FULL-BLEED BREAK ══ -->
-  <section class="relative h-[55svh] min-h-[380px] overflow-hidden md:h-[75svh]">
+  <section class="relative h-[48svh] min-h-[320px] overflow-hidden md:h-[64svh]">
     <Image
       src={breakImage}
-      alt="Two trees shaped as human heads facing one another, with birds flying in an arc between them."
-      widths={[640, 1024, 1600, 2400]}
+      alt="Two facing head profiles built from interlocking gears — one warm orange, one red — with gears streaming through the air between them."
+      widths={[640, 1024, 1600, 2600]}
       sizes="100vw"
       loading="lazy"
-      class="h-full w-full object-cover"
+      class="h-full w-full object-cover object-center"
     />
     <div class="absolute inset-0 bg-gradient-to-t from-ground via-transparent to-ground/40"></div>
   </section>

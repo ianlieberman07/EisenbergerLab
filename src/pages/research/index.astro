@@ -8,7 +8,8 @@ import headerImage from '../../assets/heroes/02-surreal-brain-landscape.jpg';
 
 // Structured the way the client's reference site (carolinasnhlab.com/overview)
 // does it: a general lab overview up top, then links out to individual topic
-// pages. She is open to the overview living on /overview instead — QUESTIONS.md #7.
+// pages. This is now the overview's only home — the separate Overview page was
+// removed at the client's request.
 const topics = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
 
 const overview = await getEntry('pages', 'lab-overview');

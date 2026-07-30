@@ -98,8 +98,8 @@ set in use beyond the cover:
 
 | Page | Image |
 |---|---|
-| Landing (section break) | `13-tree-heads-exchanging-birds` |
-| Overview (header / aside) | `16-yarn-brain-to-yarn-heart` / `12-paired-hollow-heads-pastel` |
+| Landing (section break) | `17-gears-heads-blue-red` (chosen by the client) |
+| _(Overview page removed — `16-yarn-brain-to-yarn-heart` and `12-paired-hollow-heads-pastel` now unused)_ | — |
 | Research index | `02-surreal-brain-landscape` |
 | Social Pain | `03-busts-facing-erosion` |
 | Inflammation | `11-figure-green-water-candle` |
@@ -128,11 +128,12 @@ camera/timestamp EXIF. All metadata has been stripped, since these are private
 individuals' photographs going into a public repository. Only colourspace and
 pixel dimensions remain.
 
-### 7. Lab overview on `/research` or `/overview`?
+### 7. Lab overview placement — resolved
 
-Her copy currently appears on **both**, which is what the doc allows for
-("or you could put this overview on the overview page"). Trivial to consolidate
-once she picks — it's one markdown file, `content/pages/lab-overview.md`.
+**The Overview page has been removed at the client's request.** The lab overview
+now lives only at the top of `/research`, which is the arrangement her document
+allowed for. The contact block that lived on Overview moved to the landing page
+(beside her name, as requested) and remains in the footer.
 
 ### 11, 12. Content and alumni list — closed
 
