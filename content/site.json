@@ -6,15 +6,15 @@
   "department": "Department of Psychology",
   "tagline": "How the social world gets under the skin.",
   "contact": {
-    "_comment": "Address corrected per client: 5514 Pritzker Hall, NOT 4444 Franz Hall. Phone, email and mail code still require confirmation — see DOCS/QUESTIONS.md #8.",
+    "_comment": "Building is 5514 Pritzker Hall per her explicit correction in Information for Website.docx (the old 4444 Franz Hall address still circulates on older materials). Phone, email and box number supplied by the client 2026-07.",
     "building": "5514 Pritzker Hall",
     "addressLines": [
       "UCLA Department of Psychology",
-      "5514 Pritzker Hall",
-      "Los Angeles, CA 90095"
+      "5514 Pritzker Hall, Box 951563",
+      "Los Angeles, CA 90095-1563"
     ],
-    "mailCode": "TO BE CONFIRMED",
-    "email": "TO BE CONFIRMED",
-    "phone": "TO BE CONFIRMED"
+    "mailCode": "951563",
+    "email": "neisenbe@ucla.edu",
+    "phone": "310.267.5196"
   }
 }

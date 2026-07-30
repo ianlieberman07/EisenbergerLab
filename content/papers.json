@@ -9,8 +9,8 @@
    "year": 9999,
    "inPress": true,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.dcn.2026.101770",
+   "pdf": "https://doi.org/10.1016/j.dcn.2026.101770"
   },
   {
    "id": 204,
@@ -21,8 +21,8 @@
    "year": 9999,
    "inPress": true,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/09637214261459027",
+   "pdf": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13348770/"
   },
   {
    "id": 203,
@@ -33,7 +33,7 @@
    "year": 9999,
    "inPress": true,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.bbi.2026.106570",
    "pdf": ""
   },
   {
@@ -45,8 +45,8 @@
    "year": 9999,
    "inPress": true,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/s41398-025-03752-2",
+   "pdf": "https://doi.org/10.1038/s41398-025-03752-2"
   },
   {
    "id": 201,
@@ -57,8 +57,8 @@
    "year": 9999,
    "inPress": true,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/s41598-025-27689-0",
+   "pdf": "https://doi.org/10.1038/s41598-025-27689-0"
   },
   {
    "id": 200,
@@ -69,8 +69,8 @@
    "year": 9999,
    "inPress": true,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1037/xge0001841",
+   "pdf": "https://doi.org/10.1037/xge0001841"
   },
   {
    "id": 199,
@@ -81,7 +81,7 @@
    "year": 9999,
    "inPress": true,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1002/jad.70128",
    "pdf": ""
   },
   {
@@ -93,8 +93,8 @@
    "year": 2026,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1037/emo0001577",
+   "pdf": "https://doi.org/10.1037/emo0001577"
   },
   {
    "id": 197,
@@ -117,8 +117,8 @@
    "year": 2026,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.psyneuen.2025.107673",
+   "pdf": "https://escholarship.org/uc/item/4615t0v6"
   },
   {
    "id": 195,
@@ -129,8 +129,8 @@
    "year": 2025,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1111/acer.70090",
+   "pdf": "https://pubmed.ncbi.nlm.nih.gov/40451996/"
   },
   {
    "id": 194,
@@ -153,8 +153,8 @@
    "year": 2025,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.scog.2025.100367",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12149646"
   },
   {
    "id": 192,
@@ -165,7 +165,7 @@
    "year": 2025,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1111/nyas.15330",
    "pdf": ""
   },
   {
@@ -177,7 +177,7 @@
    "year": 2025,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1037/emo0001284",
    "pdf": ""
   },
   {
@@ -189,8 +189,8 @@
    "year": 2024,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/s41537-024-00511-y",
+   "pdf": "https://escholarship.org/uc/item/0jh440tj"
   },
   {
    "id": 189,
@@ -213,8 +213,8 @@
    "year": 2024,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1017/s0033291724000102",
+   "pdf": "https://escholarship.org/uc/item/09z3q11v"
   },
   {
    "id": 187,
@@ -225,8 +225,8 @@
    "year": 2024,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/15500594231222979",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/11693041"
   },
   {
    "id": 186,
@@ -237,8 +237,8 @@
    "year": 2024,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbih.2024.100840",
+   "pdf": "https://escholarship.org/uc/item/413385nh"
   },
   {
    "id": 185,
@@ -249,8 +249,8 @@
    "year": 2024,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsae002",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/10868130"
   },
   {
    "id": 184,
@@ -261,7 +261,7 @@
    "year": 2024,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1037/emo0001326",
    "pdf": ""
   },
   {
@@ -273,8 +273,8 @@
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.neubiorev.2023.105307",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12273880"
   },
   {
    "id": 182,
@@ -285,8 +285,8 @@
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.dcn.2023.101262",
+   "pdf": "https://escholarship.org/uc/item/2x3801m3"
   },
   {
    "id": 181,
@@ -297,8 +297,8 @@
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1162/jocn_a_02024",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12050107"
   },
   {
    "id": 180,
@@ -309,8 +309,8 @@
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.psyneuen.2023.106103",
+   "pdf": "https://escholarship.org/uc/item/6w80v1x4"
   },
   {
    "id": 179,
@@ -321,8 +321,8 @@
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1371/journal.pone.0284161",
+   "pdf": "https://escholarship.org/uc/item/7p5962g2"
   },
   {
    "id": 178,
@@ -333,8 +333,8 @@
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbih.2023.100601",
+   "pdf": "https://escholarship.org/uc/item/3tw138h8"
   },
   {
    "id": 177,
@@ -345,8 +345,8 @@
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbih.2023.100588",
+   "pdf": "https://escholarship.org/uc/item/6x07m9cq"
   },
   {
    "id": 176,
@@ -357,7 +357,7 @@
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1037/emo0001194",
    "pdf": ""
   },
   {
@@ -369,7 +369,7 @@
    "year": 2023,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1037/emo0001179",
    "pdf": ""
   },
   {
@@ -381,8 +381,8 @@
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.neuropsychologia.2022.108374",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/12050106"
   },
   {
    "id": 173,
@@ -405,8 +405,8 @@
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.dcn.2022.101128",
+   "pdf": "https://escholarship.org/uc/item/7sh2z5sg"
   },
   {
    "id": 171,
@@ -417,8 +417,8 @@
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1037/emo0000925",
+   "pdf": "https://doi.org/10.1037/emo0000925"
   },
   {
    "id": 170,
@@ -429,8 +429,8 @@
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsab139",
+   "pdf": "https://escholarship.org/uc/item/7xj8c1kv"
   },
   {
    "id": 169,
@@ -441,8 +441,8 @@
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.brat.2022.104101",
+   "pdf": "https://escholarship.org/uc/item/51h8f5h7"
   },
   {
    "id": 168,
@@ -465,8 +465,8 @@
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.biopsych.2021.11.017",
+   "pdf": "https://doi.org/10.1016/j.biopsych.2021.11.017"
   },
   {
    "id": 166,
@@ -477,7 +477,7 @@
    "year": 2022,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1111/psyp.13954",
    "pdf": ""
   },
   {
@@ -513,8 +513,8 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/alcalc/agaa148",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/8557676"
   },
   {
    "id": 162,
@@ -525,7 +525,7 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.neubiorev.2021.08.030",
    "pdf": ""
   },
   {
@@ -537,7 +537,7 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.bbi.2021.08.229",
    "pdf": ""
   },
   {
@@ -573,8 +573,8 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2021.04.019",
+   "pdf": "https://doi.org/10.1016/j.bbi.2021.04.019"
   },
   {
    "id": 157,
@@ -597,8 +597,8 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1371/journal.pone.0246753",
+   "pdf": "https://escholarship.org/uc/item/1q93f3s7"
   },
   {
    "id": 155,
@@ -609,7 +609,7 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.psyneuen.2020.105114",
    "pdf": ""
   },
   {
@@ -621,8 +621,8 @@
    "year": 2021,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1007/s10964-020-01362-3",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/8039084"
   },
   {
    "id": 153,
@@ -640,8 +640,8 @@
    "id": 152,
    "citation": "Sahi, R.S.* & Eisenberger, N.I. (2020). Why don’t you like me? The role of the mentalizing network in feeling socially rejected. To appear in: M. Gilead and K.N. Ochsner (Eds.), The Neural Basis of Mentalizing. New York: Springer, p. 613-628.",
    "authors": "Sahi, R.S. & Eisenberger, N.I.",
-   "title": "Why don’t you like me?",
-   "journal": "The role of the mentalizing network in feeling socially rejected. To appear in: M. Gilead and K.N. Ochsner (Eds.), The Neural Basis of Mentalizing. New York: Springer, p. 613-628",
+   "title": "Why don’t you like me? The role of the mentalizing network in feeling socially rejected",
+   "journal": "To appear in: M. Gilead and K.N. Ochsner (Eds.), The Neural Basis of Mentalizing. New York: Springer, p. 613-628",
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
@@ -657,8 +657,8 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/s41386-020-0735-7",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/7419294"
   },
   {
    "id": 150,
@@ -669,7 +669,7 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.bbi.2020.06.011",
    "pdf": ""
   },
   {
@@ -681,8 +681,8 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsaa042",
+   "pdf": "https://escholarship.org/uc/item/1n03b2jn"
   },
   {
    "id": 148,
@@ -693,8 +693,8 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsz103",
+   "pdf": "https://escholarship.org/uc/item/4mp5j2rd"
   },
   {
    "id": 147,
@@ -705,7 +705,7 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1002/9781119057840.ch121",
    "pdf": ""
   },
   {
@@ -741,8 +741,8 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.3389/fnins.2020.00011",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/7033443"
   },
   {
    "id": 143,
@@ -753,8 +753,8 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2019.11.014",
+   "pdf": "https://escholarship.org/uc/item/7xj2m055"
   },
   {
    "id": 142,
@@ -765,8 +765,8 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1002/wps.20724",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6953558"
   },
   {
    "id": 141,
@@ -777,8 +777,8 @@
    "year": 2020,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2019.09.023",
+   "pdf": "https://escholarship.org/uc/item/9138z7fj"
   },
   {
    "id": 140,
@@ -789,8 +789,8 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.3389/fpsyg.2019.02167",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6781934"
   },
   {
    "id": 139,
@@ -813,8 +813,8 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1097/psy.0000000000000685",
+   "pdf": "https://escholarship.org/uc/item/7gv3c4m0"
   },
   {
    "id": 137,
@@ -825,8 +825,8 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.psyneuen.2019.104371",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6842695"
   },
   {
    "id": 136,
@@ -837,8 +837,8 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bpsc.2019.03.010",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6612452"
   },
   {
    "id": 135,
@@ -849,8 +849,8 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1037/emo0000472",
+   "pdf": "https://doi.org/10.1037/emo0000472"
   },
   {
    "id": 134,
@@ -861,8 +861,8 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.psyneuen.2019.04.019",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6687062"
   },
   {
    "id": 133,
@@ -873,8 +873,8 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/s41386-019-0316-9",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6462041"
   },
   {
    "id": 132,
@@ -885,8 +885,8 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.psyneuen.2019.01.024",
+   "pdf": "https://escholarship.org/uc/item/9nz9j9fx"
   },
   {
    "id": 131,
@@ -897,8 +897,8 @@
    "year": 2019,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/s41386-018-0259-6",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6333799"
   },
   {
    "id": 130,
@@ -909,8 +909,8 @@
    "year": 2018,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.biopsycho.2018.10.007",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/6295662"
   },
   {
    "id": 129,
@@ -933,8 +933,8 @@
    "year": 2018,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1080/15298868.2018.1490344",
+   "pdf": "https://escholarship.org/uc/item/8cf6f16w"
   },
   {
    "id": 127,
@@ -945,8 +945,8 @@
    "year": 2018,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1007/s12529-018-9720-5",
+   "pdf": "https://escholarship.org/uc/item/9959t9vr"
   },
   {
    "id": 126,
@@ -957,7 +957,7 @@
    "year": 2018,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1111/nyas.13864",
    "pdf": ""
   },
   {
@@ -969,8 +969,8 @@
    "year": 2018,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsy037",
+   "pdf": "https://uknowledge.uky.edu/psychology_facpub/143"
   },
   {
    "id": 124,
@@ -981,8 +981,8 @@
    "year": 2018,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1371/journal.pone.0196708",
+   "pdf": "https://escholarship.org/uc/item/2z44788s"
   },
   {
    "id": 123,
@@ -993,8 +993,8 @@
    "year": 2018,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/0963721417729036",
+   "pdf": "https://escholarship.org/uc/item/16v07152"
   },
   {
    "id": 122,
@@ -1005,8 +1005,8 @@
    "year": 2018,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/2167702617743002",
+   "pdf": "https://escholarship.org/uc/item/9cg5x3wv"
   },
   {
    "id": 121,
@@ -1029,8 +1029,8 @@
    "year": 2017,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1371/journal.pone.0175891",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/5413011"
   },
   {
    "id": 119,
@@ -1041,8 +1041,8 @@
    "year": 2017,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/npp.2016.245",
+   "pdf": "https://doi.org/10.1038/npp.2016.245"
   },
   {
    "id": 118,
@@ -1053,8 +1053,8 @@
    "year": 2017,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/npp.2016.141",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/5143485"
   },
   {
    "id": 117,
@@ -1065,8 +1065,8 @@
    "year": 2017,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1080/17470919.2016.1166154",
+   "pdf": "https://figshare.com/articles/journal_contribution/Low-frequency_brain_stimulation_to_the_left_dorsolateral_prefrontal_cortex_increases_the_negative_impact_of_social_exclusion_among_those_high_in_personal_distress/20883814"
   },
   {
    "id": 116,
@@ -1089,7 +1089,7 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1007/978-3-319-28099-8_552-1",
    "pdf": ""
   },
   {
@@ -1113,8 +1113,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1371/journal.pone.0156873",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4892629"
   },
   {
    "id": 112,
@@ -1125,7 +1125,7 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.psychres.2016.04.120",
    "pdf": ""
   },
   {
@@ -1137,8 +1137,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2016.03.022",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/5011017"
   },
   {
    "id": 110,
@@ -1161,8 +1161,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsw041",
+   "pdf": "https://escholarship.org/uc/item/9hd6f5bv"
   },
   {
    "id": 108,
@@ -1173,20 +1173,20 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsw025",
+   "pdf": "https://escholarship.org/uc/item/4tx2p5s4"
   },
   {
    "id": 107,
    "citation": "Inagaki, T.K.*, Muscatell, K.A., Moeini, M., Dutcher, J., Jevtic, I., Irwin, M.R., & Eisenberger, N.I. (2016). Yearning for connection? Loneliness is associated with increased ventral striatum activity to close others. Social, Cognitive, and Affective Neuroscience, 11, 1096-1101.",
    "authors": "Inagaki, T.K., Muscatell, K.A., Moeini, M., Dutcher, J., Jevtic, I., Irwin, M.R., & Eisenberger, N.I.",
-   "title": "Yearning for connection?",
-   "journal": "Loneliness is associated with increased ventral striatum activity to close others. Social, Cognitive, and Affective Neuroscience, 11, 1096-1101",
+   "title": "Yearning for connection? Loneliness is associated with increased ventral striatum activity to close others",
+   "journal": "Social, Cognitive, and Affective Neuroscience, 11, 1096-1101",
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsv076",
+   "pdf": "https://escholarship.org/uc/item/0mj6n5pd"
   },
   {
    "id": 106,
@@ -1209,8 +1209,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1073/pnas.1603186113",
+   "pdf": "https://escholarship.org/uc/item/6gt1d183"
   },
   {
    "id": 104,
@@ -1221,8 +1221,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsw006",
+   "pdf": "https://escholarship.org/uc/item/9xt5s8db"
   },
   {
    "id": 103,
@@ -1233,8 +1233,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsw002",
+   "pdf": "https://escholarship.org/uc/item/1r4580rs"
   },
   {
    "id": 102,
@@ -1269,8 +1269,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.3389/fnbeh.2016.00064",
+   "pdf": "https://escholarship.org/uc/item/2dm7p0nt"
   },
   {
    "id": 99,
@@ -1281,8 +1281,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/tp.2016.23",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4872448"
   },
   {
    "id": 98,
@@ -1293,8 +1293,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1073/pnas.1515083112",
+   "pdf": "https://escholarship.org/uc/item/9zk8c52d"
   },
   {
    "id": 97,
@@ -1305,8 +1305,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1111/psyp.12578",
+   "pdf": "https://escholarship.org/uc/item/3hv9d1k2"
   },
   {
    "id": 96,
@@ -1317,8 +1317,8 @@
    "year": 2016,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2015.09.008",
+   "pdf": "https://escholarship.org/uc/item/6hv8b3z4"
   },
   {
    "id": 95,
@@ -1329,7 +1329,7 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.psyneuen.2015.08.020",
    "pdf": ""
   },
   {
@@ -1341,8 +1341,8 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1037/emo0000088",
+   "pdf": "https://doi.org/10.1037/emo0000088"
   },
   {
    "id": 93,
@@ -1353,8 +1353,8 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1371/journal.pone.0128294",
+   "pdf": "https://docs.lib.purdue.edu/psychpubs/78"
   },
   {
    "id": 92,
@@ -1365,8 +1365,8 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2015.03.002",
+   "pdf": "https://escholarship.org/uc/item/2rx6v8d2"
   },
   {
    "id": 91,
@@ -1377,7 +1377,7 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1007/s40167-014-0023-7",
    "pdf": ""
   },
   {
@@ -1389,8 +1389,8 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1038/npp.2015.17",
+   "pdf": "https://escholarship.org/uc/item/4tz224t4"
   },
   {
    "id": 89,
@@ -1425,8 +1425,8 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2014.10.006",
+   "pdf": "https://escholarship.org/uc/item/5qq0371s"
   },
   {
    "id": 86,
@@ -1437,8 +1437,8 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.psyneuen.2014.10.006",
+   "pdf": "https://escholarship.org/uc/item/42c884v6"
   },
   {
    "id": 85,
@@ -1449,8 +1449,8 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1146/annurev-psych-010213-115146",
+   "pdf": "https://escholarship.org/uc/item/0k84g6vn"
   },
   {
    "id": 84,
@@ -1461,8 +1461,8 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsu120",
+   "pdf": "https://escholarship.org/uc/item/64f210r7"
   },
   {
    "id": 83,
@@ -1473,8 +1473,8 @@
    "year": 2015,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2014.06.201",
+   "pdf": "https://escholarship.org/uc/item/3ft5d993"
   },
   {
    "id": 82,
@@ -1485,7 +1485,7 @@
    "year": 2014,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.bbi.2014.06.155",
    "pdf": ""
   },
   {
@@ -1497,8 +1497,8 @@
    "year": 2014,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nst191",
+   "pdf": "https://escholarship.org/uc/item/99b139np"
   },
   {
    "id": 80,
@@ -1509,8 +1509,8 @@
    "year": 2014,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nst038",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4014110"
   },
   {
    "id": 79,
@@ -1545,8 +1545,8 @@
    "year": 2013,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1177/0956797613492773",
+   "pdf": "https://escholarship.org/uc/item/64j0x29n"
   },
   {
    "id": 76,
@@ -1569,7 +1569,7 @@
    "year": 2013,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1111/desc.12056",
    "pdf": ""
   },
   {
@@ -1581,7 +1581,7 @@
    "year": 2013,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1111/cdev.12056",
    "pdf": ""
   },
   {
@@ -1593,8 +1593,8 @@
    "year": 2013,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nss019",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3624958"
   },
   {
    "id": 72,
@@ -1605,8 +1605,8 @@
    "year": 2013,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.conb.2013.01.006",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3664098"
   },
   {
    "id": 71,
@@ -1617,7 +1617,7 @@
    "year": 2013,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1080/1047840x.2013.764815",
    "pdf": ""
   },
   {
@@ -1629,7 +1629,7 @@
    "year": 2013,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1093/oxfordhb/9780195398700.013.0015",
    "pdf": ""
   },
   {
@@ -1641,7 +1641,7 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1073/pnas.1218518109",
    "pdf": ""
   },
   {
@@ -1653,7 +1653,7 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1111/j.1751-9004.2012.00467.x",
    "pdf": ""
   },
   {
@@ -1665,7 +1665,7 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1162/jocn_a_00242",
    "pdf": ""
   },
   {
@@ -1677,8 +1677,8 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1111/j.1399-5618.2012.01020.x",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/4412746"
   },
   {
    "id": 65,
@@ -1689,7 +1689,7 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1038/nrn3231",
    "pdf": ""
   },
   {
@@ -1701,7 +1701,7 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1038/nn.3086",
    "pdf": ""
   },
   {
@@ -1713,8 +1713,8 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.neuroimage.2012.01.080",
+   "pdf": "https://repository.upenn.edu/asc_papers/429"
   },
   {
    "id": 62,
@@ -1725,20 +1725,20 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.neuroimage.2011.10.090",
    "pdf": ""
   },
   {
    "id": 61,
    "citation": "DeWall, C.N., Masten, C.L., Powell, C., Combs, D., Schurtz, D.R., & Eisenberger, N.I. (2012). Do neural responses to rejection depend on attachment style? An fMRI study. Social Cognitive and Affective Neuroscience, 7, 184-192.",
    "authors": "DeWall, C.N., Masten, C.L., Powell, C., Combs, D., Schurtz, D.R., & Eisenberger, N.I.",
-   "title": "Do neural responses to rejection depend on attachment style?",
-   "journal": "An fMRI study. Social Cognitive and Affective Neuroscience, 7, 184-192",
+   "title": "Do neural responses to rejection depend on attachment style? An fMRI study",
+   "journal": "Social Cognitive and Affective Neuroscience, 7, 184-192",
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsq107",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3277372"
   },
   {
    "id": 60,
@@ -1761,7 +1761,7 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1073/pnas.1120972109",
    "pdf": ""
   },
   {
@@ -1785,7 +1785,7 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1097/psy.0b013e3182359335",
    "pdf": ""
   },
   {
@@ -1797,8 +1797,8 @@
    "year": 2012,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsq098",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3252626"
   },
   {
    "id": 55,
@@ -1809,7 +1809,7 @@
    "year": 2011,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.dcn.2011.01.004",
    "pdf": ""
   },
   {
@@ -1821,7 +1821,7 @@
    "year": 2011,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1162/jocn_a_00027",
    "pdf": ""
   },
   {
@@ -1845,7 +1845,7 @@
    "year": 2011,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1073/pnas.1108239108",
    "pdf": ""
   },
   {
@@ -1857,7 +1857,7 @@
    "year": 2011,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1162/jocn.2010.21520",
    "pdf": ""
   },
   {
@@ -1881,7 +1881,7 @@
    "year": 2011,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.neuroimage.2010.11.060",
    "pdf": ""
   },
   {
@@ -1893,7 +1893,7 @@
    "year": 2011,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1017/s0954579410000799",
    "pdf": ""
   },
   {
@@ -1905,7 +1905,7 @@
    "year": 2011,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1037/12351-002",
    "pdf": ""
   },
   {
@@ -1917,8 +1917,8 @@
    "year": 2010,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1080/17470919.2010.490673",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2957502"
   },
   {
    "id": 45,
@@ -1929,8 +1929,8 @@
    "year": 2010,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.biopsych.2010.06.010",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3025604"
   },
   {
    "id": 44,
@@ -1953,8 +1953,8 @@
    "year": 2010,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.pscychresns.2010.06.001",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/3382985"
   },
   {
    "id": 42,
@@ -1965,8 +1965,8 @@
    "year": 2010,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1073/pnas.1009164107",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2930449"
   },
   {
    "id": 41,
@@ -1989,8 +1989,8 @@
    "year": 2010,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.bbi.2009.12.009",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2856755"
   },
   {
    "id": 39,
@@ -2001,7 +2001,7 @@
    "year": 2010,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1037/a0018312",
    "pdf": ""
   },
   {
@@ -2013,7 +2013,7 @@
    "year": 2010,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.bbi.2009.08.009",
    "pdf": ""
   },
   {
@@ -2025,7 +2025,7 @@
    "year": 2010,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1037/a0016563",
    "pdf": ""
   },
   {
@@ -2049,8 +2049,8 @@
    "year": 2009,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1073/pnas.0812612106",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2736434"
   },
   {
    "id": 34,
@@ -2073,7 +2073,7 @@
    "year": 2009,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.neuroimage.2009.04.040",
    "pdf": ""
   },
   {
@@ -2085,8 +2085,8 @@
    "year": 2009,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsp007",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2686232"
   },
   {
    "id": 31,
@@ -2097,7 +2097,7 @@
    "year": 2009,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1126/science.1170008",
    "pdf": ""
   },
   {
@@ -2109,7 +2109,7 @@
    "year": 2008,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1080/10478400802608855",
    "pdf": ""
   },
   {
@@ -2128,13 +2128,13 @@
    "id": 28,
    "citation": "O’Connor, M.F., Wellisch, D.K., Stanton, A.L., Eisenberger, N.I., Irwin, M.R., & Lieberman, M.D. (2008). Craving love? Enduring grief activates brain’s reward center. Neuroimage, 42, 969-972.",
    "authors": "O’Connor, M.F., Wellisch, D.K., Stanton, A.L., Eisenberger, N.I., Irwin, M.R., & Lieberman, M.D.",
-   "title": "Craving love?",
-   "journal": "Enduring grief activates brain’s reward center. Neuroimage, 42, 969-972",
+   "title": "Craving love? Enduring grief activates brain’s reward center",
+   "journal": "Neuroimage, 42, 969-972",
    "year": 2008,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.neuroimage.2008.04.256",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2553561"
   },
   {
    "id": 27,
@@ -2145,7 +2145,7 @@
    "year": 2008,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1037/0022-3514.95.1.197",
    "pdf": ""
   },
   {
@@ -2157,8 +2157,8 @@
    "year": 2008,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.pscychresns.2007.04.007",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2410029"
   },
   {
    "id": 25,
@@ -2193,8 +2193,8 @@
    "year": 2007,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1093/scan/nsm031",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2569807"
   },
   {
    "id": 22,
@@ -2205,7 +2205,7 @@
    "year": 2007,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
+   "doi": "https://doi.org/10.1097/psy.0b013e3180f6171f",
    "pdf": ""
   },
   {
@@ -2217,7 +2217,7 @@
    "year": 2007,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1080/01973530701331718",
    "pdf": ""
   },
   {
@@ -2241,8 +2241,8 @@
    "year": 2007,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1016/j.neuroimage.2007.01.038",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2710966"
   },
   {
    "id": 18,
@@ -2253,7 +2253,7 @@
    "year": 2007,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.biopsych.2006.08.007",
    "pdf": ""
   },
   {
@@ -2265,8 +2265,8 @@
    "year": 2007,
    "inPress": false,
    "traineeFirstAuthor": true,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.1080/17470910701391711",
+   "pdf": "https://www.ncbi.nlm.nih.gov/pmc/articles/2373282"
   },
   {
    "id": 16,
@@ -2277,7 +2277,7 @@
    "year": 2006,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.pain.2006.06.024",
    "pdf": ""
   },
   {
@@ -2289,7 +2289,7 @@
    "year": 2006,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.biopsych.2006.04.019",
    "pdf": ""
   },
   {
@@ -2301,7 +2301,7 @@
    "year": 2006,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1159/000095580",
    "pdf": ""
   },
   {
@@ -2313,7 +2313,7 @@
    "year": 2006,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.biopsych.2005.09.027",
    "pdf": ""
   },
   {
@@ -2325,7 +2325,7 @@
    "year": 2005,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.biopsych.2005.09.012",
    "pdf": ""
   },
   {
@@ -2349,8 +2349,8 @@
    "year": 2005,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
-   "pdf": ""
+   "doi": "https://doi.org/10.3758/cabn.5.2.169",
+   "pdf": "https://doi.org/10.3758/cabn.5.2.169"
   },
   {
    "id": 9,
@@ -2373,19 +2373,19 @@
    "year": 2005,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1038/nn1465",
    "pdf": ""
   },
   {
    "id": 7,
    "citation": "Lieberman, M.L. & Eisenberger, N.I. (2004). A neural alarm system: Behavior and beyond. Reply to Ullsperger et al. Trends in Cognitive Sciences, 8, 446-447.",
    "authors": "Lieberman, M.L. & Eisenberger, N.I.",
-   "title": "A neural alarm system: Behavior and beyond",
-   "journal": "Reply to Ullsperger et al. Trends in Cognitive Sciences, 8, 446-447",
+   "title": "A neural alarm system: Behavior and beyond Reply to Ullsperger et al",
+   "journal": "Trends in Cognitive Sciences, 8, 446-447",
    "year": 2004,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.tics.2004.08.014",
    "pdf": ""
   },
   {
@@ -2397,7 +2397,7 @@
    "year": 2004,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/j.tics.2004.05.010",
    "pdf": ""
   },
   {
@@ -2416,12 +2416,12 @@
    "id": 4,
    "citation": "Eisenberger, N.I., Lieberman, M.D., & Williams, K.D. (2003). Does rejection hurt? An fMRI study of social exclusion. Science, 302, 290-292.",
    "authors": "Eisenberger, N.I., Lieberman, M.D., & Williams, K.D.",
-   "title": "Does rejection hurt?",
-   "journal": "An fMRI study of social exclusion. Science, 302, 290-292",
+   "title": "Does rejection hurt? An fMRI study of social exclusion",
+   "journal": "Science, 302, 290-292",
    "year": 2003,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1126/science.1089134",
    "pdf": ""
   },
   {
@@ -2433,7 +2433,7 @@
    "year": 2003,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1016/s0022-3999(02)00473-7",
    "pdf": ""
   },
   {
@@ -2445,7 +2445,7 @@
    "year": 2002,
    "inPress": false,
    "traineeFirstAuthor": false,
-   "doi": "",
+   "doi": "https://doi.org/10.1080/14622200210153830",
    "pdf": ""
   },
   {

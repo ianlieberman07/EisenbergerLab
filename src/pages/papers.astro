@@ -20,6 +20,7 @@ const decades = [...new Set(years.map((y) => Math.floor(y / 10) * 10))].sort((a,
 
 const total = papers.length;
 const inPressCount = papers.filter((p) => p.data.inPress).length;
+const freeCount = papers.filter((p) => p.data.pdf).length;
 
 const scholar = (title: string) =>
   `https://scholar.google.com/scholar?q=${encodeURIComponent(title)}`;
@@ -34,7 +35,7 @@ const scholar = (title: string) =>
     imageAlt="A white sculpted head, open at the crown to reveal a maze in place of a brain."
     eyebrow="Publications"
     title="Papers"
-    lede={`${total} publications. Search by title, author, or journal, or filter by period.`}
+    lede={`${total} publications, ${freeCount} with a free full-text copy. Search by title, author, or journal, or filter by period.`}
   />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
@@ -116,27 +117,43 @@ const scholar = (title: string) =>
                   </p>
                 )}
 
-                <p class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-[0.85rem]">
-                  {paper.data.doi && (
-                    <a href={paper.data.doi} class="text-clay-light hover:text-bone">
-                      DOI
-                    </a>
-                  )}
-                  {paper.data.pdf && (
-                    <a href={paper.data.pdf} class="text-clay-light hover:text-bone">
-                      PDF
-                    </a>
-                  )}
-                  {!paper.data.doi && !paper.data.pdf && (
-                    <a
-                      href={scholar(paper.data.title)}
-                      rel="noopener"
-                      target="_blank"
-                      class="text-bone-muted underline-offset-4 hover:text-clay-light hover:underline"
-                    >
-                      Find this paper ↗
-                    </a>
-                  )}
+                <p class="mt-3 flex flex-wrap items-center gap-x-6 gap-y-1 text-[0.85rem]">
+                  {
+                    paper.data.doi && (
+                      <a
+                        href={paper.data.doi}
+                        rel="noopener"
+                        class="text-clay-light underline-offset-4 hover:text-bone hover:underline"
+                      >
+                        Publisher ↗
+                      </a>
+                    )
+                  }
+                  {/* Only ever an open-access copy, and only after the link was
+                      verified to respond — never a paywalled publisher PDF. */}
+                  {
+                    paper.data.pdf && (
+                      <a
+                        href={paper.data.pdf}
+                        rel="noopener"
+                        class="text-clay-light underline-offset-4 hover:text-bone hover:underline"
+                      >
+                        Free full text ↗
+                      </a>
+                    )
+                  }
+                  {
+                    !paper.data.doi && (
+                      <a
+                        href={scholar(paper.data.title)}
+                        rel="noopener"
+                        target="_blank"
+                        class="text-bone-muted underline-offset-4 hover:text-clay-light hover:underline"
+                      >
+                        Search for this paper ↗
+                      </a>
+                    )
+                  }
                 </p>
               </div>
             </div>

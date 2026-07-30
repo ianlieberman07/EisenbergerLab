@@ -54,17 +54,19 @@ const { contact } = site;
             <dl class="mt-6 space-y-2 text-[1rem] text-bone-dim">
               <div class="flex gap-3">
                 <dt class="text-bone-muted">Email</dt>
-                <dd>{contact.email}</dd>
+                <dd>
+                  <a href={`mailto:${contact.email}`} class="link-rule">{contact.email}</a>
+                </dd>
               </div>
               <div class="flex gap-3">
                 <dt class="text-bone-muted">Phone</dt>
-                <dd>{contact.phone}</dd>
+                <dd>
+                  <a href={`tel:+1${contact.phone.replace(/\D/g, '')}`} class="link-rule">
+                    {contact.phone}
+                  </a>
+                </dd>
               </div>
             </dl>
-            <p class="mt-6 text-[0.85rem] leading-relaxed text-clay-light">
-              Address corrected to 5514 Pritzker Hall per the client. Phone,
-              email and mail code still require confirmation.
-            </p>
           </div>
         </div>
       </aside>

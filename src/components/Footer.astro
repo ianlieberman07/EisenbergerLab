@@ -23,8 +23,12 @@ const year = new Date().getFullYear();
         {contact.addressLines.map((line) => <div>{line}</div>)}
       </address>
       <p class="mt-4 space-y-1 text-[0.95rem] text-bone-dim">
-        <span class="block">Email: {contact.email}</span>
-        <span class="block">Phone: {contact.phone}</span>
+        <span class="block">
+          Email: <a href={`mailto:${contact.email}`} class="transition-colors duration-400 hover:text-bone">{contact.email}</a>
+        </span>
+        <span class="block">
+          Phone: <a href={`tel:+1${contact.phone.replace(/\D/g, '')}`} class="transition-colors duration-400 hover:text-bone">{contact.phone}</a>
+        </span>
       </p>
     </div>
 

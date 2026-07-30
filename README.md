@@ -18,9 +18,8 @@ Editing is handled by a git-backed CMS at `/admin` — see
 [`DOCS/EDITING-GUIDE.md`](DOCS/EDITING-GUIDE.md), written for her rather than for
 a developer. It needs deploying and GitHub sign-in before it works.
 
-**Outstanding:** DOI/PDF links for the papers (her CV lists none) and confirmed
-job titles for the four lab members. No content has been invented — every
-remaining gap renders as a visible notice.
+**Outstanding:** confirmed job titles for the four lab members. No content has
+been invented — every remaining gap renders as a visible notice.
 See [`DOCS/QUESTIONS.md`](DOCS/QUESTIONS.md).
 
 ## Running it
@@ -59,12 +58,10 @@ npm run dev
 
 ## Before launch
 
-1. **DOI/PDF links** for the papers — the CV lists none (QUESTIONS.md #6b).
-2. **Job titles** for the four lab members (#14).
-3. **Image licensing.** The landing hero is the lab's existing cover image, but
-   three Shutterstock images are still used as secondary art (#3).
-4. **Confirm the domain** with UCLA IT and set `site` in `astro.config.mjs`.
-5. **Pick the CMS** (CLAUDE.md §4), then write `DOCS/EDITING-GUIDE.md` for her.
+1. **Job titles** for the four lab members (QUESTIONS.md #14).
+2. **Confirm the domain** with UCLA IT and set `site` in `astro.config.mjs`,
+   then deploy and gate `/admin` (DOCS/ADMIN-ACCESS.md).
+3. **Design sign-off** from the client.
 
 ## A note on the headshots
 

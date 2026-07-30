@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import { nav } from '../config';
+
+// Netlify and Cloudflare Pages both serve /404.html automatically for missing
+// routes on static sites — no host configuration needed.
+---
+
+<Base
+  title="Page not found"
+  description="This page does not exist on the Social and Affective Neuroscience Laboratory site."
+>
+  <section
+    class="mx-auto flex min-h-[70svh] max-w-[110rem] flex-col justify-center px-(--spacing-gutter) py-40"
+  >
+    <p class="reveal text-eyebrow font-medium uppercase text-clay-light">404</p>
+    <h1 class="reveal mt-7 max-w-[20ch] font-display text-display text-bone" data-reveal-delay="100">
+      This page doesn't exist.
+    </h1>
+    <p
+      class="reveal mt-8 max-w-(--container-prose) text-lede text-bone-dim"
+      data-reveal-delay="180"
+    >
+      The address may have changed when the site was rebuilt — the old site's
+      pages live at new locations. Everything is reachable from here:
+    </p>
+
+    <ul class="reveal mt-12 flex flex-wrap gap-x-10 gap-y-4" data-reveal-delay="260">
+      {
+        nav.map((item) => (
+          <li>
+            <a href={item.href} class="link-rule text-[1.1rem]">
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>
