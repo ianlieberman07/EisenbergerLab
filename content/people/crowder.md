@@ -1,6 +1,6 @@
 ---
 name: Celeste Crowder
-role: Lab Member
+role: Graduate Student
 status: current
 order: 3
 headshot: ./images/crowder.jpg

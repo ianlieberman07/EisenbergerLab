@@ -29,11 +29,17 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
       context, leaving the photograph's black ground painting over the page
       instead of screening into it. */}
   <section class="relative min-h-[100svh] overflow-hidden">
-    {/* `bg-ground` is load-bearing, not decoration: mix-blend-mode blends with
-        its backdrop, and the body's background propagates to the viewport
-        canvas, which is NOT part of the blending group. Without a painted
-        backdrop here the photograph's black ground renders as a visible black
-        rectangle instead of screening into the page. */}
+    {/* Two things keep this image on the page rather than in a box:
+        1. `bg-ground` — mix-blend-mode blends with its backdrop, and a body
+           background propagates to the viewport canvas, which is NOT part of
+           the blending group. Without a painted backdrop the photograph's
+           black ground paints straight over the page.
+        2. `lighten`, not `screen` — the JPEG's "black" is around rgb(2,2,2)
+           rather than a true zero, and screen lifts that to just above the
+           page colour, leaving a faint rectangle edge. `lighten` takes the
+           per-channel maximum, so every pixel darker than the ground clamps
+           to exactly the ground and the edge cannot exist. The bright hands
+           are unaffected. */}
     <div class="absolute inset-0 hidden bg-ground lg:block">
       <Image
         src={hero}
@@ -42,7 +48,7 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
         sizes="100vw"
         loading="eager"
         fetchpriority="high"
-        class="h-full w-full object-contain object-center p-[7vh] mix-blend-screen"
+        class="h-full w-full object-contain object-center p-[7vh] mix-blend-lighten"
       />
       {/* Only a whisper of a global scrim — anything heavier smothers the
            photograph. The type's contrast is handled by a local plate below. */}
@@ -63,7 +69,7 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
           widths={[480, 800, 1200]}
           sizes="88vw"
           loading="eager"
-          class="mx-auto max-h-[30svh] w-full object-contain mix-blend-screen"
+          class="mx-auto max-h-[30svh] w-full object-contain mix-blend-lighten"
         />
       </div>
 
@@ -152,7 +158,7 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
       widths={[640, 1024, 1600, 2600]}
       sizes="100vw"
       loading="lazy"
-      class="h-auto w-full mix-blend-screen"
+      class="h-auto w-full mix-blend-lighten"
     />
   </section>
 

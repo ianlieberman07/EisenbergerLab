@@ -1,6 +1,6 @@
 ---
 name: Maria Naclerio
-role: Lab Member
+role: Graduate Student
 status: current
 order: 6
 headshot: ./images/naclerio.jpg

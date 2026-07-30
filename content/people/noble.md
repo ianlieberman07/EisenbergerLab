@@ -1,6 +1,6 @@
 ---
 name: Russell Noble
-role: Lab Member
+role: Graduate Student
 status: current
 order: 4
 headshot: ./images/noble.jpg

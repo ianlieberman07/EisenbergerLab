@@ -38,12 +38,16 @@ Fixed, and the six re-resolved. Flagging it because it's the kind of error that
 looks like clean data: nothing was missing, it was just in the wrong field.
 **Worth a spot-check against the CV before launch.**
 
-### 14. Job titles for the lab members
+### 18. Strand 3 artwork is low resolution
 
-The document lists Crowder, Noble, Blandl and Naclerio under a bare heading,
-"Lab members", with no individual titles. All four currently render as
-"Lab Member". The bios imply graduate students, but that has not been assumed —
-real titles (Graduate Student, Postdoctoral Fellow, etc.) need confirming.
+The client-supplied image for Social Support / Loneliness / Fear Learning is
+**466 x 291**, displayed about 1385px wide — roughly a 3x upscale, and 6x on a
+retina screen. It survives better than a photograph would because the artwork is
+smooth gradient shading rather than fine detail, but **a higher-resolution
+original would visibly improve it**. Worth asking whether one exists.
+
+Strands 2 and 3 previously used two images from the same series — near-identical
+sculpted figures differing only in colour grade. Replaced.
 
 ## Architectural
 
@@ -103,7 +107,7 @@ set in use beyond the cover:
 | Research index | `02-surreal-brain-landscape` |
 | Social Pain | `03-busts-facing-erosion` |
 | Inflammation | `11-figure-green-water-candle` |
-| Loneliness & Fear Learning | `10-figure-ripples-pale-pink` |
+| Loneliness & Fear Learning | client-supplied interlocking-heads artwork |
 | Prosocial Behavior | `14-head-doorway-red-heart` |
 | Papers | `06-maze-brain-head-black` |
 | People | `09-wood-head-puzzle-pieces` |

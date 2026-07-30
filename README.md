@@ -59,7 +59,7 @@ npm run dev
 
 ## Before launch
 
-1. **Job titles** for the four lab members (QUESTIONS.md #14).
+1. **Higher-resolution artwork** for research strand 3 (QUESTIONS.md #18).
 2. **Confirm the domain** with UCLA IT and set `site` in `astro.config.mjs`,
    then deploy and gate `/admin` (DOCS/ADMIN-ACCESS.md).
 3. **Design sign-off** from the client.

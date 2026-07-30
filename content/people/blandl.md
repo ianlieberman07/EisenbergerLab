@@ -1,6 +1,6 @@
 ---
 name: Flora Blandl
-role: Lab Member
+role: Graduate Student
 status: current
 order: 5
 headshot: ./images/blandl.jpg

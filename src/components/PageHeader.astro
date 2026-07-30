@@ -24,15 +24,14 @@ const { eyebrow, title, lede, image, imageAlt } = Astro.props;
           sizes="100vw"
           loading="eager"
           fetchpriority="high"
-          class="h-full w-full object-cover opacity-75"
+          class="h-full w-full object-cover opacity-100"
         />
-        {/* Same scrim logic as the landing hero: the left third stays dark
-            enough for bone type to clear WCAG AA however the image crops,
-            while the right stays light enough for the image to actually read.
-            Several of these images are near-black already, so the passes have
-            to stay restrained or they crush to a flat panel. */}
-        <div class="absolute inset-0 bg-gradient-to-r from-ground via-ground/60 to-ground/5" />
-        <div class="absolute inset-0 bg-gradient-to-t from-ground via-transparent to-ground/55" />
+        {/* The type is left-aligned, so contrast is bought on the left only.
+            Earlier passes dimmed the whole frame to protect a narrow column of
+            text and left the picture looking washed out; these are weighted
+            hard to the left and fade out well before the image's focal area. */}
+        <div class="absolute inset-0 bg-gradient-to-r from-ground via-ground/55 via-30% to-transparent to-62%" />
+        <div class="absolute inset-0 bg-gradient-to-t from-ground via-transparent to-ground/35" />
       </div>
     )
   }
