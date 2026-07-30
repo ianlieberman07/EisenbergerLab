@@ -38,16 +38,17 @@ Fixed, and the six re-resolved. Flagging it because it's the kind of error that
 looks like clean data: nothing was missing, it was just in the wrong field.
 **Worth a spot-check against the CV before launch.**
 
-### 18. Strand 3 artwork is low resolution
+### 18. Strand 3 artwork — resolved
 
-The client-supplied image for Social Support / Loneliness / Fear Learning is
-**466 x 291**, displayed about 1385px wide — roughly a 3x upscale, and 6x on a
-retina screen. It survives better than a photograph would because the artwork is
-smooth gradient shading rather than fine detail, but **a higher-resolution
-original would visibly improve it**. Worth asking whether one exists.
+Strands 2 and 3 originally used two images from the same series: near-identical
+sculpted figures differing only in colour grade. Strand 3 briefly used a
+client-supplied illustration, but at 466 x 291 it was being upscaled roughly
+threefold (sixfold on a retina screen) and read as soft.
 
-Strands 2 and 3 previously used two images from the same series — near-identical
-sculpted figures differing only in colour grade. Replaced.
+It now uses `12-paired-hollow-heads-pastel` from her own inspiration set —
+7000 x 4000, already licensed and paid for, on-register, and a good fit for the
+topic (two facing heads, one holding another figure). It was freed up when the
+Overview page was removed.
 
 ## Architectural
 
@@ -107,7 +108,7 @@ set in use beyond the cover:
 | Research index | `02-surreal-brain-landscape` |
 | Social Pain | `03-busts-facing-erosion` |
 | Inflammation | `11-figure-green-water-candle` |
-| Loneliness & Fear Learning | client-supplied interlocking-heads artwork |
+| Loneliness & Fear Learning | `12-paired-hollow-heads-pastel` |
 | Prosocial Behavior | `14-head-doorway-red-heart` |
 | Papers | `06-maze-brain-head-black` |
 | People | `09-wood-head-puzzle-pieces` |

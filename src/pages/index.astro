@@ -20,15 +20,11 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
   description="The Social and Affective Neuroscience Laboratory at UCLA, directed by Naomi Eisenberger, studies how social connection and disconnection shape the brain and the body."
   transparentHeader
 >
-  {/* Hero: the cover image full-bleed and centred, as before — but `contain`
-      rather than `cover`, so the whole brain-of-hands is visible instead of
-      being cropped down to a mass of fingers. `screen` blending drops the
-      photograph's pure-black ground into the page's warm charcoal so there is
-      no visible black box around it. */}
-  {/* No `isolate` here: isolation would trap the blend in its own stacking
-      context, leaving the photograph's black ground painting over the page
-      instead of screening into it. */}
-  <section class="relative min-h-[100svh] overflow-hidden">
+  {/* Hero, back to the original composition the client preferred: one
+      full-bleed image with the type sitting quietly at the bottom-left. The
+      only change is `contain` instead of `cover` — cover cropped the picture
+      down to a mass of fingers, contain shows the whole brain-of-hands. */}
+  <section class="relative flex min-h-[100svh] flex-col justify-end overflow-hidden">
     {/* Two things keep this image on the page rather than in a box:
         1. `bg-ground` — mix-blend-mode blends with its backdrop, and a body
            background propagates to the viewport canvas, which is NOT part of
@@ -40,77 +36,51 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
            per-channel maximum, so every pixel darker than the ground clamps
            to exactly the ground and the edge cannot exist. The bright hands
            are unaffected. */}
-    <div class="absolute inset-0 hidden bg-ground lg:block">
+    <div class="absolute inset-0 bg-ground">
       <Image
         src={hero}
         alt="A brain formed from many interlocking human hands, photographed in black and white against a dark ground."
-        widths={[800, 1200, 1800, 2400]}
+        widths={[640, 1024, 1600, 2400]}
         sizes="100vw"
         loading="eager"
         fetchpriority="high"
-        class="h-full w-full object-contain object-center p-[7vh] mix-blend-lighten"
+        class="h-full w-full object-contain object-center p-[5vh] mix-blend-lighten"
       />
-      {/* Only a whisper of a global scrim — anything heavier smothers the
-           photograph. The type's contrast is handled by a local plate below. */}
-      <div class="absolute inset-0 bg-gradient-to-r from-ground/80 via-transparent to-transparent">
-      </div>
+      {/* The original two-pass scrim. The horizontal pass carries the type at
+          bottom-left; the vertical pass seats the image on the ground colour. */}
+      <div class="absolute inset-0 bg-gradient-to-r from-ground via-ground/55 to-ground/10"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ground via-transparent to-ground/45"></div>
     </div>
 
     <div
-      class="relative mx-auto flex min-h-[100svh] max-w-[110rem] flex-col justify-center gap-6 px-(--spacing-gutter) pb-14 pt-24"
+      class="relative mx-auto w-full max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-gutter) pt-40"
     >
-      {/* Small screens get the image inline instead of behind the type —
-          overlaying it on a phone leaves neither the picture nor the words
-          enough room. */}
-      <div class="reveal bg-ground lg:hidden" data-reveal-delay="80">
-        <Image
-          src={hero}
-          alt=""
-          widths={[480, 800, 1200]}
-          sizes="88vw"
-          loading="eager"
-          class="mx-auto max-h-[30svh] w-full object-contain mix-blend-lighten"
-        />
-      </div>
+      <p class="reveal text-eyebrow font-medium uppercase text-clay-light">
+        University of California, Los Angeles
+      </p>
 
-      {/* Local contrast plate. The hero type sits over the brightest part of
-          the photograph, where bone-on-hands falls well below WCAG AA. A
-          gradient scoped to the text block fixes that without dimming the
-          image the way a full-width scrim does. */}
-      <div class="relative max-w-[46rem]">
-        <div
-          aria-hidden="true"
-          class="pointer-events-none absolute -inset-x-10 -inset-y-8 hidden bg-gradient-to-r from-ground via-ground/90 to-transparent lg:block"
-        >
-        </div>
+      <h1 class="reveal mt-7 max-w-[16ch] font-display text-hero text-bone" data-reveal-delay="120">
+        Social &amp; Affective Neuroscience Laboratory
+      </h1>
 
-        <p class="reveal relative text-eyebrow font-medium uppercase text-clay-light">
-          University of California, Los Angeles
+      <div
+        class="reveal mt-10 flex flex-col gap-6 border-t border-bone/15 pt-8 md:flex-row md:items-end md:justify-between"
+        data-reveal-delay="260"
+      >
+        <p class="max-w-xl text-lede text-bone-dim">
+          Directed by <span class="text-bone">{site.director}</span>
         </p>
 
-        <h1
-          class="reveal relative mt-6 max-w-[15ch] font-display text-hero text-bone"
-          data-reveal-delay="120"
+        <a
+          href="/research"
+          class="group inline-flex items-center gap-3 text-eyebrow font-medium uppercase text-bone transition-colors duration-500 hover:text-clay-light"
         >
-          Social &amp; Affective Neuroscience Laboratory
-        </h1>
-
-        <div class="reveal relative mt-8 border-t border-bone/15 pt-7" data-reveal-delay="240">
-          <p class="text-lede text-bone-dim">
-            Directed by <span class="text-bone">{site.director}</span>
-          </p>
-
-          <a
-            href="/research"
-            class="group mt-8 inline-flex items-center gap-3 text-eyebrow font-medium uppercase text-bone transition-colors duration-500 hover:text-clay-light"
-          >
-            Enter the site
-            <span
-              aria-hidden="true"
-              class="inline-block h-px w-12 bg-clay transition-all duration-500 group-hover:w-20"
-            ></span>
-          </a>
-        </div>
+          Enter the site
+          <span
+            aria-hidden="true"
+            class="inline-block h-px w-12 bg-clay transition-all duration-500 group-hover:w-20"
+          ></span>
+        </a>
       </div>
     </div>
   </section>
