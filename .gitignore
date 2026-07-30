@@ -12,3 +12,6 @@ dist/
 # env
 .env
 .env.production
+
+# stray audit output
+*.out
