@@ -80,6 +80,22 @@ const ogImage = new URL('/og.jpg', Astro.site);
       if (reduced || !('IntersectionObserver' in window)) {
         items.forEach((el) => el.classList.add('is-visible'));
       } else {
+        // Anything already on screen at load reveals straight away. The
+        // observer below deliberately ignores the bottom 12% of the viewport so
+        // that content further down animates as it is scrolled to — but that
+        // dead zone also covers the foot of the first screen, which left the
+        // director's name invisible until the visitor scrolled. Content within
+        // the first screen must never wait for a scroll that may never come.
+        const pending: HTMLElement[] = [];
+        items.forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight) {
+            const delay = Number(el.dataset.revealDelay ?? 0);
+            window.setTimeout(() => el.classList.add('is-visible'), delay);
+          } else {
+            pending.push(el);
+          }
+        });
+
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -92,7 +108,7 @@ const ogImage = new URL('/og.jpg', Astro.site);
           },
           { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
         );
-        items.forEach((el) => observer.observe(el));
+        pending.forEach((el) => observer.observe(el));
       }
     </script>
   </body>
