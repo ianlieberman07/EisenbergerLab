@@ -78,7 +78,17 @@
   /* — Measure. Never let prose run wider than this. — */
   --container-prose: 68ch;
 
+  /* Height of the fixed header once it has condensed. Anything that has to sit
+     directly beneath it — the sticky filter bar, anchor scroll padding — reads
+     this rather than guessing. */
+  --spacing-header: 4.4rem;
+
+  /* — Easing. Three curves, used everywhere; no one-off cubic-beziers.
+       All of them decelerate without overshoot: this is a university lab,
+       not a toy, and bouncing type would read as unserious. — */
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 /* ============================================================
@@ -88,6 +98,12 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    /* Tells the UA this is a dark document, so scrollbars, the search input's
+       clear button and every other native control render dark instead of
+       punching a white hole in the page. */
+    color-scheme: dark;
+    /* The header is fixed, so anchored jumps must clear it. */
+    scroll-padding-top: calc(var(--spacing-header) + 1.5rem);
   }
 
   body {
@@ -98,6 +114,33 @@
     line-height: 1.75;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* The site is one continuous dark ground; a horizontal scrollbar would only
+       ever be a bug, and letting a stray full-bleed element create one is how
+       phone layouts break. */
+    overflow-x: hidden;
+  }
+
+  /* Firefox. WebKit is handled below. Both are tuned to disappear into the
+     ground rather than reintroduce the browser's default grey gutter. */
+  html {
+    scrollbar-color: #3a3531 var(--color-ground-veil);
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ground-veil);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3a3531;
+    border: 3px solid var(--color-ground-veil);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #57504a;
   }
 
   h1,
@@ -125,6 +168,30 @@
     color: var(--color-bone);
   }
 
+  /* ── Page transitions ─────────────────────────────────────
+     Astro's ClientRouter swaps documents through the native View Transition
+     API. The default UA cross-fade runs both directions at equal weight, which
+     reads as a dissolve; weighting the outgoing snapshot short and the incoming
+     one long makes a navigation feel like a cut to a new page rather than two
+     pages briefly sharing the screen. The staggered content reveal then carries
+     the rest of the entrance. */
+  ::view-transition-old(root) {
+    animation: vt-out 160ms linear both;
+  }
+  ::view-transition-new(root) {
+    animation: vt-in 380ms var(--ease-out-soft) both;
+  }
+  @keyframes vt-out {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes vt-in {
+    from {
+      opacity: 0;
+    }
+  }
+
   /* Honour the OS setting. Motion here is decoration, never meaning. */
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -136,6 +203,12 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+    }
+    /* The blanket rule above does not reach the view-transition pseudo-elements
+       in every engine, so they are cut explicitly. */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none !important;
     }
   }
 }
@@ -160,25 +233,86 @@
     top: 1rem;
   }
 
-  /* Scroll reveal. Starts visible, so if JS never runs the page
-     is still perfectly readable — progressive enhancement. */
+  /* ── Scroll reveal ────────────────────────────────────────
+     Every variant starts *visible* and is only hidden once `html.js` confirms
+     the script is running, so a failed or blocked bundle degrades to a plain,
+     complete page rather than a blank one.
+
+     All four variants animate nothing but `opacity` and `transform`, which the
+     compositor can run without touching layout or paint. Nothing here animates
+     width, height, top, filter or clip-path — those are what make a scroll feel
+     like it is dragging. */
   .reveal {
     opacity: 1;
   }
   html.js .reveal {
     opacity: 0;
-    transform: translateY(1.75rem);
+    transform: translateY(1.5rem);
     transition:
-      opacity 1s var(--ease-out-soft),
-      transform 1s var(--ease-out-soft);
+      opacity 0.9s var(--ease-out-soft),
+      transform 0.9s var(--ease-out-expo);
   }
   html.js .reveal.is-visible {
     opacity: 1;
     transform: none;
   }
 
+  /* A hairline that draws itself in from the left. Used for section rules,
+     which otherwise appear fully formed while the type beneath them is still
+     arriving. */
+  html.js .reveal-rule {
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 1.1s var(--ease-out-expo);
+  }
+  html.js .reveal-rule.is-visible {
+    transform: none;
+  }
+
+  /* Media reveal: the image settles out of a slight push-in rather than fading
+     from nothing. Its container must clip (`overflow-hidden`) — the scale is
+     what gives the movement somewhere to go. */
+  html.js .reveal-media {
+    opacity: 0;
+    transform: scale(1.06);
+    transition:
+      opacity 1.2s var(--ease-out-soft),
+      transform 1.6s var(--ease-out-expo);
+  }
+  html.js .reveal-media.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Hero word mask. The heading's words are wrapped at build time, each in a
+     clipping box, and rise into it on a stagger. The text itself is untouched —
+     the wrappers only add markup — so it still reads and copies as one string.
+     `--i` is the word's index, set inline. */
+  .split-word {
+    display: inline-block;
+    overflow: hidden;
+    /* Descenders (y, p) sit below the baseline and would be clipped by the
+       overflow. The padding gives them room; the negative margin takes the
+       space back out of the line box so line-height is unaffected. */
+    padding-bottom: 0.14em;
+    margin-bottom: -0.14em;
+    vertical-align: bottom;
+  }
+  html.js .reveal-words .split-word > span {
+    display: inline-block;
+    transform: translateY(115%);
+    transition: transform 1s var(--ease-out-expo);
+    transition-delay: calc(var(--i, 0) * 55ms);
+  }
+  html.js .reveal-words.is-visible .split-word > span {
+    transform: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    html.js .reveal {
+    html.js .reveal,
+    html.js .reveal-rule,
+    html.js .reveal-media,
+    html.js .reveal-words .split-word > span {
       opacity: 1;
       transform: none;
     }
@@ -232,22 +366,175 @@
     color: var(--color-bone-muted);
   }
 
-  /* Understated editorial link: rule thickens on hover rather
-     than the whole thing changing colour. */
+  /* Understated editorial link. The rule is two layers: a permanent dim one and
+     a clay one that wipes across it from the left, so the hover reads as a
+     stroke being drawn rather than a colour switch. Both layers are backgrounds
+     on the same element — no pseudo-elements, so it survives wrapping onto a
+     second line. */
   .link-rule {
     color: var(--color-bone);
     text-decoration: none;
-    background-image: linear-gradient(var(--color-clay), var(--color-clay));
+    background-image:
+      linear-gradient(var(--color-clay-light), var(--color-clay-light)),
+      linear-gradient(rgb(242 239 233 / 0.28), rgb(242 239 233 / 0.28));
     background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 100% 1px;
+    background-position:
+      0 100%,
+      0 100%;
+    background-size:
+      0% 1px,
+      100% 1px;
     transition:
-      background-size 0.4s var(--ease-out-soft),
-      color 0.4s var(--ease-out-soft);
-    padding-bottom: 0.1em;
+      background-size 0.55s var(--ease-out-expo),
+      color 0.45s var(--ease-out-soft);
+    padding-bottom: 0.12em;
   }
-  .link-rule:hover {
-    background-size: 100% 2px;
+  .link-rule:hover,
+  .link-rule:focus-visible {
+    background-size:
+      100% 1px,
+      100% 1px;
     color: var(--color-clay-light);
+  }
+
+  /* ── Fixed chrome ─────────────────────────────────────────
+     The reading-progress bar and the film grain both live above the page and
+     below nothing. Each is a single composited layer that never reflows. */
+
+  /* Reading progress. The papers page is a 200-entry list; knowing how much of
+     it is left is worth two pixels. */
+  .scroll-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    height: 2px;
+    z-index: 60;
+    pointer-events: none;
+  }
+  .scroll-progress > span {
+    display: block;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    background-image: linear-gradient(90deg, var(--color-clay), var(--color-clay-light));
+  }
+
+  /* ── Scroll-driven effects ────────────────────────────────
+     The progress bar and the header parallax are both bound to a scroll
+     timeline by the browser itself. That means they are evaluated on the
+     compositor, stay smooth under load, and — the reason they are written this
+     way rather than with an animation library — cost nothing in JavaScript.
+     Motion's `scroll()` would have done the same job for 25kB gzipped, on a
+     site whose brief is that it has to be fast on a phone.
+
+     Engines without scroll-driven animations get neither effect and are
+     otherwise identical. Both are decoration; nothing is lost. */
+  [data-parallax] {
+    transform: scale(var(--parallax-scale, 1));
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .scroll-progress > span {
+        animation: progress-grow linear both;
+        animation-timeline: scroll(root block);
+      }
+
+      /* `cover` runs from the moment the element's leading edge enters the
+         viewport to the moment its trailing edge leaves. For a header sitting
+         at the top of its page that puts scroll-position zero near the middle
+         of the range — which is exactly where the drift should start, so the
+         image is at its true position when the page is first seen. */
+      [data-parallax] {
+        animation: parallax-drift linear both;
+        animation-timeline: view(block);
+        animation-range: cover;
+      }
+    }
+  }
+
+  @keyframes progress-grow {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes parallax-drift {
+    from {
+      transform: translateY(calc(-1 * var(--parallax-shift, 4%)))
+        scale(var(--parallax-scale, 1));
+    }
+    to {
+      transform: translateY(var(--parallax-shift, 4%)) scale(var(--parallax-scale, 1));
+    }
+  }
+
+  /* Film grain. A 160px tile of monochrome noise held at 3.5% over the whole
+     viewport. On a flat near-black ground, large fields of one colour band
+     visibly on 8-bit displays; the grain breaks the banding up and is the
+     single cheapest thing that makes a dark editorial page look printed rather
+     than rendered. */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+
+  /* ── Site header ──────────────────────────────────────────
+     Transparent over the landing hero, then earning a blurred ground and a
+     hairline once the page has moved under it.
+
+     Deliberately no height change on scroll. The header sits in the flow on
+     interior pages, so animating its padding would drag the whole page up
+     under the reader mid-scroll. Only the ground moves. */
+  .site-header {
+    transition:
+      background-color 0.6s var(--ease-out-soft),
+      backdrop-filter 0.6s var(--ease-out-soft),
+      border-color 0.6s var(--ease-out-soft);
+    border-bottom: 1px solid transparent;
+  }
+  .site-header[data-scrolled] {
+    background-color: rgb(18 17 16 / 0.72);
+    backdrop-filter: blur(16px) saturate(140%);
+    border-bottom-color: rgb(242 239 233 / 0.09);
+  }
+
+  /* Mobile disclosure panel. `details` gives the whole thing for free without
+     JavaScript; this only animates the panel once it is open. */
+  details[open] > .nav-panel {
+    animation: nav-panel-in 0.35s var(--ease-out-expo) both;
+  }
+  @keyframes nav-panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  /* ── Index rows ───────────────────────────────────────────
+     Used by the research list on the landing page. A clay wash wipes in from
+     the left under the row on hover. `scaleX` on a pseudo-element rather than a
+     background-size or width change, so it stays off the layout path. */
+  .index-row {
+    position: relative;
+    isolation: isolate;
+  }
+  .index-row::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(90deg, rgb(196 113 79 / 0.13), transparent 72%);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.7s var(--ease-out-expo);
+  }
+  .index-row:hover::before,
+  .index-row:focus-visible::before {
+    transform: none;
   }
 }

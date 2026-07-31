@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import { splitWords } from '../utils/splitWords';
 
 interface Props {
   eyebrow: string;
@@ -11,12 +12,20 @@ interface Props {
   imageAlt?: string;
 }
 const { eyebrow, title, lede, image, imageAlt } = Astro.props;
+
+// Wrappers only — the heading text is untouched. See utils/splitWords.ts.
+const titleHtml = splitWords(title);
 ---
 
 <header class="relative overflow-hidden">
   {
     image && (
       <div class="absolute inset-0" aria-hidden={imageAlt ? undefined : 'true'}>
+        {/* The picture drifts against the page as the header scrolls away. It
+            carries a baseline scale so the travel has somewhere to go: at 1.1
+            there is 5% of image beyond each edge, and the drift asks for 4% of
+            it. Kept as low as the movement allows — every extra point of scale
+            is a tighter crop on a composition that was chosen whole. */}
         <Image
           src={image}
           alt={imageAlt ?? ''}
@@ -25,6 +34,8 @@ const { eyebrow, title, lede, image, imageAlt } = Astro.props;
           loading="eager"
           fetchpriority="high"
           class="h-full w-full object-cover opacity-100"
+          data-parallax
+          style="--parallax-shift: 4%; --parallax-scale: 1.1"
         />
         {/* The type is left-aligned, so contrast is bought on the left only.
             Earlier passes dimmed the whole frame to protect a narrow column of
@@ -43,14 +54,16 @@ const { eyebrow, title, lede, image, imageAlt } = Astro.props;
     ]}
   >
     <p class="reveal text-eyebrow font-medium uppercase text-clay-light">{eyebrow}</p>
-    <h1 class="reveal mt-7 max-w-[18ch] font-display text-display text-bone" data-reveal-delay="100">
-      {title}
-    </h1>
+    <h1
+      class="reveal-words mt-7 max-w-[18ch] font-display text-display text-bone"
+      data-reveal-delay="110"
+      set:html={titleHtml}
+    />
     {
       lede && (
         <p
           class="reveal mt-9 max-w-(--container-prose) text-lede text-bone-dim"
-          data-reveal-delay="180"
+          data-reveal-delay="380"
         >
           {lede}
         </p>

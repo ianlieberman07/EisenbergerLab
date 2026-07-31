@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { site } from '../config';
+import { splitWords } from '../utils/splitWords';
 
 // This is the existing cover image from the current site, which she approved
 // keeping ("fine to leave the same image"). Verified byte-for-byte identical to
@@ -13,6 +14,10 @@ import hero from '../assets/heroes/01-hands-forming-brain-bw.jpg';
 import breakImage from '../assets/heroes/17-gears-heads-blue-red.jpg';
 
 const topics = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+
+// Unchanged copy — `splitWords` only wraps each word so it can rise into place
+// on a stagger. The rendered text is identical.
+const heroTitle = splitWords('Social & Affective Neuroscience Laboratory');
 ---
 
 <Base
@@ -37,6 +42,11 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
            to exactly the ground and the edge cannot exist. The bright hands
            are unaffected. */}
     <div class="absolute inset-0 bg-ground">
+      {/* `data-parallax` gives the photograph a slow downward drift as the first
+          screen leaves, so it separates from the type in front of it. No
+          baseline scale — the image is `contain`, and enlarging it would
+          re-crop the exact composition the client signed off on. The 3.5%
+          travel stays inside the 5vh padding, so no edge is ever exposed. */}
       <Image
         src={hero}
         alt="A brain formed from many interlocking human hands, photographed in black and white against a dark ground."
@@ -45,6 +55,8 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
         loading="eager"
         fetchpriority="high"
         class="h-full w-full object-contain object-center p-[5vh] mix-blend-lighten"
+        data-parallax
+        style="--parallax-shift: 3.5%"
       />
       {/* The original two-pass scrim. The horizontal pass carries the type at
           bottom-left; the vertical pass seats the image on the ground colour. */}
@@ -59,13 +71,32 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
         University of California, Los Angeles
       </p>
 
-      <h1 class="reveal mt-6 max-w-[16ch] font-display text-hero text-bone" data-reveal-delay="120">
-        Social &amp; Affective Neuroscience Laboratory
-      </h1>
+      {/* Same six words as before. Each is wrapped in a clipping box and rises
+          into it in sequence, so the lab's name assembles itself rather than
+          fading up as one grey block. */}
+      <h1
+        class="reveal-words mt-6 max-w-[16ch] font-display text-hero text-bone"
+        data-reveal-delay="60"
+        set:html={heroTitle}
+      />
 
+      {/* The rule that used to be a static `border-t`. It now draws itself in
+          from the left once the name has finished landing, which is what ties
+          the two halves of the hero together instead of them simply both
+          being there. */}
       <div
-        class="reveal mt-8 flex flex-col gap-5 border-t border-bone/15 pt-6 md:flex-row md:items-end md:justify-between"
-        data-reveal-delay="260"
+        class="reveal-rule mt-8 h-px w-full bg-bone/15"
+        data-reveal-delay="380"
+        aria-hidden="true"
+      >
+      </div>
+
+      {/* The director's name. It has to be reachable quickly — it is half the
+          reason this hero exists — so it lands while the name above it is still
+          settling rather than waiting for it to finish. */}
+      <div
+        class="reveal flex flex-col gap-5 pt-6 md:flex-row md:items-end md:justify-between"
+        data-reveal-delay="460"
       >
         <p class="max-w-xl text-lede text-bone-dim">
           Directed by <span class="text-bone">{site.director}</span>
@@ -128,7 +159,7 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
       widths={[640, 1024, 1600, 2600]}
       sizes="100vw"
       loading="lazy"
-      class="h-auto w-full mix-blend-lighten"
+      class="reveal-media h-auto w-full mix-blend-lighten"
     />
   </section>
 
@@ -159,12 +190,14 @@ const topics = (await getCollection('research')).sort((a, b) => a.data.order - b
           <li class="reveal" data-reveal-delay={i * 90}>
             <a
               href={`/research/${topic.id}`}
-              class="group flex items-baseline gap-6 border-b border-bone/12 py-9 transition-colors duration-500 hover:bg-bone/[0.03] md:gap-12 md:py-11"
+              class="index-row group -mx-4 flex items-baseline gap-6 border-b border-bone/12 px-4 py-9 md:gap-12 md:py-11"
             >
               <span class="w-8 shrink-0 font-display text-[0.95rem] text-clay-light md:w-12">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <span class="flex-1 font-display text-title text-bone transition-colors duration-500 group-hover:text-clay-light">
+              {/* The title steps toward the reader on hover. A transform, so it
+                  costs the compositor nothing and never reflows the row. */}
+              <span class="flex-1 font-display text-title text-bone transition-[color,transform] duration-700 ease-[var(--ease-out-expo)] group-hover:translate-x-2 group-hover:text-clay-light">
                 {topic.data.title}
               </span>
               <span

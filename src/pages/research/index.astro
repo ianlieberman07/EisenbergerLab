@@ -59,16 +59,18 @@ const { Content } = await render(overview!);
                     widths={[480, 800, 1200]}
                     sizes="(min-width: 640px) 46vw, 92vw"
                     loading={i < 2 ? 'eager' : 'lazy'}
-                    class="h-full w-full object-cover opacity-80 transition-all duration-[1400ms] ease-[var(--ease-out-soft)] group-hover:scale-[1.04] group-hover:opacity-100"
+                    class="h-full w-full object-cover opacity-80 transition-[transform,opacity] duration-[1400ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.05] group-hover:opacity-100"
                   />
                 )}
-                <div class="absolute inset-0 bg-gradient-to-t from-ground/90 via-ground/20 to-transparent" />
+                {/* The scrim lifts with the image, so hovering a card feels like
+                    the picture coming forward rather than just growing. */}
+                <div class="absolute inset-0 bg-gradient-to-t from-ground/90 via-ground/20 to-transparent transition-opacity duration-[1200ms] ease-[var(--ease-out-soft)] group-hover:opacity-70" />
                 <span class="absolute left-6 top-5 font-display text-[0.85rem] text-clay-light">
                   {String(i + 1).padStart(2, '0')}
                 </span>
               </div>
 
-              <h3 class="mt-6 max-w-[24ch] font-display text-title text-bone transition-colors duration-500 group-hover:text-clay-light">
+              <h3 class="mt-6 max-w-[24ch] font-display text-title text-bone transition-[color,transform] duration-700 ease-[var(--ease-out-expo)] group-hover:translate-x-1.5 group-hover:text-clay-light">
                 {topic.data.title}
               </h3>
               <p

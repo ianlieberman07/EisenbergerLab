@@ -18,8 +18,10 @@ const ESCAPES: Record<string, string> = {
   "'": '&#39;',
 };
 
+export function escapeHtml(input: string): string {
+  return input.replace(/[&<>"']/g, (c) => ESCAPES[c]!);
+}
+
 export function emphasize(input: string): string {
-  return input
-    .replace(/[&<>"']/g, (c) => ESCAPES[c]!)
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  return escapeHtml(input).replace(/\*([^*]+)\*/g, '<em>$1</em>');
 }

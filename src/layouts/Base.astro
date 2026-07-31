@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -54,10 +55,22 @@ const ogImage = new URL('/og.jpg', Astro.site);
     <meta name="theme-color" content="#121110" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    {/* Cross-document navigation through the View Transition API: the old page
+        is held on screen while the new one is fetched, so moving around the
+        site reads as one continuous document rather than a series of white
+        flashes. Curves are set in global.css. */}
+    <ClientRouter />
+
     <!-- Set before paint so reveal elements never flash in, but only when JS
          is actually available. Without JS the .reveal rule leaves content visible. -->
     <script is:inline>
       document.documentElement.classList.add('js');
+      // The router replaces the <html> element's attributes wholesale on every
+      // navigation, which would drop the class above and leave the next page
+      // un-animated. This restores it in the same frame as the swap.
+      document.addEventListener('astro:after-swap', () =>
+        document.documentElement.classList.add('js')
+      );
     </script>
     {/* Drives the dev-only outlining of unapproved placeholder copy. */}
     {import.meta.env.DEV && <script is:inline>document.documentElement.dataset.env = 'dev';</script>}
@@ -65,51 +78,24 @@ const ogImage = new URL('/og.jpg', Astro.site);
 
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+
+    {/* Reading progress. Purely a hint — the same information is in the
+        scrollbar — so it is hidden from assistive technology. */}
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
     <Header transparent={transparentHeader} />
     <main id="main">
       <slot />
     </main>
     <Footer />
 
+    {/* Film grain over everything. Static, composited once, never hit-tested. */}
+    <div class="grain" aria-hidden="true"></div>
+
     <script>
-      // Gentle fade/rise on scroll. Decoration only — nothing here is required
-      // to read the page, and it is disabled under prefers-reduced-motion.
-      const items = document.querySelectorAll<HTMLElement>('.reveal');
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (reduced || !('IntersectionObserver' in window)) {
-        items.forEach((el) => el.classList.add('is-visible'));
-      } else {
-        // Anything already on screen at load reveals straight away. The
-        // observer below deliberately ignores the bottom 12% of the viewport so
-        // that content further down animates as it is scrolled to — but that
-        // dead zone also covers the foot of the first screen, which left the
-        // director's name invisible until the visitor scrolled. Content within
-        // the first screen must never wait for a scroll that may never come.
-        const pending: HTMLElement[] = [];
-        items.forEach((el) => {
-          if (el.getBoundingClientRect().top < window.innerHeight) {
-            const delay = Number(el.dataset.revealDelay ?? 0);
-            window.setTimeout(() => el.classList.add('is-visible'), delay);
-          } else {
-            pending.push(el);
-          }
-        });
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              const el = entry.target as HTMLElement;
-              const delay = Number(el.dataset.revealDelay ?? 0);
-              window.setTimeout(() => el.classList.add('is-visible'), delay);
-              observer.unobserve(el);
-            });
-          },
-          { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
-        );
-        pending.forEach((el) => observer.observe(el));
-      }
+      // Scroll reveal, header state, reading progress and parallax. All of it
+      // decoration, all of it disabled under prefers-reduced-motion.
+      import '../scripts/enhance';
     </script>
   </body>
 </html>

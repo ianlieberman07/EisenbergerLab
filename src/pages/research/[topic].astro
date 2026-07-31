@@ -137,8 +137,10 @@ const hero = topic.data.hero ?? fallbackHero;
       class="group bg-ground px-(--spacing-gutter) py-12 transition-colors duration-500 hover:bg-ground-raised"
     >
       <span class="text-eyebrow font-medium uppercase text-clay-light">← Previous</span>
+      {/* The title leans in the direction of travel on hover — left for the
+          previous strand, right for the next. */}
       <span
-        class="mt-4 block font-display text-title text-bone transition-colors duration-500 group-hover:text-clay-light"
+        class="mt-4 block font-display text-title text-bone transition-[color,transform] duration-700 ease-[var(--ease-out-expo)] group-hover:-translate-x-2 group-hover:text-clay-light"
       >
         {prev.data.title}
       </span>
@@ -149,7 +151,7 @@ const hero = topic.data.hero ?? fallbackHero;
     >
       <span class="text-eyebrow font-medium uppercase text-clay-light">Next →</span>
       <span
-        class="mt-4 block font-display text-title text-bone transition-colors duration-500 group-hover:text-clay-light"
+        class="mt-4 block font-display text-title text-bone transition-[color,transform] duration-700 ease-[var(--ease-out-expo)] group-hover:translate-x-2 group-hover:text-clay-light"
       >
         {next.data.title}
       </span>

@@ -60,7 +60,7 @@ const initials = (name: string) =>
                     widths={[320, 560, 840]}
                     sizes="(min-width: 1024px) 26vw, (min-width: 640px) 45vw, 90vw"
                     loading={i < 3 ? 'eager' : 'lazy'}
-                    class="h-full w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-out-soft)] group-hover:scale-[1.04]"
+                    class="h-full w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.05]"
                   />
                 ) : (
                   <div
@@ -75,8 +75,10 @@ const initials = (name: string) =>
                 )}
 
                 {/* Hover/focus veil carrying the affordance. */}
-                <div class="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-ground/90 via-ground/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">
-                  <span class="p-5 text-eyebrow font-medium uppercase text-bone">
+                {/* The veil fades and its label rises out of the bottom edge,
+                    so the affordance arrives rather than appearing. */}
+                <div class="pointer-events-none absolute inset-0 flex items-end overflow-hidden bg-gradient-to-t from-ground/90 via-ground/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">
+                  <span class="translate-y-3 p-5 text-eyebrow font-medium uppercase text-bone transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:translate-y-0 group-focus-visible:translate-y-0">
                     Read more +
                   </span>
                 </div>
@@ -186,35 +188,50 @@ const initials = (name: string) =>
   }
   .person-dialog::backdrop {
     background: rgb(9 8 7 / 0.82);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
   }
+  /* The panel and the veil behind it are separate elements with separate
+     animations; without the second one the blur snaps on at full strength
+     while the panel is still arriving. */
   .person-dialog[open] {
-    animation: dialog-in 0.45s var(--ease-out-soft);
+    animation: dialog-in 0.5s var(--ease-out-expo);
+  }
+  .person-dialog[open]::backdrop {
+    animation: backdrop-in 0.5s var(--ease-out-soft);
   }
   @keyframes dialog-in {
     from {
       opacity: 0;
-      transform: translateY(1.25rem);
+      transform: translateY(1.5rem) scale(0.98);
+    }
+  }
+  @keyframes backdrop-in {
+    from {
+      opacity: 0;
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .person-dialog[open] {
+    .person-dialog[open],
+    .person-dialog[open]::backdrop {
       animation: none;
     }
   }
 </style>
 
 <script>
-  const dialog = document.getElementById('person-dialog') as HTMLDialogElement | null;
-  const nameEl = document.getElementById('person-dialog-name');
-  const roleEl = document.getElementById('person-dialog-role');
-  const bioEl = document.getElementById('person-dialog-bio');
-  const linkEl = document.getElementById('person-dialog-link') as HTMLAnchorElement | null;
-  const closeBtn = document.getElementById('person-dialog-close');
+  function setupPeople() {
+    const dialog = document.getElementById('person-dialog') as HTMLDialogElement | null;
+    const nameEl = document.getElementById('person-dialog-name');
+    const roleEl = document.getElementById('person-dialog-role');
+    const bioEl = document.getElementById('person-dialog-bio');
+    const linkEl = document.getElementById('person-dialog-link') as HTMLAnchorElement | null;
+    const closeBtn = document.getElementById('person-dialog-close');
 
-  // Only upgrade to a modal where <dialog> is actually supported. Anywhere else
-  // the cards stay ordinary links to the person's page.
-  if (dialog && nameEl && roleEl && bioEl && linkEl && typeof dialog.showModal === 'function') {
+    // Only upgrade to a modal where <dialog> is actually supported. Anywhere else
+    // the cards stay ordinary links to the person's page.
+    if (!dialog || !nameEl || !roleEl || !bioEl || !linkEl) return;
+    if (typeof dialog.showModal !== 'function') return;
+
     document.querySelectorAll<HTMLAnchorElement>('.person-card').forEach((card) => {
       card.addEventListener('click', (event) => {
         // Let modified clicks (new tab/window) behave normally.
@@ -240,4 +257,8 @@ const initials = (name: string) =>
       if (event.target === dialog) dialog.close();
     });
   }
+
+  // The router swaps documents without re-running module scripts, so this has
+  // to re-bind per page rather than once per session.
+  document.addEventListener('astro:page-load', setupPeople);
 </script>
