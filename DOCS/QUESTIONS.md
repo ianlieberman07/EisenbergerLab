@@ -146,11 +146,26 @@ set in use beyond the cover:
 Swapping any of them remains trivial: the four research images are set per-entry
 through the admin, and the rest are a one-line import each.
 
-### 4, 5. Erica Hornstein removed; headshots supplied
+### 4, 5. Erica Hornstein restored; headshots supplied
 
 Hornstein had no bio, photograph or title in the brief, the Word document or the
-CV. **Removed at the client's instruction** — she appears in the publication list
-as a co-author, but no longer on the People page.
+CV, and was **removed at the client's instruction**.
+
+**She has since been added back**, at the developer's request, from the copy on
+the live site (`sanlab.psych.ucla.edu/people/`). Her biography there is
+transcribed verbatim. Three things are still open:
+
+1. **Confirm the reinstatement with the client.** The removal was her decision.
+   Nothing about it has been retracted in writing — this reversal came from the
+   developer, not from her, and should not ship until she has said so.
+2. **Title.** No job title is printed beside any name on the live site. `role`
+   is set to "Postdoctoral Researcher", which follows from her own copy ("during
+   her postdoctoral work") but is not a title she has stated. Confirm it, as with
+   the other five.
+3. **Headshot.** A photograph exists on the live site
+   (`.../uploads/sites/31/2016/03/Hornstein_pic.png`). It has not been copied
+   into the repo — the card falls back to her initials until one is supplied.
+   Ask whether that image should be reused or a current one provided.
 
 ### Headshots
 
