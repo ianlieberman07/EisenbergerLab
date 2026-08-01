@@ -1,6 +1,6 @@
 ---
 name: Erica Hornstein
-role: Postdoctoral Researcher
+role: Postdoctoral Fellow
 status: current
 order: 2
 headshot: ./images/hornstein.jpg

@@ -158,10 +158,16 @@ transcribed verbatim. Three things are still open:
 1. **Confirm the reinstatement with the client.** The removal was her decision.
    Nothing about it has been retracted in writing — this reversal came from the
    developer, not from her, and should not ship until she has said so.
-2. **Title.** No job title is printed beside any name on the live site. `role`
-   is set to "Postdoctoral Researcher", which follows from her own copy ("during
-   her postdoctoral work") but is not a title she has stated. Confirm it, as with
-   the other five.
+2. **Title — chosen, not sourced.** No job title is printed beside any name on
+   the live site, so there was nothing to transcribe. `role` is set to
+   "Postdoctoral Fellow" at the developer's direction: her own copy says she
+   holds NSF and NIH funding for her postdoctoral work, and "Fellow" is the
+   usual word for someone on their own fellowship.
+
+   It is still a choice rather than a fact. UCLA's academic series title is
+   "Postdoctoral Scholar", which is what her appointment is likely called on
+   paper. Confirm the wording with her, along with the other five — whose titles
+   are equally unconfirmed.
 3. **Headshot — low resolution.** Her photograph has been taken from the live
    site at the developer's instruction and converted to JPEG with all metadata
    stripped, as with the other five.
