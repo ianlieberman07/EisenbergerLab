@@ -1,0 +1,29 @@
+# Response headers for Cloudflare Pages (and Netlify — both read this file).
+# Copied verbatim into dist/ at build time.
+
+/*
+  # This site is never framed by anything. Blocks clickjacking outright.
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  # Nothing here needs a camera, a microphone or a location.
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()
+
+# Everything Astro emits under /_astro/ carries a content hash in its filename,
+# so a changed file is a different URL. That makes these safe to cache forever,
+# and it is what makes a repeat visit cost almost nothing on a phone.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts are hashed the same way.
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# The admin is gated at the hosting layer, but keep it out of search results
+# and out of any cache in between.
+/admin
+  X-Robots-Tag: noindex
+  Cache-Control: no-store
+/admin/*
+  X-Robots-Tag: noindex
+  Cache-Control: no-store

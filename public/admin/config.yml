@@ -9,6 +9,14 @@ backend:
   name: github
   repo: ianlieberman07/EisenbergerLab
   branch: main
+  # REQUIRED BEFORE THE ADMIN WILL WORK IN PRODUCTION.
+  #
+  # Signing in with GitHub needs an OAuth handshake, and only Netlify provides
+  # one for free. On Cloudflare Pages you deploy the small official worker
+  # (github.com/sveltia/sveltia-cms-auth) and put its address here — it is a
+  # ten-minute, one-time job. Step 4 of DOCS/DEPLOYMENT.md walks through it.
+  #
+  # base_url: https://sanlab-cms-auth.<your-subdomain>.workers.dev
 
 # Lets the admin run against the files on this machine, with no GitHub account
 # and nothing deployed:  npm run admin   (then open /admin)

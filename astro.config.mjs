@@ -3,11 +3,23 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-// NOTE: `site` must be updated once the final domain is confirmed with UCLA
-// Psychology IT (see DOCS/QUESTIONS.md #2). Sitemap and canonical URLs depend on it.
+// `site` feeds every canonical URL, the sitemap and the Open Graph tags, so it
+// has to match wherever the site is actually being served from.
+//
+// The default below is the intended final address, pending UCLA Psychology IT
+// (DOCS/QUESTIONS.md #2). Until that domain exists, set a SITE_URL environment
+// variable in the host's build settings — e.g. https://sanlab.pages.dev — so a
+// live preview doesn't advertise canonical URLs for a domain that 404s.
+// See DOCS/DEPLOYMENT.md.
 export default defineConfig({
-  site: 'https://sanlab.psych.ucla.edu',
-  integrations: [sitemap()],
+  site: process.env.SITE_URL ?? 'https://sanlab.psych.ucla.edu',
+  integrations: [
+    sitemap({
+      // The admin is noindex'd and disallowed in robots.txt, so listing it in
+      // the sitemap was the one place the site still advertised it to crawlers.
+      filter: (page) => !page.includes('/admin'),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
