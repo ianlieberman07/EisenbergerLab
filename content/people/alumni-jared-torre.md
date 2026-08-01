@@ -1,6 +1,7 @@
 ---
 name: Jared Torre
 role: "A data scientist at Adobe"
+listed: false
 status: alumni
 order: 111
 headshot: ./images/alumni-jared-torre.jpg

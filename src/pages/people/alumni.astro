@@ -3,19 +3,18 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import Notice from '../../components/Notice.astro';
 import headerImage from '../../assets/heroes/05-cave-opening-tree-light.jpg';
 
-// Pulled from the current live site. Two groups: the established alumni list,
-// which carries a photograph and a one-line description for each person, and
-// the people who were listed as current members there and whom she asked to
-// move here — for whom the live site gives neither. Nobody has been dropped.
+// The roster and its order are the client's, supplied directly. `listed: false`
+// holds back the people she did not include — their entries stay in the repo so
+// that adding one back is a checkbox rather than a re-transcription.
 const alumni = (await getCollection('people'))
-  .filter((p) => p.data.status === 'alumni')
+  // `!== false` rather than a truthiness test: this page is a list of real
+  // people, so the only safe way for the flag to fail is open. An entry that
+  // somehow reaches here without it — a hand-edited file, a stale content
+  // cache — shows up, instead of the whole roster silently emptying.
+  .filter((p) => p.data.status === 'alumni' && p.data.listed !== false)
   .sort((a, b) => a.data.order - b.data.order);
-
-const moved = alumni.filter((p) => p.data.needsReview);
-const established = alumni.filter((p) => !p.data.needsReview);
 
 const initials = (name: string) =>
   name
@@ -46,7 +45,7 @@ const initials = (name: string) =>
         anyway. */}
     <ul class="grid gap-x-12 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
       {
-        established.map((person, i) => (
+        alumni.map((person, i) => (
           <li class="reveal flex gap-5" data-reveal-delay={(i % 3) * 70}>
             {/* `self-start` matters: the row is a flex container, so without it
                 the portrait stretches to the height of the text beside it and
@@ -77,8 +76,15 @@ const initials = (name: string) =>
             </div>
 
             <div class="min-w-0 pt-0.5">
+              {/* The post-nominal is set apart from the name rather than run
+                  into it: every one of them is a Ph.D., so at full weight the
+                  suffix would repeat down the column and compete with the
+                  names it is meant to qualify. */}
+              {/* Name and post-nominal are butted together on one line on
+                  purpose: a line break between them is a whitespace text node,
+                  which renders as "Razia Sahi , Ph.D." */}
               <h2 class="font-display text-[1.15rem] leading-snug text-bone">
-                {person.data.name}
+                {person.data.name}{person.data.credential && <span class="text-bone-muted">, {person.data.credential}</span>}
               </h2>
               <p class="mt-1.5 text-[0.92rem] leading-relaxed text-bone-muted">
                 {person.data.role}
@@ -88,39 +94,6 @@ const initials = (name: string) =>
         ))
       }
     </ul>
-
-    {
-      moved.length > 0 && (
-        <div class="mt-24 border-t border-bone/12 pt-14">
-          <h2 class="text-eyebrow font-medium uppercase text-clay-light">Also alumni</h2>
-          <ul class="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2 xl:grid-cols-3">
-            {moved.map((person) => (
-              <li class="reveal border-b border-bone/12 pb-4">
-                <span class="block font-display text-[1.15rem] text-bone">
-                  {person.data.name}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )
-    }
-
-    {
-      moved.length > 0 && (
-        <div class="mt-20">
-          <Notice title="One thing to confirm">
-            <p>
-              The {moved.length} people under “Also alumni” were listed as current
-              lab members on the live site; she asked for everyone other than the
-              current members to be moved here. That page gives no photograph and
-              no current position for them, so nothing has been written in their
-              place.
-            </p>
-          </Notice>
-        </div>
-      )
-    }
 
     <p class="mt-20">
       <a href="/people" class="link-rule text-[1.05rem]">← Current lab members</a>

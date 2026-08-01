@@ -1,11 +1,10 @@
 ---
 name: Sarah Master
-role: "A Dean at Los Angeles Mission College"
+credential: Ph.D.
+role: "Los Angeles Mission College"
 status: alumni
-order: 125
+order: 118
 headshot: ./images/alumni-sarah-master.jpg
 headshotAlt: Portrait of Sarah Master.
 needsReview: false
 ---
-
-Sarah Master is a Dean at Los Angeles Mission College.

@@ -1,11 +1,10 @@
 ---
 name: Katarina Dedovic
-role: "A Research Associate at Douglas Mental Health University Institute, McGill University and Postdoctoral Fellow Affiliate"
+credential: Ph.D.
+role: "Canadian Institutes of Health Research"
 status: alumni
-order: 116
+order: 113
 headshot: ./images/alumni-katarina-dedovic.jpg
 headshotAlt: Portrait of Katarina Dedovic.
 needsReview: false
 ---
-
-Katarina Dedovic is a Research Associate at Douglas Mental Health University Institute, McGill University and Postdoctoral Fellow Affiliate.

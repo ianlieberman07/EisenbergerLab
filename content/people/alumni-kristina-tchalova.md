@@ -1,6 +1,7 @@
 ---
 name: Kristina Tchalova
 role: "A graduate student at McGill University"
+listed: false
 status: alumni
 order: 114
 headshot: ./images/alumni-kristina-tchalova.jpg

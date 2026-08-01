@@ -1,10 +1,10 @@
 ---
 name: Lee Lazar
-role: Former lab member
+credential: Ph.D.
+role: "Navina"
 status: alumni
 order: 106
-needsReview: true
+headshot: ./images/alumni-lee-lazar.jpg
+headshotAlt: Portrait of Lee Lazar.
+needsReview: false
 ---
-
-Moved from the current-members list on the live site per the client's instruction.
-No current position was listed for them there.

@@ -204,9 +204,29 @@ allowed for. The contact block that lived on Overview moved to the landing page
 ### 11, 12. Content and alumni list — closed
 
 All copy is now transcribed verbatim, with her italics preserved (*hurt*,
-*crushed*, *broken*, *social*, *prepared fear suppressors*). The alumni list was
-pulled from the live site: 19 established alumni plus 7 people moved off the
-current-members list. Nobody was dropped.
+*crushed*, *broken*, *social*, *prepared fear suppressors*).
+
+**The alumni roster is now hers.** She supplied 18 names, in order, each with a
+current affiliation, and asked for "Ph.D." after every name. That list is the
+page. Every photograph comes from the lab's own site — the eleven already on its
+Alumni section, plus seven taken from its Lab Members section, all stripped of
+EXIF like every other headshot here.
+
+Two things worth a glance:
+
+1. **Eight people from the old Alumni list are not in hers** — Liz Castle, Jared
+   Torre, Kristina Tchalova, Ivana Jevtic, Bob Spunt, Eva Telzer, Michael Jarcho
+   and Saskia Giebl. They have **not** been deleted: their entries and photographs
+   are still in the repo, carrying `listed: false`, and "Show on the Alumni page?"
+   in the admin puts any of them back in one click. Worth confirming the omission
+   was deliberate rather than a list typed from memory.
+2. **"University of North Carolina--Chapel Hill"** is transcribed with her two
+   hyphens. It is almost certainly meant as an en dash. Left exactly as she wrote
+   it — a one-character fix if she wants it.
+
+Her list also corrects several affiliations the live site had gone stale on
+(Meyer is at Columbia, not Dartmouth; Morelli at Instagram, not UIC), and spells
+Carrianne Leschak with the double "n" — the repo had "Carriane". Fixed.
 
 ### Landing page copy is still hardcoded — open
 

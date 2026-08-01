@@ -1,10 +1,10 @@
 ---
 name: Isabelle Lanser
-role: Former lab member
+credential: Ph.D.
+role: "Lanser Westman Psychology Group"
 status: alumni
 order: 107
-needsReview: true
+headshot: ./images/alumni-isabelle-lanser.jpg
+headshotAlt: Portrait of Isabelle Lanser.
+needsReview: false
 ---
-
-Moved from the current-members list on the live site per the client's instruction.
-No current position was listed for them there.

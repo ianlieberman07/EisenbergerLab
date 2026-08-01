@@ -17,7 +17,15 @@ const people = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
+      // Post-nominal shown after the name — "Ph.D." on the alumni roster. Kept
+      // out of `name` so the name stays a name: it is what alt text, initials
+      // and sorting all read.
+      credential: z.string().optional(),
       role: z.string(),
+      // Alumni the client has not asked to show. Their entry stays in the repo
+      // — the people are not deleted — but the roster skips them, so putting
+      // someone back is one checkbox rather than a re-transcription.
+      listed: z.boolean().default(true),
       // `current` vs `alumni` drives which page the person appears on, so a
       // member can be moved to Alumni by flipping one field in the CMS.
       status: z.enum(['current', 'alumni']).default('current'),

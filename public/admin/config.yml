@@ -114,11 +114,26 @@ collections:
     fields:
       - { name: name, label: Full name, widget: string }
       - {
+          name: credential,
+          label: Letters after their name,
+          widget: string,
+          required: false,
+          default: 'Ph.D.',
+          hint: 'Shown after the name — for example Ph.D. Leave empty for none.',
+        }
+      - {
           name: role,
           label: Where they are now,
           widget: string,
           default: Former lab member,
-          hint: 'For example: Assistant Professor at Dartmouth University.',
+          hint: 'Their current institution or employer, e.g. Carnegie Mellon University.',
+        }
+      - {
+          name: listed,
+          label: 'Show on the Alumni page?',
+          widget: boolean,
+          default: true,
+          hint: 'Turn this off to hide someone without deleting them. You can turn it back on at any time.',
         }
       - name: status
         label: Currently in the lab?

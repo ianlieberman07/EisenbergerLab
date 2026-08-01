@@ -1,10 +1,10 @@
 ---
 name: Mona Moieni
-role: Former lab member
+credential: Ph.D.
+role: "Hubspot"
 status: alumni
-order: 101
-needsReview: true
+order: 102
+headshot: ./images/alumni-mona-moieni.jpg
+headshotAlt: Portrait of Mona Moieni.
+needsReview: false
 ---
-
-Moved from the current-members list on the live site per the client's instruction.
-No current position was listed for them there.

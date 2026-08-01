@@ -1,6 +1,7 @@
 ---
 name: Eva Telzer
 role: "An Assistant Professor at University of North Carolina at Chapel Hill"
+listed: false
 status: alumni
 order: 120
 headshot: ./images/alumni-eva-telzer.jpg

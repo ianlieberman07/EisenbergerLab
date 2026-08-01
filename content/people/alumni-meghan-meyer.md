@@ -1,11 +1,10 @@
 ---
 name: Meghan Meyer
-role: "An Assistant Professor at Dartmouth University"
+credential: Ph.D.
+role: "Columbia University"
 status: alumni
-order: 113
+order: 112
 headshot: ./images/alumni-meghan-meyer.jpg
 headshotAlt: Portrait of Meghan Meyer.
 needsReview: false
 ---
-
-Meghan Meyer is an Assistant Professor at Dartmouth University.

@@ -1,10 +1,10 @@
 ---
 name: Michael Parrish
-role: Former lab member
+credential: Ph.D.
+role: "University of South Carolina School of Medicine"
 status: alumni
-order: 102
-needsReview: true
+order: 103
+headshot: ./images/alumni-michael-parrish.jpg
+headshotAlt: Portrait of Michael Parrish.
+needsReview: false
 ---
-
-Moved from the current-members list on the live site per the client's instruction.
-No current position was listed for them there.

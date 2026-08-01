@@ -1,10 +1,10 @@
 ---
 name: Razia Sahi
-role: Former lab member
+credential: Ph.D.
+role: "Rutgers University-Newark"
 status: alumni
-order: 104
-needsReview: true
+order: 101
+headshot: ./images/alumni-razia-sahi.jpg
+headshotAlt: Portrait of Razia Sahi.
+needsReview: false
 ---
-
-Moved from the current-members list on the live site per the client's instruction.
-No current position was listed for them there.

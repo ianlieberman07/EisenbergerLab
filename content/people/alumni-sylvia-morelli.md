@@ -1,11 +1,10 @@
 ---
 name: Sylvia Morelli
-role: "An Assistant Professor at University of Illinois, Chicago"
+credential: Ph.D.
+role: "Instagram"
 status: alumni
-order: 118
+order: 114
 headshot: ./images/alumni-sylvia-morelli.jpg
 headshotAlt: Portrait of Sylvia Morelli.
 needsReview: false
 ---
-
-Sylvia Morelli is an Assistant Professor at University of Illinois, Chicago.

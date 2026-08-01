@@ -1,10 +1,10 @@
 ---
 name: Laura Hazlett
-role: Former lab member
+credential: Ph.D.
+role: "Ochsner Health"
 status: alumni
 order: 105
-needsReview: true
+headshot: ./images/alumni-laura-hazlett.jpg
+headshotAlt: Portrait of Laura Hazlett.
+needsReview: false
 ---
-
-Moved from the current-members list on the live site per the client's instruction.
-No current position was listed for them there.
