@@ -3,6 +3,8 @@ name: Ivana Jevtic
 role: "A researcher in Hawkwan Lau’s Lab, UCLA"
 status: alumni
 order: 115
+headshot: ./images/alumni-ivana-jevtic.jpg
+headshotAlt: Portrait of Ivana Jevtic.
 needsReview: false
 ---
 

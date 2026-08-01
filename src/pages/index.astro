@@ -123,22 +123,30 @@ const heroTitle = splitWords('Social & Affective Neuroscience Laboratory');
         The question
       </p>
       <div class="md:col-span-9">
-        {/* Her own words from the lab overview, turned from a clause into the
-            direct question the section is labelled as. */}
-        <h2 class="reveal max-w-[24ch] font-display text-display text-bone">
-          Why do social relationships matter so profoundly for both mental and
-          physical health?
+        {/* Her words, supplied for this section. Two questions, so they are set
+            as two lines rather than one seven-line run — the break is
+            typographic only, nothing is added, removed or reordered.
+
+            Set at `text-title` rather than `text-display`: this is four times
+            the length of the sentence that used to sit here, and at display
+            size it would fill the screen and stop reading as a question. */}
+        <h2 class="reveal max-w-[32ch] font-display text-title text-bone">
+          <span class="block">
+            Why is it that our social relationships have such a profound impact
+            on our emotional and physical well-being?
+          </span>
+          <span class="mt-5 block">
+            Why does feeling connected to those we love feel so good, whereas
+            feeling estranged from them cause so much pain?
+          </span>
         </h2>
         <p
-          class="reveal mt-9 max-w-(--container-prose) text-lede text-bone-dim"
+          class="reveal mt-10 max-w-(--container-prose) text-lede text-bone-dim"
           data-reveal-delay="140"
         >
-          Using a combination of neuroimaging, pharmacological, physiological,
-          and behavioral methods, we trace the pathways that run in both
-          directions between the social world and the body: how social
-          experiences get under the skin to shape stress and immune responses,
-          and how bodily states like inflammation reshape social experience in
-          turn.
+          In my laboratory, we use behavioral, physiological, and neuroimaging
+          techniques to understand how our need for social connection has left
+          its mark on our minds, brains, and bodies.
         </p>
         <p class="reveal mt-8" data-reveal-delay="220">
           <a href="/research" class="link-rule text-[1.05rem]">Read the lab overview</a>

@@ -208,6 +208,24 @@ All copy is now transcribed verbatim, with her italics preserved (*hurt*,
 pulled from the live site: 19 established alumni plus 7 people moved off the
 current-members list. Nobody was dropped.
 
+### Landing page copy is still hardcoded — open
+
+Every other page's text lives in `/content/` and is editable through the admin.
+The landing page's is not: the "The question" block and its answer, the
+"University of California, Los Angeles" eyebrow, the "Four strands of inquiry"
+heading and the "Enter the site" label are all written directly into
+`src/pages/index.astro`.
+
+That copy has now been rewritten by hand twice at the client's request. Under
+CLAUDE.md §4 — *"anything she can't do herself is a maintenance request
+forever"* — each of those is a maintenance request forever, and the landing page
+is the page most likely to be reworded.
+
+**Fix before handover:** a `landing` file collection (the shape `papers` already
+uses) with one named field per block, bound in `public/admin/config.yml`. It is
+a small change and it closes the last hole in her being able to edit the whole
+site herself.
+
 ### 16. Press Release page — confirmed removed
 
 The doc says "don't need this". It does not exist in the new site and nothing
