@@ -162,10 +162,21 @@ transcribed verbatim. Three things are still open:
    is set to "Postdoctoral Researcher", which follows from her own copy ("during
    her postdoctoral work") but is not a title she has stated. Confirm it, as with
    the other five.
-3. **Headshot.** A photograph exists on the live site
-   (`.../uploads/sites/31/2016/03/Hornstein_pic.png`). It has not been copied
-   into the repo — the card falls back to her initials until one is supplied.
-   Ask whether that image should be reused or a current one provided.
+3. **Headshot — low resolution.** Her photograph has been taken from the live
+   site at the developer's instruction and converted to JPEG with all metadata
+   stripped, as with the other five.
+
+   **It is the only copy that exists there, and it is 214 × 239 pixels.** There
+   is no larger original behind it — the file has no size suffix and the page
+   offers no `srcset`, so that is the full-size upload, dating from 2016. The
+   person card renders at roughly 440 CSS pixels wide, so the image is displayed
+   at about twice its native size and is visibly softer than the other five
+   (which are 1400px). It does not look broken, but it does not hold up beside
+   them, and on a high-density display it will be worse.
+
+   **Ask her for a current headshot.** Any phone photo taken today would be a
+   large improvement. This is the one asset on the site that is below the
+   standard of everything around it.
 
 ### Headshots
 

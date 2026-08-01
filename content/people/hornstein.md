@@ -3,6 +3,8 @@ name: Erica Hornstein
 role: Postdoctoral Researcher
 status: current
 order: 2
+headshot: ./images/hornstein.jpg
+headshotAlt: Portrait of Erica Hornstein.
 needsReview: false
 ---
 
