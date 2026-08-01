@@ -123,22 +123,12 @@ const heroTitle = splitWords('Social & Affective Neuroscience Laboratory');
         The question
       </p>
       <div class="md:col-span-9">
-        {/* Her words, supplied for this section. Two questions, so they are set
-            as two lines rather than one seven-line run — the break is
-            typographic only, nothing is added, removed or reordered.
-
-            Set at `text-title` rather than `text-display`: this is four times
-            the length of the sentence that used to sit here, and at display
-            size it would fill the screen and stop reading as a question. */}
-        <h2 class="reveal max-w-[32ch] font-display text-title text-bone">
-          <span class="block">
-            Why is it that our social relationships have such a profound impact
-            on our emotional and physical well-being?
-          </span>
-          <span class="mt-5 block">
-            Why does feeling connected to those we love feel so good, whereas
-            feeling estranged from them cause so much pain?
-          </span>
+        {/* Her words, supplied for this section. Back at `text-display`: it was
+            stepped down to carry a second question alongside this one, and with
+            that gone a single sentence can hold the full display size again. */}
+        <h2 class="reveal max-w-[26ch] font-display text-display text-bone">
+          Why is it that our social relationships have such a profound impact on
+          our emotional and physical well-being?
         </h2>
         <p
           class="reveal mt-10 max-w-(--container-prose) text-lede text-bone-dim"
