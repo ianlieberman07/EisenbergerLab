@@ -1,5 +1,8 @@
 # Deploying the site
 
+**Live:** https://eisenbergerlab.ianlieberman07.workers.dev — Cloudflare Workers,
+built automatically from `main`.
+
 Written for you, not for Dr. Eisenberger. Her guide is
 [`EDITING-GUIDE.md`](EDITING-GUIDE.md) — she never needs anything on this page.
 
@@ -83,33 +86,63 @@ outside your computer.
 
 ---
 
-## Step 2 — Connect Cloudflare Pages to the repo
+## Step 2 — Connect Cloudflare to the repo
 
-1. Go to **dash.cloudflare.com** → **Workers & Pages** → **Create** →
-   **Pages** → **Connect to Git**.
-2. Authorise GitHub and pick **EisenbergerLab**.
-3. Set the build configuration:
+**Done.** The site is live at
 
-   | Field | Value |
-   |---|---|
-   | Production branch | `main` |
-   | Framework preset | **Astro** |
-   | Build command | `npm run build` |
-   | Build output directory | `dist` |
+```
+https://eisenbergerlab.ianlieberman07.workers.dev
+```
 
-4. Add one **environment variable** (Settings → Environment variables →
-   Production):
+It is deployed on **Cloudflare Workers** with static assets, via **Workers
+Builds** — Cloudflare's Git integration — rather than Cloudflare Pages. The two
+are near-identical for a static site: same build, same `_headers` support, same
+caching. Everything below applies to either, and where it doesn't, it says so.
 
-   | Name | Value |
-   |---|---|
-   | `SITE_URL` | the `https://….pages.dev` address Cloudflare gives you |
+The settings in the dashboard are:
 
-   This is what stops the live preview from advertising canonical URLs and a
-   sitemap for `sanlab.psych.ucla.edu`, which does not point here yet.
-   **Delete this variable once the real domain is attached** (step 6) so `site`
-   falls back to the real address.
+| Field | Value |
+|---|---|
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
+| Build variables | **needs `SITE_URL` — see below** |
 
-5. **Save and Deploy.**
+### These commands run on Cloudflare, not on your machine
+
+This is the part worth being clear about, because it is the difference between
+the site working for Dr. Eisenberger and not working at all.
+
+Those two commands are what **Cloudflare's** build machine runs, on its own,
+every time a commit lands on `main`. You do not run them locally, and you must
+not deploy by hand — see [After launch](#after-launch-how-changes-get-made).
+
+It matters because **her saves in `/admin` are commits to `main`.** They come
+from the CMS in her browser, not from anyone's terminal. If the site were
+deployed manually, her edits would sit in GitHub forever and never appear. The
+Git-triggered build is the thing that makes her independent of you.
+
+### Set `SITE_URL` — currently missing
+
+Build variables are listed as *None*, which means every page on the live site
+currently says:
+
+```html
+<link rel="canonical" href="https://sanlab.psych.ucla.edu/">
+```
+
+That domain does not resolve yet. The site is telling search engines that the
+real version of every page lives somewhere that 404s, and the sitemap points
+there too.
+
+Fix it in the Worker's settings → **Variables and Secrets** → add:
+
+| Name | Value |
+|---|---|
+| `SITE_URL` | `https://eisenbergerlab.ianlieberman07.workers.dev` |
+
+Redeploy. **Delete the variable once the real domain is attached** (step 6) and
+`site` falls back to the real address on its own.
 
 First build takes two or three minutes, mostly generating the image sizes.
 Later builds are faster — Cloudflare caches `node_modules`.
@@ -218,6 +251,20 @@ self-hosted, path `admin`, allow *emails ending in `@ucla.edu`* **and** *email i
 
 She then gets a code in her UCLA inbox and never sees a password.
 
+> **This step is blocked until there is a real domain.** Cloudflare Access can
+> only protect a hostname in a zone you control, and `workers.dev` is
+> Cloudflare's zone, not yours — there is no way to put an Access policy in
+> front of `eisenbergerlab.ianlieberman07.workers.dev`.
+>
+> So the order is: step 6 first, then step 5. Until then `/admin` is reachable
+> by anyone who guesses the URL. They still cannot **save** anything — that
+> needs write access to the GitHub repository — so this is untidy rather than
+> dangerous. But do not hand the address to Dr. Eisenberger and call it done
+> until the gate is up.
+>
+> If the UCLA domain drags on, any cheap domain parked on Cloudflare works as a
+> temporary home and unblocks both this and step 4.
+
 ---
 
 ## Step 6 — The real domain
@@ -255,14 +302,38 @@ and [`EDITING-GUIDE.md`](EDITING-GUIDE.md) is written for her.
 git pull          # her saves are commits — pull before you start
 # ...make changes...
 npm run dev       # check locally
-npm run build     # confirm it builds
+npm run build     # confirm it builds before CI has to
 git add -A && git commit -m "..." && git push
 ```
 
 The push deploys. There is no separate deploy step and no "publish" button.
 
+`npm run build` here is a **check, not a deploy.** It catches a broken build in
+five seconds instead of after a push. The `dist/` folder it produces is
+gitignored and never leaves your machine — Cloudflare builds its own copy from
+the commit.
+
 `git pull` first genuinely matters: if she has edited anything since you last
-pulled, your local `main` is behind, and pushing will be rejected.
+pulled, your local `main` is behind and the push will be rejected.
+
+### Do not run `npx wrangler deploy` by hand
+
+It is listed as the deploy command in the dashboard because that is what
+**Cloudflare's** build machine runs after it checks out your commit. Running it
+yourself is a different thing and a bad idea:
+
+- It uploads whatever is in your local `dist/` — which may be stale, or built
+  from uncommitted work — and it wins, silently. The live site then no longer
+  matches `main`, and nothing in the dashboard says so.
+- It skips the commit entirely, so there is no record of what was deployed and
+  nothing to revert to.
+- `wrangler` is not even a dependency here and there is no `wrangler.toml` in
+  the repo; the configuration lives in Cloudflare. Running it locally would
+  need setting all of that up a second time, in a second place, to do a job
+  that already happens automatically.
+
+**`git push` is the deploy.** That is the entire mechanism, and it is the same
+one Dr. Eisenberger uses when she clicks Save.
 
 ### Undoing something
 
