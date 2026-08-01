@@ -18,10 +18,13 @@ backend:
   #
   # base_url: https://sanlab-cms-auth.<your-subdomain>.workers.dev
 
-# Lets the admin run against the files on this machine, with no GitHub account
-# and nothing deployed:  npm run admin   (then open /admin)
-# Ignored in production.
-local_backend: true
+# NOTE: `local_backend` (and the `npm run admin` / decap-server workflow that
+# goes with it) is a Decap CMS feature. This admin is Sveltia CMS, which ignores
+# the option and says so in the browser console. It has been removed rather than
+# left in to look reassuring.
+#
+# To edit locally, run `npm run dev` and open http://localhost:4321/admin —
+# Sveltia detects localhost and offers to open the repository folder directly.
 
 # Save publishes. No draft/review workflow to learn.
 publish_mode: simple

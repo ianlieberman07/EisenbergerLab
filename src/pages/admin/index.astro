@@ -23,6 +23,8 @@
       Every save becomes a git commit, which means every edit is revertable and
       the content never leaves this repository.
     -->
-    <script is:inline src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+    <!-- No `type="module"`: the bundle is a classic script, and marking it as a
+         module makes Sveltia warn that its JavaScript API will misbehave. -->
+    <script is:inline src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   </body>
 </html>
