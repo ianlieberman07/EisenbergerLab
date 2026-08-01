@@ -188,49 +188,70 @@ signs in to GitHub on your behalf, and that handshake needs an OAuth client
 somewhere. Netlify ships one; Cloudflare doesn't, so you deploy the official
 tiny worker that does exactly this and nothing else.
 
-**4a. Register a GitHub OAuth App**
+### The symptom, if you get here before reading this
 
-GitHub → **Settings** → **Developer settings** → **OAuth Apps** → **New OAuth
-App**.
+`/admin` loads, you click **Sign In with GitHub**, a popup opens at
+`api.netlify.com/auth?provider=github&site_id=…` and says **Not Found**. The
+page then reports **"Authentication aborted. Please try again."**
+
+Nothing is broken. `api.netlify.com` is simply Sveltia's *default* sign-in
+service, it only serves sites hosted on Netlify, and this site is on Cloudflare
+— so Netlify has never heard of it. The fix is to point the CMS at a sign-in
+service of your own, which is what the rest of step 4 does.
+
+**4a. Deploy the auth worker**
+
+[github.com/sveltia/sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth)
+— click **Deploy to Cloudflare**. It lands at
+
+```
+https://sveltia-cms-auth.<your-subdomain>.workers.dev
+```
+
+Your subdomain is the same one the site is on: `ianlieberman07`. **Note the
+address it actually gives you** — if it differs, it has to match 4b and 4c.
+
+**4b. Register a GitHub OAuth App**
+
+[github.com/settings/applications/new](https://github.com/settings/applications/new)
 
 | Field | Value |
 |---|---|
 | Application name | `SAN Lab website admin` |
-| Homepage URL | your site address |
-| Authorization callback URL | `https://sanlab-cms-auth.<your-subdomain>.workers.dev/callback` |
+| Homepage URL | `https://eisenbergerlab.ianlieberman07.workers.dev` |
+| Authorization callback URL | the worker address from 4a **+ `/callback`** |
 
-You won't know the worker address until 4b, so put a placeholder in and come
-back and correct it. Generate a **client secret** and keep both the client ID
-and the secret to hand — the secret is shown once.
+The callback must be exact, including `/callback` on the end. Then **Generate a
+new client secret** — it is shown once, so copy it now.
 
-**4b. Deploy the auth worker**
+**4c. Give the worker the credentials**
 
-Follow the README at
-[github.com/sveltia/sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth).
-It is a deploy-to-Cloudflare button plus two secrets:
+Cloudflare dashboard → the `sveltia-cms-auth` worker → **Settings** →
+**Variables and Secrets**:
 
-| Secret | Value |
+| Name | Value |
 |---|---|
-| `GITHUB_CLIENT_ID` | from 4a |
-| `GITHUB_CLIENT_SECRET` | from 4a |
-| `ALLOWED_DOMAINS` | your site's hostname |
+| `GITHUB_CLIENT_ID` | from 4b |
+| `GITHUB_CLIENT_SECRET` | from 4b — mark it **encrypted** |
+| `ALLOWED_DOMAINS` | `eisenbergerlab.ianlieberman07.workers.dev` |
 
-Then go back and fix the callback URL in 4a to the worker's real address.
+`ALLOWED_DOMAINS` is what stops anyone else pointing their own CMS at your
+worker. Add the real domain here too, comma-separated, once it exists.
 
-**4c. Point the CMS at it**
+**4d. Point the CMS at it**
 
-In [`public/admin/config.yml`](../public/admin/config.yml), uncomment `base_url`
-under `backend:` and set it to the worker's address:
+Already done — [`public/admin/config.yml`](../public/admin/config.yml) carries:
 
 ```yaml
 backend:
   name: github
   repo: ianlieberman07/EisenbergerLab
   branch: main
-  base_url: https://sanlab-cms-auth.<your-subdomain>.workers.dev
+  base_url: https://sveltia-cms-auth.ianlieberman07.workers.dev
 ```
 
-Commit and push. Cloudflare rebuilds, and `/admin` can now sign in.
+If the worker in 4a got a different address, correct that one line. Then
+`git push`, wait for the rebuild, and `/admin` can sign in.
 
 > **Test it by making a real edit** — change a word somewhere harmless, save, and
 > watch the commit land in GitHub and the site rebuild. If that round trip works,

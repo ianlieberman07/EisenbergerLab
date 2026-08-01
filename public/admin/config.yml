@@ -9,14 +9,20 @@ backend:
   name: github
   repo: ianlieberman07/EisenbergerLab
   branch: main
-  # REQUIRED BEFORE THE ADMIN WILL WORK IN PRODUCTION.
+  # Where the GitHub sign-in handshake happens.
   #
-  # Signing in with GitHub needs an OAuth handshake, and only Netlify provides
-  # one for free. On Cloudflare Pages you deploy the small official worker
-  # (github.com/sveltia/sveltia-cms-auth) and put its address here — it is a
-  # ten-minute, one-time job. Step 4 of DOCS/DEPLOYMENT.md walks through it.
+  # Without this line Sveltia defaults to api.netlify.com, which only works for
+  # sites hosted on Netlify. This one isn't, so Netlify answers "Not Found" and
+  # the admin reports "Authentication aborted."
   #
-  # base_url: https://sanlab-cms-auth.<your-subdomain>.workers.dev
+  # This is the address of the small official auth worker
+  # (github.com/sveltia/sveltia-cms-auth), deployed separately. Step 4 of
+  # DOCS/DEPLOYMENT.md walks through it.
+  #
+  # NOTE: this assumes the worker keeps its default name on the same Cloudflare
+  # subdomain as the site. If Cloudflare named it something else, correct this
+  # one line — it is the only place the address appears.
+  base_url: https://sveltia-cms-auth.ianlieberman07.workers.dev
 
 # NOTE: `local_backend` (and the `npm run admin` / decap-server workflow that
 # goes with it) is a Decap CMS feature. This admin is Sveltia CMS, which ignores
