@@ -1,6 +1,6 @@
 ---
 name: Robin Blades
-role: Lab Member
+role: Graduate Student
 status: current
 order: 10
 headshot: ./images/images.jpeg
