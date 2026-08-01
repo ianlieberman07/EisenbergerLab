@@ -39,8 +39,16 @@ const scholar = (title: string) =>
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
     <!-- Controls. Without JS the search and filters are hidden (they would do
-         nothing) and the full list renders as a plain, complete bibliography. -->
-    <div id="paper-controls" class="hidden border-y border-bone/12 py-6">
+         nothing) and the full list renders as a plain, complete bibliography.
+
+         Sticky beneath the header: this is a 200-entry bibliography, and a
+         filter bar that scrolls away is a filter bar you have to scroll back up
+         to. `--spacing-header` is the header's measured height, published by
+         enhance.ts, so the two edges meet exactly. -->
+    <div
+      id="paper-controls"
+      class="sticky top-(--spacing-header) z-30 hidden -mx-(--spacing-gutter) border-y border-bone/12 bg-ground/85 px-(--spacing-gutter) py-6 backdrop-blur-xl"
+    >
       <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <label class="relative block w-full lg:max-w-md">
           <span class="sr-only">Search publications</span>
@@ -102,14 +110,14 @@ const scholar = (title: string) =>
       {
         papers.map((paper) => (
           <li
-            class="paper-item border-b border-bone/12 py-8"
+            class="paper-item -mx-4 border-b border-bone/12 px-4 py-8"
             data-year={paper.data.year}
             data-decade={paper.data.inPress ? 'inpress' : String(Math.floor(paper.data.year / 10) * 10)}
             data-free={paper.data.openAccess ? 'yes' : 'no'}
             data-search={`${paper.data.title} ${paper.data.authors} ${paper.data.journal}`.toLowerCase()}
           >
             <div class="flex flex-col gap-2 sm:flex-row sm:gap-8">
-              <span class="shrink-0 pt-0.5 font-display text-[0.95rem] text-clay-light sm:w-20">
+              <span class="paper-year shrink-0 pt-0.5 font-display text-[0.95rem] text-clay-light sm:w-20">
                 {paper.data.inPress ? 'In press' : paper.data.year}
               </span>
 
@@ -183,52 +191,120 @@ const scholar = (title: string) =>
 </Base>
 
 <style>
+  /* The active rule is a pseudo-element scaled on the x axis rather than a
+     border colour swap, so selecting a period reads as the underline sliding
+     open under the word. */
   .filter-chip {
+    position: relative;
     font-size: 0.92rem;
     color: var(--color-bone-muted);
-    padding-bottom: 0.2rem;
-    border-bottom: 1px solid transparent;
+    padding-bottom: 0.3rem;
     cursor: pointer;
-    transition:
-      color 0.35s var(--ease-out-soft),
-      border-color 0.35s var(--ease-out-soft);
+    transition: color 0.35s var(--ease-out-soft);
+  }
+  .filter-chip::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1px;
+    background: var(--color-clay);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.45s var(--ease-out-expo);
   }
   .filter-chip:hover {
     color: var(--color-bone);
   }
+  .filter-chip:hover::after {
+    transform: scaleX(1);
+    background: rgb(242 239 233 / 0.3);
+  }
   .filter-chip.is-active {
     color: var(--color-bone);
-    border-bottom-color: var(--color-clay);
+  }
+  .filter-chip.is-active::after {
+    transform: scaleX(1);
+    background: var(--color-clay);
+  }
+
+  .paper-item {
+    transition: background-color 0.45s var(--ease-out-soft);
+  }
+  .paper-item:hover {
+    background-color: rgb(242 239 233 / 0.025);
+  }
+  .paper-item:hover .paper-year {
+    color: var(--color-bone);
+  }
+  .paper-year {
+    transition: color 0.45s var(--ease-out-soft);
+  }
+
+  /* Applied to the leading run of results after a filter changes, so the new
+     set arrives rather than blinking into place. Only the first rows are
+     staggered — nobody sees row 90 animate, and 200 staggered animations would
+     be a long, pointless wait. */
+  html.js .paper-item--enter {
+    animation: paper-in 0.5s var(--ease-out-soft) both;
+    animation-delay: calc(var(--n, 0) * 22ms);
+  }
+  @keyframes paper-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.6rem);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .paper-item--enter {
+      animation: none;
+    }
   }
 </style>
 
 <script>
-  // Progressive enhancement: the controls are hidden by default in the markup
-  // and only revealed here, so a no-JS visitor gets the complete list rather
-  // than a search box that does nothing.
-  const controls = document.getElementById('paper-controls');
-  const search = document.getElementById('paper-search') as HTMLInputElement | null;
-  const countEl = document.getElementById('paper-count');
-  const emptyEl = document.getElementById('paper-empty');
-  const items = Array.from(document.querySelectorAll<HTMLElement>('.paper-item'));
+  // How many of the leading results get the staggered entrance. Beyond this the
+  // rows are off screen anyway, and animating all 200 would mean waiting four
+  // seconds for a filter to finish.
+  const STAGGER_LIMIT = 12;
 
-  if (controls && search && countEl && emptyEl && items.length) {
+  function setupPapers() {
+    // Progressive enhancement: the controls are hidden by default in the markup
+    // and only revealed here, so a no-JS visitor gets the complete list rather
+    // than a search box that does nothing.
+    const controls = document.getElementById('paper-controls');
+    const search = document.getElementById('paper-search') as HTMLInputElement | null;
+    const countEl = document.getElementById('paper-count');
+    const emptyEl = document.getElementById('paper-empty');
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.paper-item'));
+    if (!controls || !search || !countEl || !emptyEl || !items.length) return;
+
     controls.classList.remove('hidden');
 
     let decade = 'all';
     let query = '';
     let freeOnly = false;
 
-    const apply = () => {
+    const apply = (animate: boolean) => {
       let shown = 0;
       for (const item of items) {
         const matchesDecade = decade === 'all' || item.dataset.decade === decade;
         const matchesQuery = !query || (item.dataset.search ?? '').includes(query);
         const matchesFree = !freeOnly || item.dataset.free === 'yes';
         const visible = matchesDecade && matchesQuery && matchesFree;
+
         item.hidden = !visible;
+        item.classList.remove('paper-item--enter');
+        if (visible && animate && shown < STAGGER_LIMIT) {
+          item.style.setProperty('--n', String(shown));
+          // Reading a layout property flushes the class removal above, so the
+          // animation restarts on a filter change instead of being seen as the
+          // same one still running.
+          void item.offsetWidth;
+          item.classList.add('paper-item--enter');
+        }
         if (visible) shown++;
       }
+
       emptyEl.classList.toggle('hidden', shown > 0);
       countEl.textContent =
         shown === items.length
@@ -241,7 +317,9 @@ const scholar = (title: string) =>
       window.clearTimeout(timer);
       timer = window.setTimeout(() => {
         query = search.value.trim().toLowerCase();
-        apply();
+        // No stagger while typing: re-running it on every keystroke turns the
+        // list into a strobe.
+        apply(false);
       }, 120);
     });
 
@@ -250,7 +328,7 @@ const scholar = (title: string) =>
       freeOnly = !freeOnly;
       freeBtn.classList.toggle('is-active', freeOnly);
       freeBtn.setAttribute('aria-pressed', String(freeOnly));
-      apply();
+      apply(true);
     });
 
     document.querySelectorAll<HTMLButtonElement>('[data-decade]').forEach((btn) => {
@@ -259,8 +337,12 @@ const scholar = (title: string) =>
         document
           .querySelectorAll('[data-decade]')
           .forEach((b) => b.classList.toggle('is-active', b === btn));
-        apply();
+        apply(true);
       });
     });
   }
+
+  // The router swaps documents without re-running module scripts, so this has
+  // to re-bind per page rather than once per session.
+  document.addEventListener('astro:page-load', setupPapers);
 </script>

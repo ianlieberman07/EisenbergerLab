@@ -11,14 +11,24 @@ const isActive = (href: string) =>
   path === href || (href !== '/' && path.startsWith(href + '/'));
 ---
 
+{/* The header carries no background of its own. It earns a blurred ground and a
+    hairline once the page has scrolled beneath it (`data-scrolled`, set in
+    enhance.ts), and condenses at the same time — so at rest it sits on the page
+    rather than in a bar, and in motion it stays legible over whatever is
+    passing under it.
+
+    Over the landing hero it is `fixed`, so the navigation remains reachable all
+    the way down a full-bleed first screen. Everywhere else `sticky` does the
+    same job while still occupying its space in the flow, which is what the
+    interior page headers are spaced against. */}
 <header
   class:list={[
-    'z-50 w-full',
-    transparent ? 'absolute top-0 left-0' : 'sticky top-0 bg-ground/85 backdrop-blur-md',
+    'site-header z-50 w-full',
+    transparent ? 'fixed top-0 left-0' : 'sticky top-0',
   ]}
 >
   <div
-    class="mx-auto flex max-w-[110rem] items-center justify-between px-(--spacing-gutter) py-6 md:py-8"
+    class="site-header-inner mx-auto flex max-w-[110rem] items-center justify-between px-(--spacing-gutter) py-6 md:py-8"
   >
     <a
       href="/"
@@ -81,7 +91,7 @@ const isActive = (href: string) =>
       </summary>
       <nav
         aria-label="Primary"
-        class="absolute right-0 z-50 mt-5 w-56 border border-bone/10 bg-ground-raised p-2 shadow-2xl"
+        class="nav-panel absolute right-0 z-50 mt-5 w-56 border border-bone/10 bg-ground-raised/95 p-2 shadow-2xl backdrop-blur-md"
       >
         <ul>
           {

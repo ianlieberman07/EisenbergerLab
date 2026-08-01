@@ -146,11 +146,43 @@ set in use beyond the cover:
 Swapping any of them remains trivial: the four research images are set per-entry
 through the admin, and the rest are a one-line import each.
 
-### 4, 5. Erica Hornstein removed; headshots supplied
+### 4, 5. Erica Hornstein restored; headshots supplied
 
 Hornstein had no bio, photograph or title in the brief, the Word document or the
-CV. **Removed at the client's instruction** — she appears in the publication list
-as a co-author, but no longer on the People page.
+CV, and was **removed at the client's instruction**.
+
+**She has since been added back**, at the developer's request, from the copy on
+the live site (`sanlab.psych.ucla.edu/people/`). Her biography there is
+transcribed verbatim. Three things are still open:
+
+1. **Confirm the reinstatement with the client.** The removal was her decision.
+   Nothing about it has been retracted in writing — this reversal came from the
+   developer, not from her, and should not ship until she has said so.
+2. **Title — chosen, not sourced.** No job title is printed beside any name on
+   the live site, so there was nothing to transcribe. `role` is set to
+   "Postdoctoral Fellow" at the developer's direction: her own copy says she
+   holds NSF and NIH funding for her postdoctoral work, and "Fellow" is the
+   usual word for someone on their own fellowship.
+
+   It is still a choice rather than a fact. UCLA's academic series title is
+   "Postdoctoral Scholar", which is what her appointment is likely called on
+   paper. Confirm the wording with her, along with the other five — whose titles
+   are equally unconfirmed.
+3. **Headshot — low resolution.** Her photograph has been taken from the live
+   site at the developer's instruction and converted to JPEG with all metadata
+   stripped, as with the other five.
+
+   **It is the only copy that exists there, and it is 214 × 239 pixels.** There
+   is no larger original behind it — the file has no size suffix and the page
+   offers no `srcset`, so that is the full-size upload, dating from 2016. The
+   person card renders at roughly 440 CSS pixels wide, so the image is displayed
+   at about twice its native size and is visibly softer than the other five
+   (which are 1400px). It does not look broken, but it does not hold up beside
+   them, and on a high-density display it will be worse.
+
+   **Ask her for a current headshot.** Any phone photo taken today would be a
+   large improvement. This is the one asset on the site that is below the
+   standard of everything around it.
 
 ### Headshots
 
@@ -175,6 +207,24 @@ All copy is now transcribed verbatim, with her italics preserved (*hurt*,
 *crushed*, *broken*, *social*, *prepared fear suppressors*). The alumni list was
 pulled from the live site: 19 established alumni plus 7 people moved off the
 current-members list. Nobody was dropped.
+
+### Landing page copy is still hardcoded — open
+
+Every other page's text lives in `/content/` and is editable through the admin.
+The landing page's is not: the "The question" block and its answer, the
+"University of California, Los Angeles" eyebrow, the "Four strands of inquiry"
+heading and the "Enter the site" label are all written directly into
+`src/pages/index.astro`.
+
+That copy has now been rewritten by hand twice at the client's request. Under
+CLAUDE.md §4 — *"anything she can't do herself is a maintenance request
+forever"* — each of those is a maintenance request forever, and the landing page
+is the page most likely to be reworded.
+
+**Fix before handover:** a `landing` file collection (the shape `papers` already
+uses) with one named field per block, bound in `public/admin/config.yml`. It is
+a small change and it closes the last hole in her being able to edit the whole
+site herself.
 
 ### 16. Press Release page — confirmed removed
 

@@ -3,6 +3,8 @@ name: Saskia Giebl
 role: "A graduate student at UCLA"
 status: alumni
 order: 126
+headshot: ./images/alumni-saskia-giebl.jpg
+headshotAlt: Portrait of Saskia Giebl.
 needsReview: false
 ---
 

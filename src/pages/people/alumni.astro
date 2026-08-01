@@ -1,19 +1,29 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import Notice from '../../components/Notice.astro';
 import headerImage from '../../assets/heroes/05-cave-opening-tree-light.jpg';
 
-// Pulled from the current live site. Two groups: people who were listed as
-// current lab members there and whom she asked to move to Alumni, and the
-// people already on the Alumni list. Nobody has been dropped.
+// Pulled from the current live site. Two groups: the established alumni list,
+// which carries a photograph and a one-line description for each person, and
+// the people who were listed as current members there and whom she asked to
+// move here — for whom the live site gives neither. Nobody has been dropped.
 const alumni = (await getCollection('people'))
   .filter((p) => p.data.status === 'alumni')
   .sort((a, b) => a.data.order - b.data.order);
 
 const moved = alumni.filter((p) => p.data.needsReview);
 const established = alumni.filter((p) => !p.data.needsReview);
+
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .filter(Boolean)
+    .map((p) => p[0])
+    .slice(0, 2)
+    .join('');
 ---
 
 <Base
@@ -28,23 +38,67 @@ const established = alumni.filter((p) => !p.data.needsReview);
   />
 
   <section class="mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)">
-    <Notice title="One thing to confirm">
-      <p>
-        The {moved.length} people below marked as recently moved were listed as current
-        lab members on the live site; she asked for everyone other than the six
-        current members to be moved here. No current position was listed for
-        them, so those entries carry no description yet.
-      </p>
-    </Notice>
+    {/* A roster, not a gallery. The portraits on the live site are about 110
+        pixels wide — that is the original upload, not a thumbnail — so they are
+        set at 4.5rem here. Enlarged to the size of the cards on the People page
+        they would be a wall of blur; at this size they are sharp, and the page
+        reads as a tidy directory, which is what an alumni list wants to be
+        anyway. */}
+    <ul class="grid gap-x-12 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
+      {
+        established.map((person, i) => (
+          <li class="reveal flex gap-5" data-reveal-delay={(i % 3) * 70}>
+            {/* `self-start` matters: the row is a flex container, so without it
+                the portrait stretches to the height of the text beside it and
+                the 4:5 aspect never applies. */}
+            <div
+              class="aspect-[4/5] w-[4.5rem] shrink-0 self-start overflow-hidden bg-ground-raised"
+            >
+              {person.data.headshot ? (
+                <Image
+                  src={person.data.headshot}
+                  alt={person.data.headshotAlt ?? `Portrait of ${person.data.name}.`}
+                  widths={[144]}
+                  sizes="4.5rem"
+                  loading={i < 6 ? 'eager' : 'lazy'}
+                  class="h-full w-full object-cover"
+                />
+              ) : (
+                <div
+                  class="flex h-full w-full items-center justify-center bg-gradient-to-br from-ground-raised to-ground"
+                  role="img"
+                  aria-label={`No photograph available for ${person.data.name}.`}
+                >
+                  <span class="font-display text-[1.1rem] text-bone/25">
+                    {initials(person.data.name)}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <div class="min-w-0 pt-0.5">
+              <h2 class="font-display text-[1.15rem] leading-snug text-bone">
+                {person.data.name}
+              </h2>
+              <p class="mt-1.5 text-[0.92rem] leading-relaxed text-bone-muted">
+                {person.data.role}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
 
     {
       moved.length > 0 && (
-        <div class="mt-20">
-          <h2 class="text-eyebrow font-medium uppercase text-clay-light">Recently moved</h2>
-          <ul class="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-24 border-t border-bone/12 pt-14">
+          <h2 class="text-eyebrow font-medium uppercase text-clay-light">Also alumni</h2>
+          <ul class="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2 xl:grid-cols-3">
             {moved.map((person) => (
               <li class="reveal border-b border-bone/12 pb-4">
-                <span class="block font-display text-[1.2rem] text-bone">{person.data.name}</span>
+                <span class="block font-display text-[1.15rem] text-bone">
+                  {person.data.name}
+                </span>
               </li>
             ))}
           </ul>
@@ -52,23 +106,23 @@ const established = alumni.filter((p) => !p.data.needsReview);
       )
     }
 
-    <div class="mt-24">
-      <h2 class="text-eyebrow font-medium uppercase text-clay-light">Alumni</h2>
-      <ul class="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          established.map((person, i) => (
-            <li class="reveal border-b border-bone/12 pb-5" data-reveal-delay={(i % 3) * 70}>
-              <span class="block font-display text-[1.2rem] text-bone">{person.data.name}</span>
-              <span class="mt-1.5 block text-[0.92rem] leading-relaxed text-bone-muted">
-                {person.data.role}
-              </span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+    {
+      moved.length > 0 && (
+        <div class="mt-20">
+          <Notice title="One thing to confirm">
+            <p>
+              The {moved.length} people under “Also alumni” were listed as current
+              lab members on the live site; she asked for everyone other than the
+              current members to be moved here. That page gives no photograph and
+              no current position for them, so nothing has been written in their
+              place.
+            </p>
+          </Notice>
+        </div>
+      )
+    }
 
-    <p class="mt-24">
+    <p class="mt-20">
       <a href="/people" class="link-rule text-[1.05rem]">← Current lab members</a>
     </p>
   </section>
