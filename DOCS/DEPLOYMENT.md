@@ -19,7 +19,7 @@ Written for you, not for Dr. Eisenberger. Her guide is
                                │
                     push triggers a build
                                ▼
-                    Cloudflare Pages builds
+                     Cloudflare builds it
                        `npm run build`
                                ▼
                      live site, ~60 seconds
@@ -44,9 +44,10 @@ You need:
 - **A Cloudflare account.** Free. Everything below is inside the free tier and
   will stay there — this site is a few hundred kilobytes of static files.
 
-You do **not** need a domain yet. Cloudflare gives you a working
-`something.pages.dev` address immediately, which is the right thing to send
-Dr. Eisenberger for sign-off before anyone talks to UCLA IT.
+You do **not** need a domain to get started. Cloudflare gives you a working
+`….workers.dev` address immediately, which is the right thing to send
+Dr. Eisenberger for sign-off before anyone talks to UCLA IT. It is not enough to
+finish on, though — see step 5.
 
 ### Why Cloudflare rather than Netlify
 
@@ -63,7 +64,8 @@ collapse into one.
 
 ## Step 1 — Push the site to GitHub
 
-Everything so far is committed locally but has never left this machine. Check:
+**Done.** Kept here because it is the step you repeat forever: a push to `main`
+is what triggers every deploy. Check where you stand with:
 
 ```bash
 git status -sb
@@ -76,13 +78,13 @@ git push -u origin main
 ```
 
 That is the only terminal command in this document that changes anything
-outside your computer.
+outside your computer — and it is the one that deploys.
 
 > **Note:** this repository is public. Nothing in it is secret — no keys, no
 > tokens, no `.env` — but it does contain the lab's photographs and copy. That
 > is intended, and it is what lets the CMS work without a server. If it ever
-> needs to be private, Cloudflare Pages supports private repos on the free tier
-> too; nothing below changes.
+> needs to be private, Cloudflare supports private repos on the free tier too;
+> nothing below changes.
 
 ---
 
@@ -144,12 +146,11 @@ Fix it in the Worker's settings → **Variables and Secrets** → add:
 Redeploy. **Delete the variable once the real domain is attached** (step 6) and
 `site` falls back to the real address on its own.
 
-First build takes two or three minutes, mostly generating the image sizes.
-Later builds are faster — Cloudflare caches `node_modules`.
+A build takes two or three minutes, mostly generating the image sizes. Later
+builds are faster — Cloudflare caches `node_modules`. You can watch one run in
+the dashboard under the Worker's **Deployments**.
 
-When it finishes you have a working site. Send that URL to Dr. Eisenberger.
-
-### If the build fails
+### If a build fails
 
 Almost always one of two things:
 
@@ -276,7 +277,7 @@ and it is [`QUESTIONS.md`](QUESTIONS.md) #2, still unanswered.
 Ask them one question: **will you point `sanlab.psych.ucla.edu` at outside
 hosting via a CNAME, or does the site have to live on UCLA infrastructure?**
 
-- **CNAME is fine** → Cloudflare Pages → your project → **Custom domains** → add
+- **CNAME is fine** → Cloudflare dashboard → the Worker → **Domains & Routes** → add
   the hostname, give IT the CNAME target they need to create. Then delete the
   `SITE_URL` variable from step 2, redeploy, and every canonical URL and the
   sitemap correct themselves.
@@ -350,7 +351,7 @@ answer to "what if she breaks something": nothing is unrecoverable, ever.
 
 ### Rolling back a whole deploy
 
-Cloudflare Pages keeps every build. Dashboard → the project → **Deployments** →
+Cloudflare keeps every build. Dashboard → the Worker → **Deployments** →
 find a good one → **Rollback**. Instant, and it doesn't touch the repository —
 useful if a build is broken and you want the site right *now* while you work out
 why.
