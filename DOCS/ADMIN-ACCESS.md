@@ -6,22 +6,51 @@ Who can edit the site, and how that is enforced.
 
 ## Where things stand right now
 
-**Nobody can currently edit the site through `/admin`, including you.** The page
-loads, but every save path is closed because the site isn't deployed and no
-sign-in is configured. That is the safe default, not a bug.
+The site is live at `eisenbergerlab.ianlieberman07.workers.dev`, `/admin` works,
+and two accounts can edit it: the repository owner, and `neisenbe99-del` (the
+lab director), added as a collaborator.
 
-It's worth being precise about the current risk, because "anyone could just be
-the admin" is not quite the situation:
+**Verified — a GitHub account without write access to the repository cannot
+change anything.** Tested against the live deployment:
 
-| | Today |
+| Attack | Result |
 |---|---|
-| Can a stranger **load** `/admin`? | Yes — it's a static page in a public repo |
-| Can a stranger **save** anything? | **No.** Saving writes to this GitHub repository, which requires write access to it |
-| Can a stranger **see** unpublished content? | No — everything the CMS shows is already public in the repo |
+| Anonymous write to the repo (create file / delete file via the API) | **401** — no credentials, rejected |
+| A different site pointing at this auth worker | **Rejected** — `UNSUPPORTED_DOMAIN`, because `ALLOWED_DOMAINS` is set on the worker |
+| Triggering a GitHub Action from a fork or PR | **No workflows exist** in this repository |
+| Finding a token or secret in the public repo | **None committed** — the OAuth client secret lives only in the worker, encrypted |
 
-So the page being reachable is cosmetic, not a breach. But "reachable by
-strangers" is still the wrong shape for a university site, and it does not give
-you the assign/revoke control you asked for. That needs a gate in front.
+### What a stranger *can* do
+
+Load `/admin`, sign in with their own GitHub account, and browse the content in
+the editor. **Saving fails** — GitHub rejects the write, because permission is
+enforced by GitHub and not by anything in this repository.
+
+None of that is an information leak: everything the CMS displays is already
+public in the repository and on the website. It is untidy rather than dangerous,
+which is what the gate below is for.
+
+Anyone can also fork the repository and open a pull request. That is normal, and
+changes nothing until it is merged.
+
+### The one thing that isn't minimal
+
+Sign-in requests the GitHub `repo` scope, which covers the signing-in account's
+private repositories as well as this one. Sveltia does not document a way to
+narrow it to `public_repo`, and adding an undocumented option risks silently
+breaking sign-in for no real gain — so it is left alone and recorded here
+instead.
+
+It matters little in practice: the lab account has no other repositories, and
+authorisation can be revoked at any time from
+**GitHub → Settings → Applications → Authorized OAuth Apps**.
+
+### Why a gate is still worth adding
+
+A login page open to the world is the wrong shape for a university site, and
+none of the above gives you the assign/revoke control you asked for. That needs
+a gate in front — but note it is **tidiness, not the security boundary.** The
+security boundary is GitHub write access, and it is already correct.
 
 ---
 
