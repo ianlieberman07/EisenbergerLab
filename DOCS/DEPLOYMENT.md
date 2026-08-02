@@ -108,7 +108,7 @@ The settings in the dashboard are:
 | Build command | `npm run build` |
 | Deploy command | `npx wrangler deploy` |
 | Root directory | `/` |
-| Build variables | **needs `SITE_URL` — see below** |
+| Build variables | none needed yet — see `SITE_URL` below |
 
 ### These commands run on Cloudflare, not on your machine
 
@@ -124,27 +124,34 @@ from the CMS in her browser, not from anyone's terminal. If the site were
 deployed manually, her edits would sit in GitHub forever and never appear. The
 Git-triggered build is the thing that makes her independent of you.
 
-### Set `SITE_URL` — currently missing
+### `SITE_URL` — leave it unset until launch day
 
-Build variables are listed as *None*, which means every page on the live site
-currently says:
+`site` in `astro.config.mjs` defaults to the workers.dev address, which is where
+the site is actually served from, so canonical URLs, the sitemap and link
+previews are all correct as they stand. **Nothing to set right now.**
 
-```html
-<link rel="canonical" href="https://sanlab.psych.ucla.edu/">
-```
+It used to default to `sanlab.psych.ucla.edu`, which was wrong in a way worth
+remembering: that domain is **not** a placeholder. It resolves, and it is still
+serving the old WordPress site. So every page here was telling Google and every
+link preview that its real self was the old site, and the Open Graph image
+404'd, which is why sharing the review link produced a card with no picture.
 
-That domain does not resolve yet. The site is telling search engines that the
-real version of every page lives somewhere that 404s, and the sitemap points
-there too.
+Because the hostname does not match `PRODUCTION_HOST` (`src/config.ts`), this
+deployment also serves `noindex, nofollow` on every page and a
+`Disallow: /` robots.txt. A full copy of the lab's pages and its members'
+photographs sitting at a throwaway URL should not be crawlable, and that
+protection is derived from the address rather than from a checkbox someone has
+to remember.
 
-Fix it in the Worker's settings → **Variables and Secrets** → add:
+**On launch day**, once IT has pointed the domain here, add one build variable:
 
 | Name | Value |
 |---|---|
-| `SITE_URL` | `https://eisenbergerlab.ianlieberman07.workers.dev` |
+| `SITE_URL` | `https://sanlab.psych.ucla.edu` |
 
-Redeploy. **Delete the variable once the real domain is attached** (step 6) and
-`site` falls back to the real address on its own.
+Redeploy. Canonicals, Open Graph tags and the sitemap switch to the real domain
+and the noindex lifts by itself. Both states are verified by building with and
+without the variable.
 
 A build takes two or three minutes, mostly generating the image sizes. Later
 builds are faster — Cloudflare caches `node_modules`. You can watch one run in
@@ -299,9 +306,9 @@ Ask them one question: **will you point `sanlab.psych.ucla.edu` at outside
 hosting via a CNAME, or does the site have to live on UCLA infrastructure?**
 
 - **CNAME is fine** → Cloudflare dashboard → the Worker → **Domains & Routes** → add
-  the hostname, give IT the CNAME target they need to create. Then delete the
-  `SITE_URL` variable from step 2, redeploy, and every canonical URL and the
-  sitemap correct themselves.
+  the hostname, give IT the CNAME target they need to create. Then **add**
+  `SITE_URL` = `https://sanlab.psych.ucla.edu` (step 2), redeploy, and the
+  canonical URLs, the sitemap and the noindex all correct themselves.
 - **It must live on UCLA servers** → the build output in `dist/` is plain static
   files and will sit on any web server. But the CMS stops working, because it
   needs the git-backed deploy loop. That would be a different conversation, and

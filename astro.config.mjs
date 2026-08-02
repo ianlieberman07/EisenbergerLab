@@ -6,13 +6,21 @@ import tailwindcss from '@tailwindcss/vite';
 // `site` feeds every canonical URL, the sitemap and the Open Graph tags, so it
 // has to match wherever the site is actually being served from.
 //
-// The default below is the intended final address, pending UCLA Psychology IT
-// (DOCS/QUESTIONS.md #2). Until that domain exists, set a SITE_URL environment
-// variable in the host's build settings — e.g. https://sanlab.pages.dev — so a
-// live preview doesn't advertise canonical URLs for a domain that 404s.
+// The default is the *temporary* address on purpose. It used to default to
+// sanlab.psych.ucla.edu, which is not a placeholder — it resolves, and is still
+// serving the old WordPress site. So every page of this one was telling search
+// engines and link previews that its real self was the old site.
+//
+// Defaulting to the address it is genuinely served from means an unconfigured
+// deployment is correct rather than wrong, and — because PRODUCTION_HOST in
+// src/config.ts does not match — it is also noindexed automatically, so a
+// throwaway URL can never be crawled by being forgotten about.
+//
+// AT LAUNCH: set SITE_URL to https://sanlab.psych.ucla.edu in the host's build
+// variables. Canonicals, the sitemap and indexing all correct themselves.
 // See DOCS/DEPLOYMENT.md.
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://sanlab.psych.ucla.edu',
+  site: process.env.SITE_URL ?? 'https://eisenbergerlab.ianlieberman07.workers.dev',
   integrations: [
     sitemap({
       // The admin is noindex'd and disallowed in robots.txt, so listing it in

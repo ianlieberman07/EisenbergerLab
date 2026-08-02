@@ -3,7 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { site } from '../config';
+import { site, PRODUCTION_HOST } from '../config';
 
 interface Props {
   title: string;
@@ -21,6 +21,13 @@ const pageTitle =
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
+// Anything not served from the final domain is a preview: the temporary
+// workers.dev address, a branch build, a local run. Previews are kept out of
+// search results entirely, so a complete copy of the lab's pages and its
+// members' photographs never gets indexed at a URL that is going to be thrown
+// away. Goes live on its own the moment SITE_URL is set to the real domain.
+const isPreview = Astro.site?.hostname !== PRODUCTION_HOST;
+
 // Sitewide share image: the licensed cover photograph, cropped to the standard
 // 1200×630. Absolute URL — scrapers ignore relative og:image paths.
 const ogImage = new URL('/og.jpg', Astro.site);
@@ -34,6 +41,7 @@ const ogImage = new URL('/og.jpg', Astro.site);
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {isPreview && <meta name="robots" content="noindex, nofollow" />}
     <meta name="generator" content={Astro.generator} />
 
     <meta property="og:type" content="website" />
