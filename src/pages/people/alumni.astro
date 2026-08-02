@@ -56,7 +56,7 @@ const initials = (name: string) =>
               {person.data.headshot ? (
                 <Image
                   src={person.data.headshot}
-                  alt={person.data.headshotAlt ?? `Portrait of ${person.data.name}.`}
+                  alt={person.data.headshotAlt || `Portrait of ${person.data.name}.`}
                   widths={[144]}
                   sizes="4.5rem"
                   loading={i < 6 ? 'eager' : 'lazy'}

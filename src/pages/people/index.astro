@@ -54,9 +54,13 @@ const initials = (name: string) =>
             >
               <div class="relative aspect-[4/5] overflow-hidden bg-ground-raised">
                 {person.data.headshot ? (
+                  /* `||`, not `??`. The CMS writes an empty string when the
+                     photo-description field is left blank, and `??` only falls
+                     back on null — so a portrait shipped with no alt text at
+                     all, which reads to a screen reader as the filename. */
                   <Image
                     src={person.data.headshot}
-                    alt={person.data.headshotAlt ?? `Portrait of ${person.data.name}.`}
+                    alt={person.data.headshotAlt || `Portrait of ${person.data.name}.`}
                     widths={[320, 560, 840]}
                     sizes="(min-width: 1024px) 26vw, (min-width: 640px) 45vw, 90vw"
                     loading={i < 3 ? 'eager' : 'lazy'}

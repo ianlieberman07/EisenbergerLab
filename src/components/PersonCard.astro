@@ -25,7 +25,7 @@ const initials = name
       headshot ? (
         <Image
           src={headshot}
-          alt={headshotAlt ?? `Portrait of ${name}.`}
+          alt={headshotAlt || `Portrait of ${name}.`}
           widths={[320, 560, 840]}
           sizes="(min-width: 1024px) 24vw, (min-width: 640px) 45vw, 90vw"
           loading="lazy"
