@@ -1,11 +1,15 @@
 ---
-import { nav, site } from '../config';
+import { site } from '../config';
+import { getNavItems } from '../utils/pages';
 
 interface Props {
   transparent?: boolean;
 }
 const { transparent = false } = Astro.props;
 const path = Astro.url.pathname;
+
+// The four fixed sections plus any page she created and left in the menu.
+const nav = await getNavItems();
 
 const isActive = (href: string) =>
   path === href || (href !== '/' && path.startsWith(href + '/'));

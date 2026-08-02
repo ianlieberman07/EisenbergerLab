@@ -88,14 +88,14 @@ collections:
           label: Photograph,
           widget: image,
           required: false,
-          hint: Optional. Without one, the card shows the person's initials.,
+          hint: "Optional. Without one, the card shows the person's initials.",
         }
       - {
           name: headshotAlt,
           label: Photo description,
           widget: string,
           required: false,
-          hint: A short description for screen readers, e.g. "Portrait of Jane Doe.",
+          hint: 'A short description for screen readers, e.g. "Portrait of Jane Doe."',
         }
       - {
           name: needsReview,
@@ -187,7 +187,7 @@ collections:
           name: summary,
           label: Short summary,
           widget: text,
-          hint: One or two sentences, shown on the Research index card.,
+          hint: 'One or two sentences, shown on the Research index card.',
         }
       - {
           name: hero,
@@ -207,16 +207,103 @@ collections:
 
   # ─────────────────────────────────────────────────────────────
   - name: pages
-    label: Page Text
-    description: The lab overview, shown on both the Overview and Research pages.
+    label: Pages
+    label_singular: Page
+    description: >-
+      Add a new page to the site, or edit one you have already made. A new page
+      gets its own web address and is added to the menu, and it is laid out in
+      the same style as the rest of the site automatically.
+
+
+      "Lab Overview" is the one exception in this list: it is printed at the top
+      of the Research page rather than having a page of its own, so its address
+      and menu settings are ignored.
     folder: content/pages
-    create: false
-    delete: false
+    create: true
+    delete: true
+    slug: '{{slug}}'
+    media_folder: images
+    public_folder: ./images
     summary: '{{title}}'
+    sortable_fields: [navOrder, title]
     fields:
-      - { name: title, label: Title, widget: string }
-      - { name: needsReview, label: Mark as incomplete, widget: boolean, default: false }
-      - { name: body, label: Text, widget: markdown }
+      - {
+          name: title,
+          label: Page title,
+          widget: string,
+          hint: The large heading at the top of the page.,
+        }
+      - {
+          name: eyebrow,
+          label: Small label above the title,
+          widget: string,
+          default: SAN Lab,
+          required: false,
+          hint: 'A short word or two, e.g. "Join the lab" or "News".',
+        }
+      - {
+          name: lede,
+          label: Opening line,
+          widget: text,
+          required: false,
+          hint: One sentence under the title. Leave blank if you do not want one.,
+        }
+      - {
+          name: hero,
+          label: Header image,
+          widget: image,
+          required: false,
+          hint: Optional. Without one the page opens on the dark background.,
+        }
+      - {
+          name: heroAlt,
+          label: Header image description,
+          widget: string,
+          required: false,
+          hint: A short description of the image for screen readers.,
+        }
+      - {
+          name: showInNav,
+          label: 'Show in the menu?',
+          widget: boolean,
+          default: true,
+          hint: Turn this off for a page you want to link to yourself rather than list in the menu.,
+        }
+      - {
+          name: navLabel,
+          label: Shorter name for the menu,
+          widget: string,
+          required: false,
+          hint: Optional. Use this when the page title is too long to sit in the menu.,
+        }
+      - {
+          name: navOrder,
+          label: Position in the menu,
+          widget: number,
+          default: 50,
+          value_type: int,
+          hint: 'Lower numbers come first. The fixed sections are Home 10, Research 20, Papers 30, People 40 — leave this at 50 to appear after them.',
+        }
+      - {
+          name: draft,
+          label: Draft,
+          widget: boolean,
+          default: false,
+          hint: Tick this while you are still writing. The page stays off the website until you untick it.,
+        }
+      - {
+          name: needsReview,
+          label: Mark as incomplete,
+          widget: boolean,
+          default: false,
+        }
+      - {
+          name: body,
+          label: Text,
+          widget: markdown,
+          required: false,
+          hint: Use the italic button for emphasis. Leave a blank line between paragraphs.,
+        }
 
   # ─────────────────────────────────────────────────────────────
   - name: publications

@@ -82,13 +82,37 @@ const papers = defineCollection({
   }),
 });
 
-// Standalone prose blocks — currently the lab overview, which heads /research.
+// Prose pages. Two kinds live here:
+//
+//   1. Blocks embedded in another page — currently just the lab overview, which
+//      heads /research. Listed in EMBEDDED_PAGES (src/utils/pages.ts) and given
+//      no URL of its own, so the copy is never published at two addresses.
+//   2. Standalone pages the client creates in the admin. Each gets its own URL
+//      from its filename and is rendered by src/pages/[page].astro using the
+//      same header and prose components as every other page on the site.
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './content/pages' }),
-  schema: z.object({
-    title: z.string(),
-    needsReview: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      // Small label above the title, matching every other page header.
+      eyebrow: z.string().default('SAN Lab'),
+      // Optional standfirst under the title.
+      lede: z.string().optional(),
+      // Optional header image. Without one the page opens on the ground colour,
+      // which is the same treatment the site already uses when an image is
+      // missing — nothing breaks and nothing looks unfinished.
+      hero: image().optional(),
+      heroAlt: z.string().optional(),
+      // Nav placement. New pages appear after the fixed items by default, so
+      // adding one never reorders the navigation that already exists.
+      showInNav: z.boolean().default(true),
+      navLabel: z.string().optional(),
+      navOrder: z.number().default(50),
+      // Lets her build a page over several sittings without it being public.
+      draft: z.boolean().default(false),
+      needsReview: z.boolean().default(false),
+    }),
 });
 
 // `papers` is intentionally empty: her CV had not arrived, and CLAUDE.md §3 is

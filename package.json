@@ -8,7 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "admin": "decap-server"
+    "admin": "decap-server",
+    "prebuild": "node scripts/check-admin-config.mjs",
+    "check:admin": "node scripts/check-admin-config.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
@@ -21,6 +23,7 @@
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
-    "decap-server": "^3.10.0"
+    "decap-server": "^3.10.0",
+    "yaml": "^2.9.0"
   }
 }

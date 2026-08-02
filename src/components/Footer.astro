@@ -1,7 +1,11 @@
 ---
-import { nav, site } from '../config';
+import { site } from '../config';
+import { getNavItems } from '../utils/pages';
 const { contact } = site;
 const year = new Date().getFullYear();
+
+// Same list the header shows, so the footer can never fall out of step with it.
+const nav = await getNavItems();
 ---
 
 <footer class="border-t border-bone/10 bg-ground-veil">

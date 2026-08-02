@@ -1,0 +1,80 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Notice from '../components/Notice.astro';
+import { getStandalonePages } from '../utils/pages';
+
+/**
+ * Renders any page created in the admin, at /its-file-name.
+ *
+ * Deliberately no design of its own: it is the same PageHeader every other
+ * page uses and the same `prose-lab` styles the research and bio copy use, so
+ * a page she adds looks like it was always part of the site.
+ *
+ * Astro gives static routes priority over dynamic ones, so a page named
+ * "papers" or "research" cannot shadow the real section — it would simply
+ * never appear. The admin warns about that in the Address field's hint.
+ */
+export const getStaticPaths = (async () => {
+  const pages = await getStandalonePages();
+  return pages.map((page) => ({ params: { page: page.id }, props: { page } }));
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+
+// Astro strips frontmatter, so a page saved with no body yet renders as an
+// empty column. Detect it and say so rather than shipping a blank page.
+const isEmpty = page.body?.trim().length === 0;
+---
+
+<Base
+  title={page.data.title}
+  description={page.data.lede ??
+    `${page.data.title} — Social and Affective Neuroscience Laboratory at UCLA.`}
+>
+  <PageHeader
+    image={page.data.hero}
+    imageAlt={page.data.heroAlt}
+    eyebrow={page.data.eyebrow}
+    title={page.data.title}
+    lede={page.data.lede}
+  />
+
+  <section
+    class:list={[
+      'mx-auto max-w-[110rem] px-(--spacing-gutter) pb-(--spacing-section)',
+      page.data.hero ? 'pt-20 md:pt-28' : 'pt-4',
+    ]}
+  >
+    <div class="mx-auto max-w-(--container-prose)">
+      {
+        page.data.draft && (
+          <div class="mb-14">
+            <Notice title="Draft">
+              <p>
+                This page is marked as a draft. It is visible here while the site
+                is being worked on, and is left out of the published site
+                entirely — untick “Draft” in the admin to publish it.
+              </p>
+            </Notice>
+          </div>
+        )
+      }
+
+      {
+        isEmpty ? (
+          <Notice title="Nothing written yet">
+            <p>This page has a title but no text. Add some in the admin.</p>
+          </Notice>
+        ) : (
+          <div class="reveal prose-lab prose-lab--lead">
+            <Content />
+          </div>
+        )
+      }
+    </div>
+  </section>
+</Base>
