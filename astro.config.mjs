@@ -20,7 +20,7 @@ import tailwindcss from '@tailwindcss/vite';
 // variables. Canonicals, the sitemap and indexing all correct themselves.
 // See DOCS/DEPLOYMENT.md.
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://eisenbergerlab.ianlieberman07.workers.dev',
+  site: process.env.SITE_URL ?? 'https://eisenbergerlab.pages.dev',
   integrations: [
     sitemap({
       // The admin is noindex'd and disallowed in robots.txt, so listing it in

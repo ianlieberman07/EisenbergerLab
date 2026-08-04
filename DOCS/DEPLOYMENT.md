@@ -296,6 +296,32 @@ She then gets a code in her UCLA inbox and never sees a password.
 
 ---
 
+## Cutover checklist — the day UCLA points the domain
+
+Strict order. Doing these out of sequence briefly points the site at the old
+WordPress install, or makes the preview crawlable.
+
+- [ ] **1.** UCLA removes the A record for `sanlab.psych.ucla.edu`
+      (`164.67.110.64`, the old site) and adds:
+      `CNAME  sanlab.psych.ucla.edu  ->  eisenbergerlab.pages.dev`
+- [ ] **2.** Wait for DNS to propagate and Cloudflare to issue the certificate.
+      Minutes to a few hours. The custom domain in the Pages project flips from
+      pending to active on its own.
+- [ ] **3.** Check `https://sanlab.psych.ucla.edu` is serving the new site over
+      a valid certificate. **Do not skip to 4 before this passes.**
+- [ ] **4.** Pages project -> Settings -> Variables -> set
+      `SITE_URL` = `https://sanlab.psych.ucla.edu`, then redeploy.
+- [ ] **5.** Confirm: no `noindex` in the page source, `robots.txt` back to
+      `Allow: /`, canonical and sitemap on the real domain.
+- [ ] **6.** Sign in to `/admin` once on the new hostname to confirm the CMS
+      still authenticates. (`ALLOWED_DOMAINS` on the auth worker already covers
+      it — done ahead of time so there is no window where it is broken.)
+
+**Step 4 is the one that gets missed.** Between 3 and 4 the site is live on the
+real domain and still asking search engines to ignore it. Nothing looks wrong,
+nothing errors, and the site simply never appears in Google. If only one line of
+this document survives, make it that one.
+
 ## Step 6 — The real domain
 
 The site currently lives at `….pages.dev`. Moving it to
